@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery | SalonHub</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- =========================
+        NAVBAR
+========================= -->
+
+<header>
+
+    <nav class="navbar">
+
+        <div class="logo">
+            Salon<span>Hub</span>
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="gallery.html" class="active">Gallery</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+
+       <a href="booking.html" class="btn">Book Appointment</a>
+
+       <button id="themeToggle" class="theme-btn">
+    🌙
+</button>
+
+    </nav>
+
+</header>
+
+<!-- =========================
+        GALLERY HERO
+========================= -->
+
+<section class="gallery-hero">
+
+    <h1>Our Gallery</h1>
+
+    <p>
+        Explore our premium salon work,
+        modern hairstyles, beard grooming,
+        and luxury transformations.
+    </p>
+
+</section>
+
+<!-- =========================
+        GALLERY
+========================= -->
+
+<section class="gallery-page">
+
+    <!-- Gallery Filter -->
+
+    <div class="gallery-filter">
+
+        <button class="active">All</button>
+
+        <button>Hair Cut</button>
+
+        <button>Hair Styling</button>
+
+        <button>Beard Grooming</button>
+
+        <button>Facial Care</button>
+
+    </div>
+
+    <!-- Gallery Grid -->
+
+    <div class="gallery-grid">
+
+        <div class="gallery-item">
+            <img src="images/gallery1.png" alt="Hair Cut">
+        </div>
+
+        <div class="gallery-item">
+            <img src="images/gallery2.png" alt="Hair Styling">
+        </div>
+
+        <div class="gallery-item">
+            <img src="images/gallery3.png" alt="Beard Grooming">
+        </div>
+
+        <div class="gallery-item">
+            <img src="images/gallery4.png" alt="Facial Care">
+        </div>
+
+        <div class="gallery-item">
+            <img src="images/gallery5.png" alt="Salon Interior">
+        </div>
+
+        <div class="gallery-item">
+            <img src="images/gallery6.png" alt="Hair Styling">
+        </div>
+
+    </div>
+
+</section>
+<!-- =========================
+        GALLERY LIGHTBOX
+========================= -->
+
+<div class="lightbox" id="lightbox">
+
+    <span class="close-lightbox">&times;</span>
+
+    <img id="lightbox-img" src="" alt="Gallery Image">
+
+</div>
+<script src="js/script.js"></script>
+</body>
+</html>

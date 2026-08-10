@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard | SalonHub</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+        <h2>SalonHub</h2>
+
+        <ul>
+            <li><a href="dashboard.html" class="active">Dashboard</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="bookings.html">Bookings</a></li>
+            <li><a href="customers.html">Customers</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="settings.html">Settings</a></li>
+            <li><a href="#" id="logoutBtn">Logout</a></li>
+        </ul>
+
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <h1>Welcome Admin 👋</h1>
+
+        <!-- Dashboard Cards -->
+        <div class="dashboard-cards">
+
+            <div class="dashboard-card">
+                <h2 id="totalBookings">0</h2>
+                <p>Total Bookings</p>
+            </div>
+
+            <div class="dashboard-card">
+                <h2 id="totalRevenue">₹0</h2>
+                <p>Total Revenue</p>
+            </div>
+
+            <div class="dashboard-card">
+                <h2 id="todayBookings">0</h2>
+                <p>Today's Bookings</p>
+            </div>
+
+            <div class="dashboard-card">
+                <h2 id="todayRevenue">₹0</h2>
+                <p>Today's Revenue</p>
+            </div>
+
+        </div>
+
+        <!-- Chart Section -->
+        <div class="dashboard-section">
+
+            <h2>Revenue Chart</h2>
+
+            <canvas id="revenueChart" height="100"></canvas>
+
+        </div>
+
+        <!-- Recent Bookings -->
+        <div class="dashboard-section">
+
+            <h2>Recent Bookings</h2>
+
+            <table class="services-table">
+
+                <thead>
+                    <tr>
+                        <th>Customer</th>
+                        <th>Service</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+
+                <tbody id="recentBookingsBody">
+
+                    <tr>
+                        <td colspan="5" style="text-align:center;">
+                            No Recent Bookings
+                        </td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </main>
+
+</div>
+
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- Main JS -->
+<script src="../js/script.js"></script>
+
+</body>
+
+</html>

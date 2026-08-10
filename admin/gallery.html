@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery Management | SalonHub</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<div class="dashboard">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+        <h2>SalonHub</h2>
+
+        <ul>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="bookings.html">Bookings</a></li>
+            <li><a href="customers.html">Customers</a></li>
+            <li><a href="gallery.html" class="active">Gallery</a></li>
+            <li><a href="settings.html">Settings</a></li>
+            <li><a href="#" id="logoutBtn">Logout</a></li>
+        </ul>
+
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <h1>Gallery Management</h1>
+
+        <div class="services-header">
+
+            <button class="add-gallery-btn">
+                + Add New Image
+            </button>
+
+        </div>
+
+        <table class="services-table">
+
+            <thead>
+
+                <tr>
+                    <th>Image</th>
+                    <th>Action</th>
+                </tr>
+
+            </thead>
+
+            <tbody id="galleryTableBody">
+
+            </tbody>
+
+        </table>
+        <!-- =========================
+     ADD IMAGE POPUP
+========================= -->
+
+<div class="popup" id="galleryPopup">
+
+    <div class="popup-content">
+
+        <h2>Add Gallery Image</h2>
+
+        <form id="galleryForm">
+
+            <input
+                type="text"
+                id="galleryImage"
+                placeholder="Example: images/gallery7.png"
+                required
+            >
+
+            <div class="popup-buttons">
+
+                <button type="submit">
+                    Save
+                </button>
+
+                <button
+                    type="button"
+                    id="cancelGalleryBtn"
+                >
+                    Cancel
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+    </main>
+
+</div>
+
+<script src="../js/script.js"></script>
+<script src="../js/admin-gallery.js"></script>
+
+</body>
+</html>

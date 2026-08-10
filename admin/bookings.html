@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Bookings | SalonHub Admin</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- Sidebar -->
+
+    <aside class="sidebar">
+
+        <h2>SalonHub</h2>
+
+        <ul>
+
+            <li><a href="dashboard.html">Dashboard</a></li>
+
+            <li><a href="services.html">Services</a></li>
+
+            <li><a href="bookings.html" class="active">Bookings</a></li>
+
+            <li><a href="customers.html">Customers</a></li>
+
+            <li><a href="gallery.html">Gallery</a></li>
+
+            <li><a href="settings.html">Settings</a></li>
+
+            <li><a href="#" id="logoutBtn">Logout</a></li>
+
+        </ul>
+
+    </aside>
+
+    <!-- Main Content -->
+
+    <main class="main-content">
+
+        <h1>Manage Bookings</h1>
+
+        <!-- Search -->
+
+        <div class="services-header">
+
+            <input
+                type="text"
+                id="searchBooking"
+                placeholder="Search Booking..."
+            >
+
+        </div>
+
+        <!-- Booking Table -->
+
+        <table class="services-table">
+
+            <thead>
+
+                <tr>
+
+                    <th>Name</th>
+
+                    <th>Mobile</th>
+
+                    <th>Service</th>
+
+                    <th>Amount</th>
+
+                    <th>Payment</th>
+
+                    <th>Payment ID</th>
+
+                    <th>Date</th>
+
+                    <th>Time</th>
+
+                    <th>Status</th>
+
+                    <th>Action</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="bookingTableBody">
+
+                <!-- Booking Data -->
+
+            </tbody>
+
+        </table>
+
+    </main>
+
+</div>
+
+<script src="../js/script.js"></script>
+
+</body>
+
+</html>

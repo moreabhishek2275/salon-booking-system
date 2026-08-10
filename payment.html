@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SalonHub Payment</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial,sans-serif;
+        }
+
+        body{
+
+            background:#f5f5f5;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            height:100vh;
+
+        }
+
+        .payment-box{
+
+            width:430px;
+            background:#fff;
+            padding:30px;
+            border-radius:12px;
+            box-shadow:0 5px 20px rgba(0,0,0,.15);
+            text-align:center;
+
+        }
+
+        h2{
+
+            color:#D4AF37;
+            margin-bottom:25px;
+
+        }
+
+        p{
+
+            margin:15px 0;
+            font-size:18px;
+
+        }
+
+        button{
+
+            width:100%;
+            padding:15px;
+            margin-top:25px;
+            background:#D4AF37;
+            color:white;
+            border:none;
+            border-radius:8px;
+            cursor:pointer;
+            font-size:18px;
+
+        }
+
+        button:hover{
+
+            background:#b88d16;
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="payment-box">
+
+    <h2>SalonHub Payment</h2>
+
+    <p>
+        <b>Customer :</b>
+        <span id="customerName">Loading...</span>
+    </p>
+
+    <p>
+        <b>Service :</b>
+        <span id="serviceName">Loading...</span>
+    </p>
+
+    <p>
+        <b>Amount :</b>
+        ₹<span id="amount">0</span>
+    </p>
+
+    <button id="payBtn">
+
+        Pay Now
+
+    </button>
+
+</div>
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+<script>
+
+const params = new URLSearchParams(window.location.search);
+
+const bookingId = params.get("bookingId");
+
+fetch(`http://localhost:3000/api/payment/${bookingId}`)
+
+.then(response => response.json())
+
+.then(data => {
+
+    document.getElementById("customerName").innerText =
+        data.customer_name;
+
+    document.getElementById("serviceName").innerText =
+        data.service;
+
+    document.getElementById("amount").innerText =
+        data.payment_amount;
+
+})
+
+.catch(error=>{
+
+    console.log(error);
+
+    alert("Unable to Load Booking");
+
+});
+
+document.getElementById("payBtn").addEventListener("click", async () => {
+
+    try {
+
+        const amount = Number(document.getElementById("amount").innerText);
+
+        const response = await fetch("http://localhost:3000/api/create-order", {
+
+            method: "POST",
+
+            headers: {
+                "Content-Type": "application/json"
+            },
+
+            body: JSON.stringify({
+                amount: amount
+            })
+
+        });
+
+        const order = await response.json();
+
+        const options = {
+
+            key: "rzp_test_TLZSAgXGJSW59J",
+
+            amount: order.amount,
+
+            currency: order.currency,
+
+            name: "SalonHub",
+
+            description: "Salon Appointment Payment",
+
+            order_id: order.id,
+
+    handler: async function (response) {
+
+        // Generate Invoice First
+await fetch(`http://localhost:3000/api/invoice/${bookingId}`);
+
+    await fetch(`http://localhost:3000/api/payment/${bookingId}`, {
+
+        method: "PUT",
+
+        headers: {
+            "Content-Type": "application/json"
+        },
+
+        body: JSON.stringify({
+
+            payment_id: response.razorpay_payment_id
+
+        })
+
+    });
+
+    alert("✅ Payment Successful");
+
+    console.log(response);
+
+    window.location.href = "index.html";
+
+}
+
+        };
+
+        const rzp = new Razorpay(options);
+
+        rzp.open();
+
+    } catch (error) {
+
+        console.log(error);
+
+        alert("Payment Failed");
+
+    }
+
+});
+
+</script>
+
+</body>
+
+</html>

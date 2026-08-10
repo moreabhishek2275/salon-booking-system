@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings | SalonHub</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<div class="dashboard">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+        <h2>SalonHub</h2>
+
+        <ul>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="bookings.html">Bookings</a></li>
+            <li><a href="customers.html">Customers</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="settings.html" class="active">Settings</a></li>
+            <li><a href="#" id="logoutBtn">Logout</a></li>
+        </ul>
+
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <h1>Salon Settings</h1>
+
+        <form id="settingsForm">
+
+            <input
+                type="text"
+                id="salonName"
+                placeholder="Salon Name"
+                required
+            >
+
+            <input
+                type="text"
+                id="salonPhone"
+                placeholder="Phone Number"
+                required
+            >
+
+            <input
+                type="email"
+                id="salonEmail"
+                placeholder="Email"
+                required
+            >
+
+            <textarea
+                id="salonAddress"
+                placeholder="Address"
+                required
+            ></textarea>
+
+            <button type="submit">
+                Save Settings
+            </button>
+
+        </form>
+
+    </main>
+
+</div>
+
+<script src="../js/script.js"></script>
+<script src="../js/admin-settings.js"></script>
+
+</body>
+</html>

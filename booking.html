@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Appointment | SalonHub</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- =========================
+            NAVBAR
+    ========================= -->
+
+    <header>
+
+        <nav class="navbar">
+
+            <div class="logo">
+                Salon<span>Hub</span>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+
+            <a href="booking.html" class="btn">Book Appointment</a>
+
+            <button id="themeToggle" class="theme-btn">
+    🌙
+</button>
+
+        </nav>
+
+    </header>
+
+    <!-- =========================
+            BOOKING HERO
+    ========================= -->
+
+    <section class="booking-hero">
+
+        <div class="booking-overlay">
+
+            <h1>Book Your Appointment</h1>
+
+            <p>
+                Schedule your visit with our expert stylists.
+                Choose your favorite service and book your appointment
+                in just a few clicks.
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- =========================
+            BOOKING FORM
+    ========================= -->
+
+    <section class="booking-form-section">
+
+        <div class="booking-form">
+
+            <h2>Book Your Appointment</h2>
+
+            <form id="bookingForm">
+
+                <input type="text" id="customerName" placeholder="Full Name" required>
+
+                <input type="tel" id="customerMobile" placeholder="Mobile Number" required>
+
+                <input
+    type="email"
+    id="customerEmail"
+    placeholder="Email Address"
+    required
+>
+
+               <select id="customerService" required>
+    <option value="">Select Service</option>
+</select>
+
+                <input type="date" id="bookingDate" required>
+
+                <select id="bookingTime" required>
+
+    <option value="">Select Time Slot</option>
+
+</select>
+
+                <button type="submit" class="booking-btn">
+                    Confirm Booking
+                </button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customers | SalonHub</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<div class="dashboard">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+        <h2>SalonHub</h2>
+
+        <ul>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="bookings.html">Bookings</a></li>
+            <li><a href="customers.html" class="active">Customers</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="settings.html">Settings</a></li>
+            <li><a href="#" id="logoutBtn">Logout</a></li>
+        </ul>
+
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <h1>Customers</h1>
+
+        <div class="services-header">
+
+            <input
+                type="text"
+                id="searchCustomer"
+                placeholder="Search Customer..."
+            >
+
+        </div>
+
+        <table class="services-table">
+
+            <thead>
+
+                <tr>
+                    <th>Name</th>
+                    <th>Mobile</th>
+                    <th>Service</th>
+                    <th>Booking Date</th>
+                    <th>Booking Time</th>
+                    <th>Action</th>
+                </tr>
+
+            </thead>
+
+            <tbody id="customersTableBody">
+
+            </tbody>
+
+        </table>
+
+    </main>
+
+</div>
+
+<script src="../js/script.js"></script>
+<script src="../js/admin-customers.js"></script>
+
+</body>
+</html>
