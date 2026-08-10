@@ -1263,6 +1263,9 @@ app.get("/api/dashboard", (req, res) => {
     });
 
 });
+app.get("/", (req, res) => {
+  res.send("SalonHub Backend is Running 🚀");
+});
 // =========================
 // START SERVER
 // =========================
