@@ -88,7 +88,7 @@ if (bookingForm) {
 
         try {
 
-            const response = await fetch("http://localhost:5000/api/bookings", {
+            const response = await fetch("https://salon-booking-system-nsui.onrender.com/api/bookings", {
 
                 method: "POST",
 
@@ -149,7 +149,7 @@ async function loadTimeSlots() {
         const selectedDate = document.getElementById("bookingDate").value;
 
 const response = await fetch(
-    `http://localhost:5000/api/time-slots?date=${selectedDate}`
+    `https://salon-booking-system-nsui.onrender.com/api/time-slots?date=${selectedDate}`
 );
 
         const slots = await response.json();
@@ -183,7 +183,7 @@ const bookingTableBody = document.getElementById("bookingTableBody");
 
 if (bookingTableBody) {
 
-    fetch("http://localhost:5000/api/bookings")
+    fetch("https://salon-booking-system-nsui.onrender.com/api/bookings")
 
         .then(response => response.json())
 
@@ -283,7 +283,7 @@ document.addEventListener("change", async (e) => {
         try {
 
             const response = await fetch(
-                `http://localhost:5000/api/bookings/${id}/status`,
+                `https://salon-booking-system-nsui.onrender.com/api/bookings/${id}/status`,
                 {
                     method: "PUT",
                     headers: {
@@ -325,7 +325,7 @@ document.addEventListener("click", async (e) => {
 
         try {
 
-            const response = await fetch(`http://localhost:5000/api/bookings/${id}`, {
+            const response = await fetch(`https://salon-booking-system-nsui.onrender.com/api/bookings/${id}`, {
 
                 method: "DELETE"
 
@@ -362,7 +362,7 @@ const todayBookings = document.getElementById("todayBookings");
 
 if (totalBookings) {
 
-    fetch("http://localhost:5000/api/dashboard")
+    fetch("https://salon-booking-system-nsui.onrender.com/api/dashboard")
 
         .then(response => response.json())
 
@@ -521,7 +521,7 @@ async function loadRecentBookings() {
 
     try {
 
-        const response = await fetch("http://localhost:5000/api/recent-bookings");
+        const response = await fetch("https://salon-booking-system-nsui.onrender.com/api/recent-bookings");
         const bookings = await response.json();
 
         if (bookings.length === 0) {
@@ -609,7 +609,7 @@ const servicesContainer = document.getElementById("servicesContainer");
 
 if (servicesContainer) {
 
-    fetch("http://localhost:5000/api/services")
+    fetch("https://salon-booking-system-nsui.onrender.com/api/services")
 
         .then(response => response.json())
 
@@ -623,7 +623,7 @@ if (servicesContainer) {
 
                     <div class="service-card">
 
-                        <img src="http://localhost:5000${service.service_image}" alt="${service.service_name}">
+                        <img src="https://salon-booking-system-nsui.onrender.com${service.service_image}" alt="${service.service_name}">
 
                         <div class="service-content">
 
@@ -668,7 +668,7 @@ const homeServicesContainer = document.getElementById("homeServicesContainer");
 
 if (homeServicesContainer) {
 
-    fetch("http://localhost:5000/api/services")
+    fetch("https://salon-booking-system-nsui.onrender.com/api/services")
 
         .then(response => response.json())
 
@@ -682,7 +682,7 @@ if (homeServicesContainer) {
 <div class="service-card">
 
     <img
-        src="http://localhost:5000${service.service_image}"
+        src="https://salon-booking-system-nsui.onrender.com${service.service_image}"
         alt="${service.service_name}">
 
     <div class="service-content">
@@ -729,7 +729,7 @@ if (homeServicesContainer) {
 
 if (window.location.pathname.includes("dashboard.html")) {
 
-    fetch("http://localhost:5000/api/dashboard")
+    fetch("https://salon-booking-system-nsui.onrender.com/api/dashboard")
 
         .then(res => res.json())
 
@@ -760,7 +760,7 @@ if (window.location.pathname.includes("dashboard.html")) {
 
 if (window.location.pathname.includes("dashboard.html")) {
 
-    fetch("http://localhost:5000/api/bookings")
+    fetch("https://salon-booking-system-nsui.onrender.com/api/bookings")
 
         .then(res => res.json())
 
