@@ -49,7 +49,7 @@ if (imageFile) {
 
     formData.append("image", imageFile);
 
-    const uploadResponse = await fetch("http://localhost:5000/api/upload", {
+    const uploadResponse = await fetch("https://salon-booking-system-nsui.onrender.com/api/upload", {
         method: "POST",
         body: formData
     });
@@ -78,7 +78,7 @@ if (imageFile) {
             if (editingServiceId) {
 
                 // UPDATE SERVICE
-                response = await fetch(`http://localhost:5000/api/services/${editingServiceId}`, {
+                response = await fetch(`https://salon-booking-system-nsui.onrender.com/api/services/${editingServiceId}`, {
 
                     method: "PUT",
 
@@ -93,7 +93,7 @@ if (imageFile) {
             } else {
 
                 // ADD NEW SERVICE
-                response = await fetch("http://localhost:5000/api/services", {
+                response = await fetch("https://salon-booking-system-nsui.onrender.com/api/services", {
 
                     method: "POST",
 
@@ -146,7 +146,7 @@ async function loadServices() {
 
     try {
 
-        const response = await fetch("http://localhost:5000/api/services");
+        const response = await fetch("https://salon-booking-system-nsui.onrender.com/api/services");
 
         const services = await response.json();
 
@@ -197,7 +197,7 @@ document.addEventListener("click", async (e) => {
 
         try {
 
-            const response = await fetch(`http://localhost:5000/api/services/${id}`, {
+            const response = await fetch(`https://salon-booking-system-nsui.onrender.com/api/services/${id}`, {
                 method: "DELETE"
             });
 
