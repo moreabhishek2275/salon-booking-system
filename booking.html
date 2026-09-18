@@ -4,99 +4,668 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Book Appointment | SalonHub</title>
 
     <link rel="stylesheet" href="css/style.css">
+
+    <style>
+
+        /* =========================
+           BOOKING PAGE
+        ========================= */
+
+        .booking-page {
+            padding: 70px 6%;
+            background: #111;
+        }
+
+        .booking-layout {
+            max-width: 1400px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: start;
+        }
+
+
+        /* =========================
+           BOOKING FORM
+        ========================= */
+
+        .booking-form {
+            background: #1b1b1b;
+            border: 1px solid #D4AF37;
+            border-radius: 22px;
+            padding: 45px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.35);
+        }
+
+        .booking-form h2 {
+            color: #D4AF37;
+            text-align: center;
+            font-size: 34px;
+            margin-bottom: 30px;
+        }
+
+        .booking-form form {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .booking-form input,
+        .booking-form select {
+            width: 100%;
+            padding: 16px;
+            background: #242424;
+            color: #fff;
+            border: 1px solid #444;
+            border-radius: 10px;
+            font-size: 16px;
+            outline: none;
+            box-sizing: border-box;
+        }
+
+        .booking-form input:focus,
+        .booking-form select:focus {
+            border-color: #D4AF37;
+        }
+
+        .booking-form input[type="date"] {
+            color-scheme: dark;
+        }
+
+
+        /* =========================
+           SERVICE SELECTION
+        ========================= */
+
+        .service-selection {
+            width: 100%;
+        }
+
+        .service-select-btn {
+            width: 100%;
+            padding: 16px;
+            background: #242424;
+            color: #fff;
+            border: 1px solid #D4AF37;
+            border-radius: 10px;
+            font-size: 16px;
+            text-align: left;
+            cursor: pointer;
+            box-sizing: border-box;
+        }
+
+        .service-select-btn:hover {
+            background: #2d2d2d;
+        }
+
+
+        /* =========================
+           BOOKING BUTTON
+        ========================= */
+
+        .booking-btn {
+            width: 100%;
+            padding: 16px;
+            background: #D4AF37;
+            color: #111;
+            border: none;
+            border-radius: 10px;
+            font-size: 17px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .booking-btn:hover {
+            background: #fff;
+        }
+
+
+        /* =========================
+           WEEKLY OFFERS
+        ========================= */
+
+        .weekly-offers {
+            position: sticky;
+            top: 100px;
+        }
+
+        .weekly-offers-header {
+            text-align: center;
+            margin-bottom: 28px;
+        }
+
+        .weekly-offers-header span {
+            color: #D4AF37;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 5px;
+        }
+
+        .weekly-offers-header h2 {
+            color: #fff;
+            font-size: 42px;
+            margin: 10px 0;
+        }
+
+        .weekly-offers-header h2 strong {
+            color: #D4AF37;
+        }
+
+        .weekly-offers-header p {
+            color: #aaa;
+            font-size: 16px;
+        }
+
+
+        /* =========================
+           OFFER CARD
+        ========================= */
+
+        .offer-card {
+            position: relative;
+            min-height: 300px;
+            border: 1px solid #D4AF37;
+            border-radius: 20px;
+            overflow: hidden;
+            background: #1b1b1b;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.35);
+        }
+
+        .offer-card img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .offer-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                90deg,
+                rgba(0,0,0,0.92) 0%,
+                rgba(0,0,0,0.72) 48%,
+                rgba(0,0,0,0.20) 100%
+            );
+        }
+
+        .offer-content {
+            position: relative;
+            z-index: 2;
+            padding: 32px;
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 70%;
+            box-sizing: border-box;
+        }
+
+        .offer-day {
+            display: inline-block;
+            width: fit-content;
+            padding: 8px 16px;
+            background: #D4AF37;
+            color: #111;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 800;
+            margin-bottom: 14px;
+        }
+
+        .offer-content h3 {
+            color: #fff;
+            font-size: 32px;
+            margin: 0 0 8px;
+        }
+
+        .offer-content p {
+            color: #eee;
+            font-size: 15px;
+            line-height: 1.5;
+            margin: 0 0 18px;
+        }
+
+        .offer-btn {
+            width: fit-content;
+            padding: 11px 22px;
+            background: #D4AF37;
+            color: #111;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 700;
+            display: inline-block;
+        }
+
+        .offer-btn:hover {
+            background: #fff;
+        }
+
+        .offer-discount {
+            position: absolute;
+            z-index: 3;
+            top: 20px;
+            right: 20px;
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: #D4AF37;
+            color: #111;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: 20px;
+            font-weight: 800;
+            line-height: 1.1;
+        }
+
+
+        /* =========================
+           SERVICE POPUPS
+        ========================= */
+
+        .service-popup {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.78);
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .service-popup-box {
+            width: 420px;
+            max-width: 90%;
+            max-height: 85vh;
+            overflow-y: auto;
+            padding: 35px;
+            background: #181818;
+            border: 1px solid #D4AF37;
+            border-radius: 18px;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+        }
+
+        .service-popup-box h3 {
+            color: #D4AF37;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .service-popup-box p {
+            color: #bbb;
+            margin-bottom: 25px;
+        }
+
+        .service-type-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .service-type-buttons button {
+            flex: 1;
+            padding: 13px;
+            border: none;
+            border-radius: 9px;
+            background: #D4AF37;
+            color: #111;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .service-type-buttons button:hover {
+            background: #fff;
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 950px) {
+
+            .booking-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .weekly-offers {
+                position: static;
+            }
+        }
+
+
+        @media (max-width: 600px) {
+
+            .booking-page {
+                padding: 40px 18px;
+            }
+
+            .booking-form {
+                padding: 25px 20px;
+            }
+
+            .booking-form h2 {
+                font-size: 28px;
+            }
+
+            .weekly-offers-header h2 {
+                font-size: 32px;
+            }
+
+            .offer-content {
+                width: 82%;
+                padding: 22px;
+            }
+
+            .offer-content h3 {
+                font-size: 24px;
+            }
+
+            .offer-discount {
+                width: 65px;
+                height: 65px;
+                font-size: 15px;
+            }
+        }
+
+        /* =========================
+   BOOKING PAGE NAVBAR
+========================= */
+
+.booking-navbar {
+    position: relative;
+    width: 100%;
+    height: 80px;
+    background: #000;
+    display: flex;
+    align-items: center;
+    padding: 0 8%;
+    box-sizing: border-box;
+}
+
+.booking-back-home {
+    color: #fff;
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.booking-back-home:hover {
+    color: #D4AF37;
+}
+
+.booking-page-title {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: #D4AF37;
+    font-size: 22px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+    </style>
+
 </head>
+
 
 <body>
 
-    <!-- =========================
-            NAVBAR
-    ========================= -->
 
-    <header>
+<!-- =========================
+     NAVBAR
+========================= -->
 
-        <nav class="navbar">
+<header>
+    <nav class="booking-navbar">
 
-            <div class="logo">
-                Salon<span>Hub</span>
-            </div>
+        <a href="index.html" class="booking-back-home">
+            ← Back to Home
+        </a>
 
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-
-            <a href="booking.html" class="btn">Book Appointment</a>
-
-            <button id="themeToggle" class="theme-btn">
-    🌙
-</button>
-
-        </nav>
-
-    </header>
-
-    <!-- =========================
-            BOOKING HERO
-    ========================= -->
-
-    <section class="booking-hero">
-
-        <div class="booking-overlay">
-
-            <h1>Book Your Appointment</h1>
-
-            <p>
-                Schedule your visit with our expert stylists.
-                Choose your favorite service and book your appointment
-                in just a few clicks.
-            </p>
-
+        <div class="booking-page-title">
+            Appointment Booking
         </div>
 
-    </section>
+    </nav>
+</header>
 
-    <!-- =========================
-            BOOKING FORM
-    ========================= -->
+<!-- =========================
+     BOOKING PAGE
+========================= -->
 
-    <section class="booking-form-section">
+<section class="booking-page">
+
+    <div class="booking-layout">
+
+
+        <!-- =========================
+             LEFT SIDE - BOOKING FORM
+        ========================= -->
 
         <div class="booking-form">
 
-            <h2>Book Your Appointment</h2>
+            <h2>
+                Book Your Appointment
+            </h2>
 
             <form id="bookingForm">
 
-                <input type="text" id="customerName" placeholder="Full Name" required>
 
-                <input type="tel" id="customerMobile" placeholder="Mobile Number" required>
+                <!-- CUSTOMER NAME -->
 
                 <input
-    type="email"
-    id="customerEmail"
-    placeholder="Email Address"
-    required
->
+                    type="text"
+                    id="customerName"
+                    placeholder="Full Name"
+                    required
+                >
 
-               <select id="customerService" required>
-    <option value="">Select Service</option>
-</select>
 
-                <input type="date" id="bookingDate" required>
+                <!-- CUSTOMER MOBILE -->
 
-                <select id="bookingTime" required>
+                <input
+                    type="tel"
+                    id="customerMobile"
+                    placeholder="Mobile Number"
+                    required
+                >
 
-    <option value="">Select Time Slot</option>
 
-</select>
+                <!-- CUSTOMER EMAIL -->
 
-                <button type="submit" class="booking-btn">
+                <input
+                    type="email"
+                    id="customerEmail"
+                    placeholder="Email Address"
+                    required
+                >
+
+
+                <!-- =========================
+                     SERVICE SELECTION
+                ========================= -->
+
+                <div class="service-selection">
+
+                    <button
+                        type="button"
+                        id="serviceSelectBtn"
+                        class="service-select-btn"
+                    >
+                        Select Service
+                    </button>
+
+                </div>
+
+
+                <!-- =========================
+                     SERVICE TYPE POPUP
+                ========================= -->
+
+                <div
+                    id="serviceTypePopup"
+                    class="service-popup"
+                >
+
+                    <div class="service-popup-box">
+
+                        <h3>
+                            Select Service Type
+                        </h3>
+
+                        <p>
+                            How many services do you want to book?
+                        </p>
+
+                        <div class="service-type-buttons">
+
+                            <button
+                                type="button"
+                                id="singleServiceBtn"
+                            >
+                                Single Service
+                            </button>
+
+                            <button
+                                type="button"
+                                id="multipleServiceBtn"
+                            >
+                                Multiple Services
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =========================
+                     SERVICE LIST POPUP
+                ========================= -->
+
+                <div
+                    id="serviceListPopup"
+                    class="service-popup"
+                >
+
+                    <div class="service-popup-box">
+
+                        <h3 id="serviceListTitle">
+                            Select Service
+                        </h3>
+
+                        <p id="serviceListDescription">
+                            Choose your service
+                        </p>
+
+
+                        <div id="serviceList">
+
+                            <p>
+                                Loading services...
+                            </p>
+
+                        </div>
+
+
+                        <!-- TOTAL PRICE -->
+
+                        <div
+                            id="serviceTotal"
+                            style="
+                                margin-top:20px;
+                                font-size:20px;
+                                font-weight:bold;
+                                color:#D4AF37;
+                            "
+                        >
+                            Total: ₹0
+                        </div>
+
+
+                        <!-- CONFIRM -->
+
+                        <button
+                            type="button"
+                            id="confirmServiceSelection"
+                            style="
+                                margin-top:20px;
+                                width:100%;
+                                padding:14px;
+                                border:none;
+                                border-radius:9px;
+                                background:#D4AF37;
+                                color:#111;
+                                font-weight:600;
+                                cursor:pointer;
+                            "
+                        >
+                            Confirm Selection
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =========================
+                     HIDDEN SERVICE VALUE
+                ========================= -->
+
+                <input
+                    type="hidden"
+                    id="customerService"
+                    value=""
+                >
+
+
+                <!-- =========================
+                     BOOKING DATE
+                ========================= -->
+
+                <input
+                    type="date"
+                    id="bookingDate"
+                    required
+                >
+
+
+                <!-- =========================
+                     BOOKING TIME
+                ========================= -->
+
+                <select
+                    id="bookingTime"
+                    required
+                >
+
+                    <option value="">
+                        Select Time Slot
+                    </option>
+
+                </select>
+
+
+                <!-- =========================
+                     CONFIRM BOOKING
+                ========================= -->
+
+                <button
+                    type="submit"
+                    class="booking-btn"
+                >
                     Confirm Booking
                 </button>
 
@@ -104,9 +673,969 @@
 
         </div>
 
-    </section>
 
-    <script src="js/script.js"></script>
+        <!-- =========================
+             RIGHT SIDE - WEEKLY OFFERS
+        ========================= -->
+
+        <div class="weekly-offers">
+
+
+            <div class="weekly-offers-header">
+
+                <span>
+                    SPECIAL
+                </span>
+
+                <h2>
+                    Weekly <strong>Offers</strong>
+                </h2>
+
+                <p>
+                    Look Good. Feel Great. All Week Long!
+                </p>
+
+            </div>
+
+
+            <!-- =========================
+                 TODAY'S OFFER
+                 ONLY ONE OFFER WILL SHOW
+            ========================= -->
+
+            <div
+                class="offer-card"
+                id="dailyOfferCard"
+            >
+
+                <img
+                    id="dailyOfferImage"
+                    src=""
+                    alt="Today's Salon Offer"
+                >
+
+                <div class="offer-overlay"></div>
+
+                <div
+                    class="offer-discount"
+                    id="dailyOfferDiscount"
+                >
+                </div>
+
+                <div class="offer-content">
+
+                    <span
+                        class="offer-day"
+                        id="dailyOfferDay"
+                    >
+                    </span>
+
+                    <h3 id="dailyOfferTitle">
+                    </h3>
+
+                    <p id="dailyOfferDescription">
+                    </p>
+
+                    <a
+                        href="booking.html"
+                        class="offer-btn"
+                        id="dailyOfferButton"
+                    >
+                        Book Now
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div style="
+                text-align:center;
+                color:#D4AF37;
+                font-size:28px;
+                font-style:italic;
+                margin-top:25px;
+            ">
+                Pamper Yourself ♡
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     MAIN SCRIPT
+========================= -->
+
+<script src="js/script.js"></script>
+
+
+<!-- =========================
+     BOOKING + DAILY OFFER SCRIPT
+========================= -->
+
+<script>
+
+
+    /* =====================================================
+       DAILY WEEKLY OFFER
+       JavaScript Date:
+       0 = Sunday
+       1 = Monday
+       2 = Tuesday
+       3 = Wednesday
+       4 = Thursday
+       5 = Friday
+       6 = Saturday
+    ===================================================== */
+
+    const weeklyOffers = {
+
+        /* =========================
+           SUNDAY
+        ========================= */
+
+        0: {
+            day: "SUNDAY SPECIAL",
+            title: "Bridal Makeup",
+            discount: "30%<br>OFF",
+            description:
+                "Get 30% OFF on selected Bridal Makeup services.",
+            image:
+                "images/sunday-offer.jpg",
+            service:
+                "Bridal Makeup"
+        },
+
+
+        /* =========================
+           MONDAY
+        ========================= */
+
+        1: {
+            day: "MONDAY SPECIAL",
+            title: "Hair Spa",
+            discount: "20%<br>OFF",
+            description:
+                "Get 20% OFF on all Hair Spa treatments.",
+            image:
+                "images/monday-offer.jpg",
+            service:
+                "Hair Spa"
+        },
+
+
+        /* =========================
+           TUESDAY
+        ========================= */
+
+        2: {
+            day: "TUESDAY SPECIAL",
+            title: "Hair Styling",
+            discount: "25%<br>OFF",
+            description:
+                "Flat 25% OFF on selected Hair Styling services.",
+            image:
+                "images/tuesday-offer.jpg",
+            service:
+                "Hair Styling"
+        },
+
+
+        /* =========================
+           WEDNESDAY
+        ========================= */
+
+        3: {
+            day: "WEDNESDAY SPECIAL",
+            title: "Facial",
+            discount: "20%<br>OFF",
+            description:
+                "Enjoy 20% OFF on selected Facial treatments.",
+            image:
+                "images/wednesday-offer.jpg",
+            service:
+                "Facial"
+        },
+
+
+        /* =========================
+           THURSDAY
+        ========================= */
+
+        4: {
+            day: "THURSDAY SPECIAL",
+            title: "Hair Cut",
+            discount: "15%<br>OFF",
+            description:
+                "Get 15% OFF on selected Hair Cut services.",
+            image:
+                "images/thursday-offer.jpg",
+            service:
+                "Hair Cut"
+        },
+
+
+        /* =========================
+           FRIDAY
+        ========================= */
+
+        5: {
+            day: "FRIDAY SPECIAL",
+            title: "Hair Color",
+            discount: "25%<br>OFF",
+            description:
+                "Enjoy 25% OFF on selected Hair Color services.",
+            image:
+                "images/friday-offer.jpg",
+            service:
+                "Hair Color"
+        },
+
+
+        /* =========================
+           SATURDAY
+        ========================= */
+
+        6: {
+            day: "SATURDAY SPECIAL",
+            title: "Manicure & Pedicure",
+            discount: "20%<br>OFF",
+            description:
+                "Get 20% OFF on selected Manicure & Pedicure services.",
+            image:
+                "images/saturday-offer.jpg",
+            service:
+                "Manicure & Pedicure"
+        }
+
+    };
+
+
+    /* =====================================================
+       LOAD TODAY'S OFFER
+    ===================================================== */
+
+    function loadDailyOffer() {
+
+        const offerImage =
+            document.getElementById("dailyOfferImage");
+
+        const offerDay =
+            document.getElementById("dailyOfferDay");
+
+        const offerTitle =
+            document.getElementById("dailyOfferTitle");
+
+        const offerDescription =
+            document.getElementById("dailyOfferDescription");
+
+        const offerDiscount =
+            document.getElementById("dailyOfferDiscount");
+
+        const offerButton =
+            document.getElementById("dailyOfferButton");
+
+
+        if (
+            !offerImage ||
+            !offerDay ||
+            !offerTitle ||
+            !offerDescription ||
+            !offerDiscount ||
+            !offerButton
+        ) {
+            return;
+        }
+
+
+        /* Get current day */
+
+        const today =
+            new Date().getDay();
+
+
+        /* Get today's offer */
+
+        const offer =
+            weeklyOffers[today];
+
+
+        /* Set offer image */
+
+        offerImage.src =
+            offer.image;
+
+        offerImage.alt =
+            offer.title + " Offer";
+
+
+        /* Set offer day */
+
+        offerDay.innerText =
+            offer.day;
+
+
+        /* Set title */
+
+        offerTitle.innerText =
+            offer.title;
+
+
+        /* Set description */
+
+        offerDescription.innerText =
+            offer.description;
+
+
+        /* Set discount */
+
+        offerDiscount.innerHTML =
+            offer.discount;
+
+
+        /* Book button */
+
+        offerButton.href =
+            "booking.html?service=" +
+            encodeURIComponent(
+                offer.service
+            );
+
+    }
+
+
+    /* Load today's offer */
+
+    loadDailyOffer();
+
+
+
+    /* =====================================================
+       SERVICE BOOKING
+    ===================================================== */
+
+
+    const serviceSelectBtn =
+        document.getElementById(
+            "serviceSelectBtn"
+        );
+
+
+    const serviceTypePopup =
+        document.getElementById(
+            "serviceTypePopup"
+        );
+
+
+    const serviceListPopup =
+        document.getElementById(
+            "serviceListPopup"
+        );
+
+
+    const singleServiceBtn =
+        document.getElementById(
+            "singleServiceBtn"
+        );
+
+
+    const multipleServiceBtn =
+        document.getElementById(
+            "multipleServiceBtn"
+        );
+
+
+    const serviceList =
+        document.getElementById(
+            "serviceList"
+        );
+
+
+    const serviceListTitle =
+        document.getElementById(
+            "serviceListTitle"
+        );
+
+
+    const serviceListDescription =
+        document.getElementById(
+            "serviceListDescription"
+        );
+
+
+    const serviceTotal =
+        document.getElementById(
+            "serviceTotal"
+        );
+
+
+    const confirmServiceSelection =
+        document.getElementById(
+            "confirmServiceSelection"
+        );
+
+
+    const customerService =
+        document.getElementById(
+            "customerService"
+        );
+
+
+    let allServices = [];
+
+    let selectedServices = [];
+
+    let selectionType = "";
+
+
+    /* =====================================================
+       OPEN SERVICE TYPE POPUP
+    ===================================================== */
+
+    serviceSelectBtn.addEventListener(
+        "click",
+        function () {
+
+            serviceTypePopup.style.display =
+                "flex";
+
+        }
+    );
+
+
+    /* =====================================================
+       LOAD SERVICES
+    ===================================================== */
+
+    async function loadBookingServices() {
+
+        try {
+
+            const response =
+                await fetch(
+                    "http://localhost:5000/api/services"
+                );
+
+
+            allServices =
+                await response.json();
+
+
+        } catch (error) {
+
+            console.log(
+                "Error loading booking services:",
+                error
+            );
+
+
+            serviceList.innerHTML = `
+                <p style="color:red;">
+                    Failed to load services.
+                </p>
+            `;
+
+        }
+
+    }
+
+
+    /* =====================================================
+       SINGLE SERVICE
+    ===================================================== */
+
+    singleServiceBtn.addEventListener(
+        "click",
+        function () {
+
+            selectionType =
+                "single";
+
+
+            selectedServices =
+                [];
+
+
+            serviceTypePopup.style.display =
+                "none";
+
+
+            serviceListPopup.style.display =
+                "flex";
+
+
+            serviceListTitle.innerText =
+                "Select Single Service";
+
+
+            serviceListDescription.innerText =
+                "Choose one service";
+
+
+            showSingleServices();
+
+        }
+    );
+
+
+    /* =====================================================
+       MULTIPLE SERVICES
+    ===================================================== */
+
+    multipleServiceBtn.addEventListener(
+        "click",
+        function () {
+
+            selectionType =
+                "multiple";
+
+
+            selectedServices =
+                [];
+
+
+            serviceTypePopup.style.display =
+                "none";
+
+
+            serviceListPopup.style.display =
+                "flex";
+
+
+            serviceListTitle.innerText =
+                "Select Multiple Services";
+
+
+            serviceListDescription.innerText =
+                "Choose one or more services";
+
+
+            showMultipleServices();
+
+        }
+    );
+
+
+    /* =====================================================
+       SHOW SINGLE SERVICES
+    ===================================================== */
+
+    function showSingleServices() {
+
+        serviceList.innerHTML =
+            "";
+
+
+        if (allServices.length === 0) {
+
+            serviceList.innerHTML = `
+                <p>
+                    No services available.
+                </p>
+            `;
+
+            return;
+        }
+
+
+        allServices.forEach(
+            function (service, index) {
+
+                serviceList.innerHTML += `
+
+                    <label
+                        class="booking-service-option"
+                        style="
+                            display:flex;
+                            align-items:center;
+                            justify-content:space-between;
+                            gap:15px;
+                            padding:15px;
+                            margin-bottom:10px;
+                            border:1px solid #444;
+                            border-radius:10px;
+                            cursor:pointer;
+                            color:#fff;
+                        "
+                    >
+
+                        <span>
+
+                            <input
+                                type="radio"
+                                name="singleService"
+                                value="${index}"
+                                onchange="selectSingleService(${index})"
+                            >
+
+                            <strong>
+                                ${service.service_name}
+                            </strong>
+
+                        </span>
+
+                        <span>
+                            ₹${service.service_price}
+                        </span>
+
+                    </label>
+
+                `;
+
+            }
+        );
+
+
+        serviceTotal.innerText =
+            "Total: ₹0";
+
+    }
+
+
+    /* =====================================================
+       SELECT SINGLE SERVICE
+    ===================================================== */
+
+    function selectSingleService(index) {
+
+        const service =
+            allServices[index];
+
+
+        selectedServices =
+            [service];
+
+
+        updateTotal();
+
+    }
+
+
+    /* =====================================================
+       SHOW MULTIPLE SERVICES
+    ===================================================== */
+
+    function showMultipleServices() {
+
+        serviceList.innerHTML =
+            "";
+
+
+        if (allServices.length === 0) {
+
+            serviceList.innerHTML = `
+                <p>
+                    No services available.
+                </p>
+            `;
+
+            return;
+        }
+
+
+        allServices.forEach(
+            function (service, index) {
+
+                serviceList.innerHTML += `
+
+                    <label
+                        class="booking-service-option"
+                        style="
+                            display:flex;
+                            align-items:center;
+                            justify-content:space-between;
+                            gap:15px;
+                            padding:15px;
+                            margin-bottom:10px;
+                            border:1px solid #444;
+                            border-radius:10px;
+                            cursor:pointer;
+                            color:#fff;
+                        "
+                    >
+
+                        <span>
+
+                            <input
+                                type="checkbox"
+                                value="${index}"
+                                onchange="toggleMultipleService(${index}, this.checked)"
+                            >
+
+                            <strong>
+                                ${service.service_name}
+                            </strong>
+
+                        </span>
+
+                        <span>
+                            ₹${service.service_price}
+                        </span>
+
+                    </label>
+
+                `;
+
+            }
+        );
+
+
+        serviceTotal.innerText =
+            "Total: ₹0";
+
+    }
+
+
+    /* =====================================================
+       SELECT MULTIPLE SERVICES
+    ===================================================== */
+
+    function toggleMultipleService(
+        index,
+        checked
+    ) {
+
+        const service =
+            allServices[index];
+
+
+        if (checked) {
+
+            selectedServices.push(
+                service
+            );
+
+        } else {
+
+            selectedServices =
+                selectedServices.filter(
+                    function (item) {
+
+                        return (
+                            item.service_name !==
+                            service.service_name
+                        );
+
+                    }
+                );
+
+        }
+
+
+        updateTotal();
+
+    }
+
+
+    /* =====================================================
+       CALCULATE TOTAL
+    ===================================================== */
+
+    function updateTotal() {
+
+        let total = 0;
+
+
+        selectedServices.forEach(
+            function (service) {
+
+                total +=
+                    Number(
+                        service.service_price
+                    );
+
+            }
+        );
+
+
+        serviceTotal.innerText =
+            "Total: ₹" + total;
+
+    }
+
+
+    /* =====================================================
+       CONFIRM SERVICE
+    ===================================================== */
+
+    confirmServiceSelection.addEventListener(
+        "click",
+        function () {
+
+            if (
+                selectedServices.length === 0
+            ) {
+
+                alert(
+                    "Please select at least one service."
+                );
+
+                return;
+
+            }
+
+
+            const serviceNames =
+                selectedServices.map(
+                    function (service) {
+
+                        return service.service_name;
+
+                    }
+                );
+
+
+            customerService.value =
+                serviceNames.join(", ");
+
+
+            serviceSelectBtn.innerText =
+                serviceNames.join(" + ");
+
+
+            serviceListPopup.style.display =
+                "none";
+
+
+            /* Calculate final total */
+
+            let total = 0;
+
+
+            selectedServices.forEach(
+                function (service) {
+
+                    total +=
+                        Number(
+                            service.service_price
+                        );
+
+                }
+            );
+
+
+            serviceSelectBtn.innerText +=
+                " — ₹" + total;
+
+        }
+    );
+
+
+    /* =====================================================
+       CLOSE SERVICE TYPE POPUP
+    ===================================================== */
+
+    serviceTypePopup.addEventListener(
+        "click",
+        function (event) {
+
+            if (
+                event.target ===
+                serviceTypePopup
+            ) {
+
+                serviceTypePopup.style.display =
+                    "none";
+
+            }
+
+        }
+    );
+
+
+    /* =====================================================
+       CLOSE SERVICE LIST POPUP
+    ===================================================== */
+
+    serviceListPopup.addEventListener(
+        "click",
+        function (event) {
+
+            if (
+                event.target ===
+                serviceListPopup
+            ) {
+
+                serviceListPopup.style.display =
+                    "none";
+
+            }
+
+        }
+    );
+
+
+    /* =====================================================
+       INITIAL LOAD
+    ===================================================== */
+
+    loadBookingServices();
+
+
+    /* =====================================================
+       AUTO SELECT SERVICE
+       Example:
+       booking.html?service=Hair%20Spa
+    ===================================================== */
+
+    window.addEventListener(
+        "load",
+        function () {
+
+            const params =
+                new URLSearchParams(
+                    window.location.search
+                );
+
+
+            const selectedService =
+                params.get("service");
+
+
+            if (selectedService) {
+
+                const index =
+                    allServices.findIndex(
+                        function (service) {
+
+                            return (
+                                service.service_name ===
+                                selectedService
+                            );
+
+                        }
+                    );
+
+
+                if (index !== -1) {
+
+                    selectedServices =
+                        [allServices[index]];
+
+
+                    customerService.value =
+                        selectedService;
+
+
+                    serviceSelectBtn.innerText =
+                        selectedService +
+                        " — ₹" +
+                        allServices[index]
+                            .service_price;
+
+                }
+
+            }
+
+        }
+    );
+
+</script>
+
 
 </body>
 

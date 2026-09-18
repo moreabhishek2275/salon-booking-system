@@ -7,72 +7,182 @@
 
     <link rel="stylesheet" href="../css/style.css">
 </head>
+
 <body>
 
 <div class="dashboard">
 
-    <!-- Sidebar -->
+    <!-- =========================
+            SIDEBAR
+    ========================= -->
+
     <aside class="sidebar">
 
         <h2>SalonHub</h2>
 
         <ul>
-            <li><a href="dashboard.html">Dashboard</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="bookings.html">Bookings</a></li>
-            <li><a href="customers.html">Customers</a></li>
-            <li><a href="gallery.html">Gallery</a></li>
-            <li><a href="settings.html" class="active">Settings</a></li>
-            <li><a href="#" id="logoutBtn">Logout</a></li>
+            <li>
+                <a href="dashboard.html">Dashboard</a>
+            </li>
+
+            <li>
+                <a href="services.html">Services</a>
+            </li>
+
+            <li>
+                <a href="bookings.html">Bookings</a>
+            </li>
+
+            <li>
+                <a href="customers.html">Customers</a>
+            </li>
+
+            <li>
+                <a href="gallery.html">Gallery</a>
+            </li>
+
+            <li>
+                <a href="settings.html" class="active">Settings</a>
+            </li>
+
+            <li>
+                <a href="#" id="logoutBtn">Logout</a>
+            </li>
         </ul>
 
     </aside>
 
-    <!-- Main Content -->
+
+    <!-- =========================
+            MAIN CONTENT
+    ========================= -->
+
     <main class="main-content">
 
         <h1>Salon Settings</h1>
 
-        <form id="settingsForm">
+        <div class="settings-container">
 
-            <input
-                type="text"
-                id="salonName"
-                placeholder="Salon Name"
-                required
-            >
+            <!-- Settings Header -->
 
-            <input
-                type="text"
-                id="salonPhone"
-                placeholder="Phone Number"
-                required
-            >
+            <div class="settings-header">
 
-            <input
-                type="email"
-                id="salonEmail"
-                placeholder="Email"
-                required
-            >
+                <div>
+                    <h2>Salon Information</h2>
 
-            <textarea
-                id="salonAddress"
-                placeholder="Address"
-                required
-            ></textarea>
+                    <p>
+                        Manage your salon contact information
+                        and business details.
+                    </p>
+                </div>
 
-            <button type="submit">
-                Save Settings
-            </button>
+            </div>
 
-        </form>
+
+            <!-- Settings Form -->
+
+            <form id="settingsForm" class="settings-form">
+
+                <!-- Salon Name -->
+
+                <div class="form-group">
+
+                    <label for="salonName">
+                        Salon Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="salonName"
+                        placeholder="Enter salon name"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- Phone -->
+
+                <div class="form-group">
+
+                    <label for="salonPhone">
+                        Phone Number
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="salonPhone"
+                        placeholder="Enter phone number"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- Email -->
+
+                <div class="form-group">
+
+                    <label for="salonEmail">
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="salonEmail"
+                        placeholder="Enter salon email"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- Address -->
+
+                <div class="form-group">
+
+                    <label for="salonAddress">
+                        Salon Address
+                    </label>
+
+                    <textarea
+                        id="salonAddress"
+                        placeholder="Enter complete salon address"
+                        rows="5"
+                        required
+                    ></textarea>
+
+                </div>
+
+
+                <!-- Buttons -->
+
+                <div class="settings-actions">
+
+                    <button
+                        type="submit"
+                        class="save-settings-btn"
+                    >
+                        Save Settings
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
 
     </main>
 
 </div>
 
+
+<!-- =========================
+        JAVASCRIPT
+========================= -->
+
 <script src="../js/script.js"></script>
+
 <script src="../js/admin-settings.js"></script>
 
 </body>

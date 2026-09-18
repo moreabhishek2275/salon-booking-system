@@ -1,0 +1,11 @@
+node_modules/
+.env
+backend/.env
+
+uploads/*
+!uploads/.gitkeep
+
+*.log
+.DS_Store
+backend/invoices/
+backend/public/uploads/

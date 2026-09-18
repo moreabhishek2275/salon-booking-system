@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Payments | SalonHub</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+</head>
+
+<body>
+
+    <div class="dashboard">
+
+        <!-- SIDEBAR -->
+
+        <aside class="sidebar">
+
+            <h2>SalonHub</h2>
+
+            <ul>
+
+                <li>
+                    <a href="dashboard.html">
+                        🏠 Dashboard
+                    </a>
+                </li>
+
+                <li>
+                    <a href="my-appointments.html">
+                        📋 My Appointments
+                    </a>
+                </li>
+
+                <li>
+                    <a href="profile.html">
+                        👤 My Profile
+                    </a>
+                </li>
+
+                <li>
+                    <a href="payments.html" class="active">
+                        💳 Payments
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#" id="logoutBtn">
+                        🚪 Logout
+                    </a>
+                </li>
+
+            </ul>
+
+        </aside>
+
+
+        <!-- MAIN CONTENT -->
+
+        <main class="main-content">
+
+            <h1>My Payments</h1>
+
+            <p>
+                View your payment history and invoices.
+            </p>
+
+
+            <!-- PAYMENT TABLE -->
+
+            <div class="appointments-container">
+
+                <table class="services-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Service</th>
+
+                            <th>Date</th>
+
+                            <th>Amount</th>
+
+                            <th>Payment Status</th>
+
+                            <th>Payment ID</th>
+
+                            <th>Invoice</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="paymentsTableBody">
+
+                        <tr>
+
+                            <td colspan="6" style="text-align:center;">
+                                Loading payments...
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </main>
+
+    </div>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="../js/script.js"></script>
+
+    <script>
+
+        const userData = localStorage.getItem("salonhubUser");
+
+
+        // CHECK LOGIN
+
+        if (!userData) {
+
+            window.location.href = "login.html";
+
+        }
+
+
+        // =========================
+        // LOAD USER PAYMENTS
+        // =========================
+
+        async function loadPayments() {
+
+            const user = JSON.parse(
+                localStorage.getItem("salonhubUser")
+            );
+
+            const tableBody =
+                document.getElementById("paymentsTableBody");
+
+
+            try {
+
+                const response = await fetch(
+                    `http://localhost:5000/api/users/appointments?email=${encodeURIComponent(user.email)}`
+                );
+
+                const data = await response.json();
+
+
+                if (
+                    !data.success ||
+                    data.appointments.length === 0
+                ) {
+
+                    tableBody.innerHTML = `
+                        <tr>
+                            <td colspan="6" style="text-align:center;">
+                                No payment records found.
+                            </td>
+                        </tr>
+                    `;
+
+                    return;
+
+                }
+
+
+                tableBody.innerHTML = "";
+
+
+                data.appointments.forEach(appointment => {
+
+                    const row =
+                        document.createElement("tr");
+
+
+                    row.innerHTML = `
+
+                        <td>
+                            ${appointment.service}
+                        </td>
+
+                        <td>
+                            ${new Date(
+                                appointment.booking_date
+                            ).toLocaleDateString("en-GB")}
+                        </td>
+
+                        <td>
+                            ₹${appointment.payment_amount}
+                        </td>
+
+                        <td>
+                            ${appointment.payment_status || "Pending"}
+                        </td>
+
+                        <td>
+                            ${appointment.payment_id || "-"}
+                        </td>
+
+                        <td>
+
+                            <button
+                                onclick="downloadInvoice(${appointment.id})"
+                                style="
+                                    padding:8px 14px;
+                                    border:none;
+                                    border-radius:7px;
+                                    background:#D4AF37;
+                                    color:#111;
+                                    cursor:pointer;
+                                    font-weight:600;
+                                "
+                            >
+                                📄 Invoice
+                            </button>
+
+                        </td>
+
+                    `;
+
+                    tableBody.appendChild(row);
+
+                });
+
+
+            } catch (error) {
+
+                console.error(
+                    "Payments Error:",
+                    error
+                );
+
+                tableBody.innerHTML = `
+                    <tr>
+                        <td colspan="6" style="text-align:center;">
+                            Failed to load payments.
+                        </td>
+                    </tr>
+                `;
+
+            }
+
+        }
+
+
+        // =========================
+        // DOWNLOAD INVOICE
+        // =========================
+
+        function downloadInvoice(bookingId) {
+
+            window.open(
+                `http://localhost:5000/api/invoice/${bookingId}`,
+                "_blank"
+            );
+
+        }
+
+
+        // LOAD PAYMENTS
+
+        loadPayments();
+
+
+        // =========================
+        // LOGOUT
+        // =========================
+
+        document
+            .getElementById("logoutBtn")
+            .addEventListener("click", function (e) {
+
+                e.preventDefault();
+
+                localStorage.removeItem("salonhubUser");
+
+                window.location.href = "login.html";
+
+            });
+
+    </script>
+
+</body>
+
+</html>

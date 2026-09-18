@@ -14,7 +14,7 @@ async function loadCustomers() {
 
     try {
 
-        const response = await fetch("http://localhost:3000/api/customers");
+        const response = await fetch("http://localhost:5000/api/customers");
 
         const customers = await response.json();
 
@@ -62,7 +62,7 @@ document.addEventListener("click", async (e) => {
 
         try {
 
-            const response = await fetch(`http://localhost:3000/api/customers/${id}`, {
+            const response = await fetch(`http://localhost:5000/api/customers/${id}`, {
 
                 method: "DELETE"
 

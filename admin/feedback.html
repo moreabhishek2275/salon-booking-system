@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Customer Feedback | SalonHub</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+
+    /* =========================
+       FEEDBACK PAGE
+    ========================= */
+
+    .feedback-container {
+        margin-top: 30px;
+        overflow-x: auto;
+    }
+
+    .feedback-table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        background: #222;
+        border-radius: 14px;
+        overflow: hidden;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
+    }
+
+    /* =========================
+       TABLE HEADER
+    ========================= */
+
+    .feedback-table thead th {
+        background: #d4af37;
+        color: #111;
+        padding: 16px;
+        text-align: left;
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    /* =========================
+       TABLE BODY
+    ========================= */
+
+    .feedback-table tbody td {
+        background: #252525;
+        color: #f5f5f5;
+        padding: 16px;
+        border-bottom: 1px solid #3a3a3a;
+        font-size: 14px;
+    }
+
+    .feedback-table tbody tr:last-child td {
+        border-bottom: none;
+    }
+
+    .feedback-table tbody tr:hover td {
+        background: #2d2d2d;
+    }
+
+    /* =========================
+       CUSTOMER NAME
+    ========================= */
+
+    .feedback-table tbody td:first-child {
+        color: #d4af37;
+        font-weight: 600;
+    }
+
+    /* =========================
+       EMAIL
+    ========================= */
+
+    .feedback-table tbody td:nth-child(2) {
+        color: #ddd;
+    }
+
+    /* =========================
+       STARS
+    ========================= */
+
+    .stars {
+        color: #f5b301;
+        font-size: 19px;
+        letter-spacing: 2px;
+        white-space: nowrap;
+    }
+
+    /* =========================
+       FEEDBACK TEXT
+    ========================= */
+
+    .feedback-text {
+        max-width: 350px;
+        color: #f1f1f1;
+        line-height: 1.6;
+    }
+
+    /* =========================
+       DATE
+    ========================= */
+
+    .feedback-table tbody td:nth-child(5) {
+        color: #ccc;
+        white-space: nowrap;
+    }
+
+    /* =========================
+       DELETE BUTTON
+    ========================= */
+
+    .delete-btn {
+        padding: 8px 15px;
+        border: none;
+        border-radius: 7px;
+        background: #dc3545;
+        color: white;
+        cursor: pointer;
+        font-family: Poppins, sans-serif;
+        font-size: 13px;
+        font-weight: 600;
+        transition: 0.3s;
+    }
+
+    .delete-btn:hover {
+        background: #b02a37;
+        transform: translateY(-1px);
+    }
+
+    /* =========================
+       NO FEEDBACK
+    ========================= */
+
+    .no-feedback {
+        text-align: center !important;
+        padding: 35px !important;
+        color: #aaa !important;
+        background: #252525 !important;
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 900px) {
+
+        .feedback-table {
+            min-width: 900px;
+        }
+
+        .feedback-container {
+            overflow-x: auto;
+        }
+
+    }
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="dashboard">
+
+
+    <!-- =========================
+         SIDEBAR
+    ========================== -->
+
+    <aside class="sidebar">
+
+        <h2>SalonHub</h2>
+
+        <ul>
+
+            <li>
+                <a href="dashboard.html">
+                    Dashboard
+                </a>
+            </li>
+
+            <li>
+                <a href="services.html">
+                    Services
+                </a>
+            </li>
+
+            <li>
+                <a href="bookings.html">
+                    Bookings
+                </a>
+            </li>
+
+            <li>
+                <a href="customers.html">
+                    Customers
+                </a>
+            </li>
+
+            <li>
+                <a href="gallery.html">
+                    Gallery
+                </a>
+            </li>
+
+            <li>
+                <a href="feedback.html" class="active">
+                    Feedback
+                </a>
+            </li>
+
+            <li>
+                <a href="settings.html">
+                    Settings
+                </a>
+            </li>
+
+            <li>
+                <a href="#" id="logoutBtn">
+                    Logout
+                </a>
+            </li>
+
+        </ul>
+
+    </aside>
+
+
+    <!-- =========================
+         MAIN CONTENT
+    ========================== -->
+
+    <main class="main-content">
+
+        <h1>Customer Feedback</h1>
+
+        <p>
+            View feedback and ratings submitted by SalonHub customers.
+        </p>
+
+
+        <!-- =========================
+             FEEDBACK TABLE
+        ========================== -->
+
+        <div class="feedback-container">
+
+            <table class="feedback-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>Customer</th>
+
+                        <th>Email</th>
+
+                        <th>Rating</th>
+
+                        <th>Feedback</th>
+
+                        <th>Date</th>
+
+                        <th>Action</th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody id="feedbackTableBody">
+
+                    <tr>
+
+                        <td
+                            colspan="6"
+                            class="no-feedback"
+                        >
+                            Loading feedback...
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+
+    </main>
+
+
+</div>
+
+
+<!-- =========================
+     JAVASCRIPT
+========================== -->
+
+<script src="../js/script.js"></script>
+
+
+<script>
+
+    // =========================
+    // LOAD FEEDBACK
+    // =========================
+
+    async function loadFeedback() {
+
+        const tableBody =
+            document.getElementById(
+                "feedbackTableBody"
+            );
+
+
+        try {
+
+            const response =
+                await fetch(
+                    "http://localhost:5000/api/feedback"
+                );
+
+
+            const data =
+                await response.json();
+
+
+            if (
+                !data.success ||
+                !data.feedback ||
+                data.feedback.length === 0
+            ) {
+
+                tableBody.innerHTML = `
+
+                    <tr>
+
+                        <td
+                            colspan="6"
+                            class="no-feedback"
+                        >
+                            No feedback available.
+                        </td>
+
+                    </tr>
+
+                `;
+
+                return;
+
+            }
+
+
+            tableBody.innerHTML = "";
+
+
+            data.feedback.forEach(item => {
+
+                const row =
+                    document.createElement("tr");
+
+
+                const rating =
+                    Number(item.rating);
+
+
+                const stars =
+                    "★".repeat(rating) +
+                    "☆".repeat(5 - rating);
+
+
+                const date =
+                    item.created_at
+                        ? new Date(
+                            item.created_at
+                        ).toLocaleDateString("en-GB")
+                        : "-";
+
+
+                row.innerHTML = `
+
+                    <td>
+                        ${item.customer_name}
+                    </td>
+
+                    <td>
+                        ${item.customer_email}
+                    </td>
+
+                    <td>
+
+                        <span class="stars">
+                            ${stars}
+                        </span>
+
+                    </td>
+
+                    <td class="feedback-text">
+                        ${item.feedback}
+                    </td>
+
+                    <td>
+                        ${date}
+                    </td>
+
+                    <td>
+
+                        <button
+                            class="delete-btn"
+                            onclick="deleteFeedback(${item.id})"
+                        >
+                            Delete
+                        </button>
+
+                    </td>
+
+                `;
+
+
+                tableBody.appendChild(row);
+
+            });
+
+
+        } catch (error) {
+
+            console.error(
+                "Feedback Load Error:",
+                error
+            );
+
+
+            tableBody.innerHTML = `
+
+                <tr>
+
+                    <td
+                        colspan="6"
+                        class="no-feedback"
+                    >
+                        Failed to load feedback.
+                    </td>
+
+                </tr>
+
+            `;
+
+        }
+
+    }
+
+
+    // =========================
+    // DELETE FEEDBACK
+    // =========================
+
+    async function deleteFeedback(id) {
+
+        const confirmDelete =
+            confirm(
+                "Are you sure you want to delete this feedback?"
+            );
+
+
+        if (!confirmDelete) {
+            return;
+        }
+
+
+        try {
+
+            const response =
+                await fetch(
+                    `http://localhost:5000/api/feedback/${id}`,
+                    {
+                        method: "DELETE"
+                    }
+                );
+
+
+            const data =
+                await response.json();
+
+
+            if (data.success) {
+
+                alert(
+                    "Feedback deleted successfully."
+                );
+
+                loadFeedback();
+
+            } else {
+
+                alert(
+                    data.message ||
+                    "Failed to delete feedback."
+                );
+
+            }
+
+
+        } catch (error) {
+
+            console.error(
+                "Delete Feedback Error:",
+                error
+            );
+
+
+            alert(
+                "Server error. Please try again."
+            );
+
+        }
+
+    }
+
+
+    // =========================
+    // LOGOUT
+    // =========================
+
+    document
+        .getElementById("logoutBtn")
+        .addEventListener(
+            "click",
+            function (e) {
+
+                e.preventDefault();
+
+
+                localStorage.removeItem(
+                    "salonHubAdmin"
+                );
+
+
+                window.location.href =
+                    "login.html";
+
+            }
+        );
+
+
+    // =========================
+    // LOAD DATA
+    // =========================
+
+    loadFeedback();
+
+</script>
+
+
+</body>
+
+</html>

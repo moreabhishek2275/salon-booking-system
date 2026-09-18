@@ -82,92 +82,184 @@ app.post("/api/bookings", (req, res) => {
         booking_time
     } = req.body;
 
+
+    // Check required fields
+
+    if (
+        !customer_name ||
+        !customer_mobile ||
+        !customer_email ||
+        !service ||
+        !booking_date ||
+        !booking_time
+    ) {
+
+        return res.status(400).json({
+            success: false,
+            message: "All booking fields are required"
+        });
+
+    }
+
+
+    // Convert selected services into array
+
+    const selectedServices = service
+        .split(",")
+        .map(item => item.trim())
+        .filter(item => item !== "");
+
+
+    if (selectedServices.length === 0) {
+
+        return res.status(400).json({
+            success: false,
+            message: "Please select at least one service"
+        });
+
+    }
+
+
+    // Create placeholders for SQL
+
+    const placeholders =
+        selectedServices.map(() => "?").join(",");
+
+
     const getPriceSql = `
-    SELECT service_price
-    FROM services
-    WHERE service_name = ?
-`;
-
-db.query(getPriceSql, [service], (err, serviceResult) => {
-
-    if (err) {
-
-        console.log(err);
-
-        return res.status(500).json({
-            success: false,
-            message: "Service Price Error"
-        });
-
-    }
-
-    if (serviceResult.length === 0) {
-
-        return res.status(404).json({
-            success: false,
-            message: "Service Not Found"
-        });
-
-    }
-
-    const payment_amount = serviceResult[0].service_price;
-
-    const sql = `
-        INSERT INTO bookings
-        (
-            customer_name,
-            customer_mobile,
-            customer_email,
-            service,
-            booking_date,
-            booking_time,
-            payment_amount,
-            payment_status
-        )
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+        SELECT
+            service_name,
+            service_price
+        FROM services
+        WHERE service_name IN (${placeholders})
     `;
 
+
     db.query(
-        sql,
-        [
-            customer_name,
-            customer_mobile,
-            customer_email,
-            service,
-            booking_date,
-            booking_time,
-            payment_amount,
-            "Pending"
-        ],
-        (err, result) => {
+        getPriceSql,
+        selectedServices,
+        (err, serviceResult) => {
 
             if (err) {
 
-                console.log(err);
+                console.log("Service Price Error:", err);
 
                 return res.status(500).json({
                     success: false,
-                    message: "Booking Failed"
+                    message: "Service Price Error"
                 });
 
             }
 
-            sendBookingEmail(customer_email, {
-                customer_name,
-                service,
-                booking_date,
-                booking_time
+
+            // Check all selected services exist
+
+            if (
+                serviceResult.length !==
+                selectedServices.length
+            ) {
+
+                return res.status(404).json({
+                    success: false,
+                    message: "One or more services not found"
+                });
+
+            }
+
+
+            // Calculate total price
+
+            let payment_amount = 0;
+
+
+            serviceResult.forEach(serviceItem => {
+
+                payment_amount +=
+                    Number(serviceItem.service_price);
+
             });
 
-            res.json({
-                success: true,
-                message: "Booking Saved Successfully"
-            });
+
+            // Save booking
+
+            const sql = `
+                INSERT INTO bookings
+                (
+                    customer_name,
+                    customer_mobile,
+                    customer_email,
+                    service,
+                    booking_date,
+                    booking_time,
+                    payment_amount,
+                    payment_status
+                )
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+            `;
+
+
+            db.query(
+                sql,
+                [
+                    customer_name,
+                    customer_mobile,
+                    customer_email,
+                    selectedServices.join(", "),
+                    booking_date,
+                    booking_time,
+                    payment_amount,
+                    "Pending"
+                ],
+                (err, result) => {
+
+                    if (err) {
+
+                        console.log(
+                            "Booking Insert Error:",
+                            err
+                        );
+
+                        return res.status(500).json({
+                            success: false,
+                            message: "Booking Failed"
+                        });
+
+                    }
+
+
+                    // Booking Email
+
+                    sendBookingEmail(
+                        customer_email,
+                        {
+                            customer_name,
+                            service: selectedServices.join(", "),
+                            booking_date,
+                            booking_time
+                        }
+                    );
+
+
+                    res.json({
+
+                        success: true,
+
+                        message:
+                            "Booking Saved Successfully",
+
+                        bookingId:
+                            result.insertId,
+
+                        totalAmount:
+                            payment_amount
+
+                    });
+
+                }
+            );
 
         }
     );
-
-});
 
 });
 // =========================
@@ -674,11 +766,11 @@ app.get("/api/gallery", (req, res) => {
 
 app.post("/api/gallery", (req, res) => {
 
-    const { image } = req.body;
+   const { image, category } = req.body;
 
-    const sql = "INSERT INTO gallery (image) VALUES (?)";
+   const sql = "INSERT INTO gallery (image, category) VALUES (?, ?)";
 
-    db.query(sql, [image], (err, result) => {
+    db.query(sql, [image, category], (err, result) => {
 
         if (err) {
 
@@ -700,6 +792,464 @@ app.post("/api/gallery", (req, res) => {
 
 });
 
+// =========================
+// GALLERY CATEGORIES
+// =========================
+
+// GET ALL CATEGORIES
+app.get("/api/gallery/categories", (req, res) => {
+
+    const sql = "SELECT * FROM gallery_categories ORDER BY id ASC";
+
+    db.query(sql, (err, results) => {
+
+        if (err) {
+            console.error("Category Fetch Error:", err);
+            return res.status(500).json({
+                success: false,
+                message: "Failed to load categories"
+            });
+        }
+
+        res.json(results);
+
+    });
+
+});
+
+
+// ADD NEW CATEGORY
+app.post("/api/gallery/categories", (req, res) => {
+
+    const { name } = req.body;
+
+    if (!name || !name.trim()) {
+        return res.status(400).json({
+            success: false,
+            message: "Category name is required"
+        });
+    }
+
+    const sql =
+        "INSERT INTO gallery_categories (name) VALUES (?)";
+
+    db.query(sql, [name.trim()], (err, result) => {
+
+        if (err) {
+
+            if (err.code === "ER_DUP_ENTRY") {
+                return res.status(400).json({
+                    success: false,
+                    message: "Category already exists"
+                });
+            }
+
+            console.error("Category Add Error:", err);
+
+            return res.status(500).json({
+                success: false,
+                message: "Failed to add category"
+            });
+        }
+
+        res.json({
+            success: true,
+            message: "Category added successfully",
+            id: result.insertId
+        });
+
+    });
+
+});
+// =========================
+// USER REGISTRATION
+// =========================
+
+app.post("/api/users/register", (req, res) => {
+
+    const { name, email, phone, password } = req.body;
+
+    if (!name || !email || !phone || !password) {
+        return res.status(400).json({
+            success: false,
+            message: "All fields are required"
+        });
+    }
+
+    const checkSql = "SELECT id FROM users WHERE email = ?";
+
+    db.query(checkSql, [email], (err, results) => {
+
+        if (err) {
+            console.log("User Check Error:", err);
+
+            return res.status(500).json({
+                success: false,
+                message: "Database error"
+            });
+        }
+
+        if (results.length > 0) {
+            return res.status(400).json({
+                success: false,
+                message: "Email already registered"
+            });
+        }
+
+        const sql = `
+            INSERT INTO users (name, email, phone, password)
+            VALUES (?, ?, ?, ?)
+        `;
+
+        db.query(
+            sql,
+            [name, email, phone, password],
+            (err, result) => {
+
+                if (err) {
+                    console.log("User Registration Error:", err);
+
+                    return res.status(500).json({
+                        success: false,
+                        message: "Registration failed"
+                    });
+                }
+
+                res.json({
+                    success: true,
+                    message: "Account created successfully",
+                    userId: result.insertId
+                });
+
+            }
+        );
+
+    });
+
+});
+
+// =========================
+// USER LOGIN API
+// =========================
+
+app.post("/api/users/login", (req, res) => {
+
+    const { email, password } = req.body;
+
+    if (!email || !password) {
+        return res.status(400).json({
+            success: false,
+            message: "Email and password are required"
+        });
+    }
+
+    const sql = `
+        SELECT id, name, email, phone
+        FROM users
+        WHERE email = ? AND password = ?
+    `;
+
+    db.query(sql, [email, password], (err, result) => {
+
+        if (err) {
+            console.log("User Login Error:", err);
+
+            return res.status(500).json({
+                success: false,
+                message: "Database error"
+            });
+        }
+
+        if (result.length === 0) {
+            return res.status(401).json({
+                success: false,
+                message: "Invalid email or password"
+            });
+        }
+
+        res.json({
+            success: true,
+            message: "Login successful",
+            user: result[0]
+        });
+
+    });
+
+});
+
+// =========================
+// USER MY APPOINTMENTS API
+// =========================
+
+app.get("/api/users/appointments", (req, res) => {
+
+    const { email } = req.query;
+
+    if (!email) {
+        return res.status(400).json({
+            success: false,
+            message: "User email is required"
+        });
+    }
+
+    const sql = `
+        SELECT
+            id,
+            service,
+            booking_date,
+            booking_time,
+            payment_amount,
+            payment_status,
+            status
+        FROM bookings
+        WHERE customer_email = ?
+        ORDER BY id DESC
+    `;
+
+    db.query(sql, [email], (err, results) => {
+
+        if (err) {
+
+            console.log("User Appointments Error:", err);
+
+            return res.status(500).json({
+                success: false,
+                message: "Failed to fetch appointments"
+            });
+
+        }
+
+        res.json({
+            success: true,
+            appointments: results
+        });
+
+    });
+
+});
+
+// =========================
+// CUSTOMER FEEDBACK API
+// =========================
+
+app.post("/api/feedback", (req, res) => {
+
+    const {
+        booking_id,
+        customer_name,
+        customer_email,
+        rating,
+        feedback
+    } = req.body;
+
+
+    // Check required fields
+    if (
+        !booking_id ||
+        !customer_name ||
+        !customer_email ||
+        !rating ||
+        !feedback
+    ) {
+
+        return res.status(400).json({
+            success: false,
+            message: "All feedback fields are required"
+        });
+
+    }
+
+
+    // Validate rating
+    if (Number(rating) < 1 || Number(rating) > 5) {
+
+        return res.status(400).json({
+            success: false,
+            message: "Rating must be between 1 and 5"
+        });
+
+    }
+
+
+    // Check whether booking exists
+    const bookingSql = `
+        SELECT id
+        FROM bookings
+        WHERE id = ? AND customer_email = ?
+    `;
+
+
+    db.query(
+        bookingSql,
+        [booking_id, customer_email],
+        (err, bookingResult) => {
+
+            if (err) {
+
+                console.log(
+                    "Feedback Booking Check Error:",
+                    err
+                );
+
+                return res.status(500).json({
+                    success: false,
+                    message: "Database Error"
+                });
+
+            }
+
+
+            if (bookingResult.length === 0) {
+
+                return res.status(404).json({
+                    success: false,
+                    message: "Booking not found"
+                });
+
+            }
+
+
+            // Save feedback
+            const sql = `
+                INSERT INTO feedback
+                (
+                    booking_id,
+                    customer_name,
+                    customer_email,
+                    rating,
+                    feedback
+                )
+                VALUES (?, ?, ?, ?, ?)
+            `;
+
+
+            db.query(
+                sql,
+                [
+                    booking_id,
+                    customer_name,
+                    customer_email,
+                    Number(rating),
+                    feedback
+                ],
+                (err, result) => {
+
+                    if (err) {
+
+                        console.log(
+                            "Feedback Insert Error:",
+                            err
+                        );
+
+                        return res.status(500).json({
+                            success: false,
+                            message: "Failed to save feedback"
+                        });
+
+                    }
+
+
+                    res.json({
+                        success: true,
+                        message:
+                            "Feedback submitted successfully",
+                        feedbackId:
+                            result.insertId
+                    });
+
+                }
+            );
+
+        }
+    );
+
+});
+
+// =========================
+// GET ALL FEEDBACK
+// =========================
+
+app.get("/api/feedback", (req, res) => {
+
+    const sql = `
+        SELECT
+            id,
+            booking_id,
+            customer_name,
+            customer_email,
+            rating,
+            feedback,
+            created_at
+        FROM feedback
+        ORDER BY id DESC
+    `;
+
+    db.query(sql, (err, results) => {
+
+        if (err) {
+
+            console.log("Feedback Fetch Error:", err);
+
+            return res.status(500).json({
+                success: false,
+                message: "Failed to fetch feedback"
+            });
+
+        }
+
+        res.json({
+            success: true,
+            feedback: results
+        });
+
+    });
+
+});
+
+
+// =========================
+// DELETE FEEDBACK
+// =========================
+
+app.delete("/api/feedback/:id", (req, res) => {
+
+    const { id } = req.params;
+
+    const sql = `
+        DELETE FROM feedback
+        WHERE id = ?
+    `;
+
+    db.query(sql, [id], (err, result) => {
+
+        if (err) {
+
+            console.log("Feedback Delete Error:", err);
+
+            return res.status(500).json({
+                success: false,
+                message: "Failed to delete feedback"
+            });
+
+        }
+
+        if (result.affectedRows === 0) {
+
+            return res.status(404).json({
+                success: false,
+                message: "Feedback not found"
+            });
+
+        }
+
+        res.json({
+            success: true,
+            message: "Feedback deleted successfully"
+        });
+
+    });
+
+});
 // =========================
 // ADMIN LOGIN API
 // =========================
@@ -1271,12 +1821,5 @@ app.get("/api/dashboard", (req, res) => {
 app.get("/", (req, res) => {
   res.send("SalonHub Backend is Running 🚀");
 });
-// =========================
-// START SERVER
-// =========================
 
-const PORT = process.env.PORT || 3000;
 
-app.listen(PORT, "0.0.0.0", () => {
-    console.log(`🚀 Server is running on port ${PORT}`);
-});

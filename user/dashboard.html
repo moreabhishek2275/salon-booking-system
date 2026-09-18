@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>User Dashboard | SalonHub</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+</head>
+
+<body>
+
+    <div class="dashboard">
+
+        <!-- =========================
+             USER SIDEBAR
+        ========================== -->
+
+        <aside class="sidebar">
+
+            <h2>SalonHub</h2>
+
+            <ul>
+
+                <li>
+                    <a href="dashboard.html" class="active">
+                        🏠 Dashboard
+                    </a>
+                </li>
+
+                <li>
+                    <a href="my-appointments.html">
+                        📋 My Appointments
+                    </a>
+                </li>
+
+                <li>
+                    <a href="profile.html">
+                        👤 My Profile
+                    </a>
+                </li>
+
+                <li>
+                    <a href="payments.html">
+                        💳 Payments
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#" id="logoutBtn">
+                        🚪 Logout
+                    </a>
+                </li>
+
+            </ul>
+
+        </aside>
+
+
+        <!-- =========================
+             MAIN CONTENT
+        ========================== -->
+
+        <main class="main-content">
+
+            <h1>
+                Welcome, <span id="userName">User</span> 👋
+            </h1>
+
+            <p>
+                Manage your SalonHub appointments and profile.
+            </p>
+
+
+            <!-- =========================
+                 MY PROFILE
+            ========================== -->
+
+            <div class="settings-container">
+
+                <div class="settings-header">
+
+                    <h2>My Profile</h2>
+
+                    <p>
+                        Your registered account information
+                    </p>
+
+                </div>
+
+
+                <div class="settings-form">
+
+                    <div class="form-group">
+
+                        <label>Name</label>
+
+                        <input
+                            type="text"
+                            id="profileName"
+                            readonly
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>Email</label>
+
+                        <input
+                            type="email"
+                            id="profileEmail"
+                            readonly
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>Phone</label>
+
+                        <input
+                            type="text"
+                            id="profilePhone"
+                            readonly
+                        >
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </main>
+
+    </div>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script src="../js/script.js"></script>
+
+    <script>
+
+        // GET LOGGED-IN USER
+
+        const userData = localStorage.getItem("salonhubUser");
+
+
+        // IF USER IS NOT LOGGED IN
+
+        if (!userData) {
+
+            window.location.href = "login.html";
+
+        } else {
+
+            const user = JSON.parse(userData);
+
+
+            // DISPLAY USER NAME
+
+            document.getElementById("userName").textContent =
+                user.name;
+
+
+            // DISPLAY PROFILE INFORMATION
+
+            document.getElementById("profileName").value =
+                user.name;
+
+            document.getElementById("profileEmail").value =
+                user.email;
+
+            document.getElementById("profilePhone").value =
+                user.phone;
+
+        }
+
+
+        // =========================
+        // LOGOUT
+        // =========================
+
+        document
+            .getElementById("logoutBtn")
+            .addEventListener("click", function (e) {
+
+                e.preventDefault();
+
+                localStorage.removeItem("salonhubUser");
+
+                window.location.href = "login.html";
+
+            });
+
+    </script>
+
+</body>
+
+</html>

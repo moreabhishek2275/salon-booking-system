@@ -1,28 +1,587 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SalonHub | Premium Salon</title>
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>The Beauty Salon | Premium Salon</title>
 
     <link rel="stylesheet" href="css/style.css">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+
+    <style>
+
+        /* =====================================================
+           HERO SECTION
+        ===================================================== */
+
+        .hero {
+
+            min-height: 760px;
+
+            position: relative;
+
+            overflow: hidden;
+
+            display: flex;
+
+            align-items: flex-start;
+
+            background-color: #050505;
+
+            background-image:
+
+                linear-gradient(
+                    90deg,
+                    rgba(0,0,0,0.98) 0%,
+                    rgba(0,0,0,0.96) 28%,
+                    rgba(0,0,0,0.78) 48%,
+                    rgba(0,0,0,0.35) 72%,
+                    rgba(0,0,0,0.10) 100%
+                ),
+
+                url("images/beauty-salon-bg.png");
+
+            background-size: cover;
+
+            background-position: right center;
+
+            background-repeat: no-repeat;
+        }
+
+
+        /* =====================================================
+           HERO CONTENT
+        ===================================================== */
+
+       .hero-content {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 80px 70px 55px;
+    box-sizing: border-box;
+    text-align: left;
+    position: relative;
+    z-index: 2;
+}
+
+
+        .hero-content > * {
+
+            text-align: left;
+        }
+
+
+        /* =====================================================
+           PREMIUM TAG
+        ===================================================== */
+
+        .hero-content .tag {
+
+            display: inline-block;
+
+            padding: 8px 18px;
+
+            margin-bottom: 12px;
+
+            border: 1px solid #d4af37;
+
+            border-radius: 30px;
+
+            color: #d4af37;
+
+            background: rgba(0,0,0,0.55);
+
+            font-size: 14px;
+
+            font-weight: 600;
+        }
+
+
+        /* =====================================================
+           HERO TITLE
+        ===================================================== */
+
+        .hero-content h1 {
+
+            max-width: 650px;
+
+            margin: 0 0 20px;
+
+            font-size: 64px;
+
+            line-height: 1.1;
+
+            color: #ffffff;
+
+            font-weight: 700;
+        }
+
+
+        /* =====================================================
+           HERO DESCRIPTION
+        ===================================================== */
+
+        .hero-content > p {
+
+            max-width: 590px;
+
+            margin: 0 0 30px;
+
+            font-size: 18px;
+
+            line-height: 1.8;
+
+            color: #dddddd;
+        }
+
+
+        /* =====================================================
+           HERO BUTTONS
+        ===================================================== */
+
+        .hero-buttons {
+
+            display: flex !important;
+
+            flex-direction: row !important;
+
+            justify-content: flex-start !important;
+
+            align-items: flex-start !important;
+
+            gap: 18px;
+
+            width: 100%;
+
+            margin-bottom: 38px;
+        }
+
+
+        .hero-btn,
+        .hero-btn-outline {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            min-width: 190px;
+
+            padding: 15px 25px;
+
+            border-radius: 30px;
+
+            text-decoration: none;
+
+            font-weight: 600;
+
+            transition: 0.3s;
+
+            box-sizing: border-box;
+        }
+
+
+        .hero-btn {
+
+            background: #d4af37;
+
+            color: #111111;
+
+            border: 1px solid #d4af37;
+        }
+
+
+        .hero-btn:hover {
+
+            background: #edcd58;
+
+            color: #111111;
+
+            transform: translateY(-3px);
+        }
+
+
+        .hero-btn-outline {
+
+            color: #ffffff;
+
+            border: 1px solid #d4af37;
+
+            background: rgba(0,0,0,0.45);
+        }
+
+
+        .hero-btn-outline:hover {
+
+            background: #d4af37;
+
+            color: #111111;
+
+            transform: translateY(-3px);
+        }
+
+
+        /* =====================================================
+           HERO STATS
+        ===================================================== */
+
+        .hero-info {
+
+            display: flex !important;
+
+            flex-direction: row !important;
+
+            justify-content: flex-start !important;
+
+            align-items: flex-start !important;
+
+            gap: 20px;
+
+            width: 100%;
+        }
+
+
+        .info-box {
+
+            width: 210px;
+
+            min-width: 210px;
+
+            padding: 20px 25px;
+
+            box-sizing: border-box;
+
+            background: rgba(25,25,25,0.92);
+
+            border-left: 3px solid #d4af37;
+
+            border-radius: 10px;
+
+            backdrop-filter: blur(5px);
+        }
+
+
+        .info-box h3 {
+
+            margin: 0 0 5px;
+
+            color: #d4af37;
+
+            font-size: 25px;
+        }
+
+
+        .info-box p {
+
+            margin: 0;
+
+            color: #eeeeee;
+
+            font-size: 14px;
+        }
+
+
+        /* =====================================================
+           NAVBAR
+        ===================================================== */
+
+        .navbar {
+
+            display: flex !important;
+
+            align-items: center !important;
+
+            justify-content: flex-start !important;
+
+            gap: 20px;
+        }
+
+
+        .logo {
+
+            font-size: 28px !important;
+
+            font-weight: 700;
+
+            white-space: nowrap;
+
+            margin-right: auto;
+        }
+
+
+        .logo span {
+
+            color: #d4af37;
+        }
+
+
+        .nav-links {
+
+            display: flex !important;
+
+            align-items: center;
+
+            justify-content: flex-end;
+
+            gap: 28px;
+
+            margin-left: auto;
+        }
+
+
+        .nav-links li a {
+
+            white-space: nowrap;
+        }
+
+
+        /* =====================================================
+           REVIEWS
+        ===================================================== */
+
+        .review-container {
+
+            display: grid;
+
+            grid-template-columns: repeat(3,1fr);
+
+            gap: 30px;
+        }
+
+
+        .review-card {
+
+            background: #1d1d1d;
+
+            border-radius: 15px;
+
+            padding: 30px;
+
+            text-align: center;
+
+            border: 1px solid #2f2f2f;
+
+            transition: 0.3s;
+        }
+
+
+        .review-card:hover {
+
+            transform: translateY(-5px);
+
+            border-color: #d4af37;
+        }
+
+
+        .review-stars {
+
+            color: #f5b301;
+
+            font-size: 20px;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .review-card p {
+
+            color: #eeeeee;
+
+            line-height: 1.6;
+
+            margin-bottom: 15px;
+        }
+
+
+        .review-card h4 {
+
+            color: #d4af37;
+
+            margin: 0;
+
+            font-weight: 600;
+        }
+
+
+        .no-reviews {
+
+            grid-column: 1 / -1;
+
+            text-align: center;
+
+            color: #aaaaaa;
+
+            padding: 30px;
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media (max-width:1200px) {
+
+            .logo {
+
+                font-size: 24px !important;
+            }
+
+
+            .nav-links {
+
+                gap: 18px;
+            }
+        }
+
+
+        @media (max-width:1100px) {
+
+            .hero-content {
+
+                padding-left: 50px;
+
+                padding-right: 50px;
+            }
+
+
+            .hero-content h1 {
+
+                font-size: 55px;
+            }
+        }
+
+
+        @media (max-width:900px) {
+
+            .hero {
+
+                min-height: auto;
+
+                background-position: 70% center;
+            }
+
+
+            .hero-content {
+
+                padding: 25px 30px 60px;
+            }
+
+
+            .hero-content h1 {
+
+                font-size: 45px;
+            }
+
+
+            .hero-content > p {
+
+                font-size: 16px;
+            }
+
+
+            .hero-buttons {
+
+                flex-direction: column !important;
+
+                align-items: flex-start !important;
+            }
+
+
+            .hero-info {
+
+                flex-direction: column !important;
+
+                align-items: flex-start !important;
+            }
+
+
+            .review-container {
+
+                grid-template-columns: 1fr;
+            }
+
+
+            .logo {
+
+                font-size: 22px !important;
+            }
+
+        }
+
+
+        @media (max-width:500px) {
+
+            .hero {
+
+                background-position: 68% center;
+            }
+
+
+            .hero-content {
+
+                padding: 20px 20px 50px;
+            }
+
+
+            .hero-content h1 {
+
+                font-size: 36px;
+            }
+
+
+            .hero-content .tag {
+
+                font-size: 12px;
+
+                margin-bottom: 10px;
+            }
+
+
+            .hero-btn,
+            .hero-btn-outline {
+
+                min-width: 180px;
+
+                width: auto;
+            }
+
+        }
+
+
+    </style>
+
 </head>
 
+
 <body>
-    <!-- =========================
-        LOADER
-========================= -->
+
+
+<!-- =====================================================
+     LOADER
+===================================================== -->
 
 <div id="loader">
 
     <div class="loader-content">
-
-        <h1>Salon<span>Hub</span></h1>
 
         <div class="loader-line"></div>
 
@@ -30,179 +589,478 @@
 
 </div>
 
-<!-- ================= NAVBAR ================= -->
+
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
 
 <header>
 
-<nav class="navbar">
+    <nav class="navbar">
 
-<div class="logo">
-Salon<span>Hub</span>
+
+      <div class="logo">
+    <img src="images/salon-logo.png" alt="The Beauty Salon Logo">
 </div>
 
-<ul class="nav-links">
+        <ul class="nav-links">
 
-<li><a href="index.html">Home</a></li>
-<li><a href="about.html">About</a></li>
-<li><a href="services.html">Services</a></li>
-<li><a href="gallery.html">Gallery</a></li>
-<li><a href="contact.html">Contact</a></li>
-<li><a href="admin/login.html">Admin Login</a></li>
+            <li>
+                <a href="index.html">
+                    Home
+                </a>
+            </li>
 
-</ul>
 
-<a href="booking.html" class="btn">Book Appointment</a>
+            <li>
+                <a href="about.html">
+                    About
+                </a>
+            </li>
 
-<button id="themeToggle" class="theme-btn" type="button">
-    🌙
-</button>
 
-</nav>
+            <li>
+                <a href="services.html">
+                    Services
+                </a>
+            </li>
+
+
+            <li>
+                <a href="gallery.html">
+                    Gallery
+                </a>
+            </li>
+
+
+            <li>
+                <a href="contact.html">
+                    Contact
+                </a>
+            </li>
+
+
+            <li>
+                <a href="user/login.html">
+                    User Login
+                </a>
+            </li>
+
+
+            <li>
+                <a href="admin/login.html">
+                    Admin Login
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
 
 </header>
 
-<!-- ================= HERO ================= -->
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
 
 <section class="hero">
 
+
     <div class="hero-content">
 
-        <span class="tag">✂ Premium Salon Since 2020</span>
 
-        <h1>Premium Hair & Beauty Salon</h1>
+        <!-- PREMIUM TAG -->
+
+        <span class="tag">
+
+            ✂ Premium Salon Since 2020
+
+        </span>
+
+
+        <!-- TITLE -->
+
+        <h1>
+
+            Premium Hair &<br>
+
+            Beauty Salon
+
+        </h1>
+
+
+        <!-- DESCRIPTION -->
 
         <p>
+
             Experience luxury grooming with professional stylists,
             premium products, and modern hairstyles tailored just for you.
+
         </p>
 
+
+        <!-- BUTTONS -->
+
         <div class="hero-buttons">
-          <a href="booking.html" class="hero-btn">Book Appointment</a>
-            <a href="services.html" class="hero-btn-outline">Our Services</a>
+
+
+            <a
+                href="booking.html"
+                class="hero-btn"
+            >
+
+                Book Appointment
+
+            </a>
+
+
+            <a
+                href="services.html"
+                class="hero-btn-outline"
+            >
+
+                Our Services
+
+            </a>
+
+
         </div>
+
+
+        <!-- STATS -->
 
         <div class="hero-info">
 
-            <div class="info-box">
-                <h3>5000+</h3>
-                <p>Happy Customers</p>
-            </div>
 
             <div class="info-box">
-                <h3>15+</h3>
-                <p>Professional Stylists</p>
+
+                <h3>
+                    5000+
+                </h3>
+
+                <p>
+                    Happy Customers
+                </p>
+
             </div>
+
+
+            <div class="info-box">
+
+                <h3>
+                    15+
+                </h3>
+
+                <p>
+                    Professional Stylists
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     SERVICES
+===================================================== -->
+
+<section class="services">
+
+
+    <h2>
+        Our Services
+    </h2>
+
+
+    <div
+        class="service-container"
+        id="homeServicesContainer"
+    >
+
+        <!-- Services loaded from database -->
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     WHY CHOOSE US
+===================================================== -->
+
+<section class="why">
+
+
+    <h2>
+        Why Choose Us
+    </h2>
+
+
+    <div class="why-box">
+
+
+        <div>
+
+            <h3>
+                Professional Staff
+            </h3>
+
+            <p>
+                Experienced Hair Experts
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <h3>
+                Affordable Price
+            </h3>
+
+            <p>
+                Premium Service At Best Price
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <h3>
+                Premium Products
+            </h3>
+
+            <p>
+                Only Trusted Brands
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     CUSTOMER REVIEWS
+===================================================== -->
+
+<section class="reviews">
+
+
+    <h2>
+        Customer Reviews
+    </h2>
+
+
+    <div
+        class="review-container"
+        id="reviewContainer"
+    >
+
+        <div class="no-reviews">
+
+            Loading customer reviews...
 
         </div>
 
     </div>
 
-</section>
-
-<!-- ================= SERVICES ================= -->
-
-<section class="services">
-
-    <h2>Our Services</h2>
-
-    <div class="service-container" id="homeServicesContainer">
-
-        <!-- Services will load automatically from database -->
-
-    </div>
-
-</section>
-<!-- ================= WHY US ================= -->
-
-<section class="why">
-
-<h2>Why Choose Us</h2>
-
-<div class="why-box">
-
-<div>
-<h3>Professional Staff</h3>
-<p>Experienced Hair Experts</p>
-</div>
-
-<div>
-<h3>Affordable Price</h3>
-<p>Premium Service At Best Price</p>
-</div>
-
-<div>
-<h3>Premium Products</h3>
-<p>Only Trusted Brands</p>
-</div>
-
-</div>
 
 </section>
 
-<!-- ================= REVIEWS ================= -->
 
-<section class="reviews">
 
-<h2>Customer Reviews</h2>
-
-<div class="review-container">
-
-<div class="review-card">
-
-★★★★★
-
-<p>
-Best Salon Experience Ever.
-</p>
-
-<h4>- Rahul</h4>
-
-</div>
-
-<div class="review-card">
-
-★★★★★
-
-<p>
-Professional Staff & Nice Service.
-</p>
-
-<h4>- Amit</h4>
-
-</div>
-
-<div class="review-card">
-
-★★★★★
-
-<p>
-Highly Recommended.
-</p>
-
-<h4>- Rohit</h4>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- ================= FOOTER ================= -->
+<!-- =====================================================
+     FOOTER
+===================================================== -->
 
 <footer>
 
-<h2>SalonHub</h2>
 
-<p>
-Premium Hair & Beauty Salon
-</p>
+    <h2>
+        The Beauty Salon
+    </h2>
 
-<p>
-© 2026 All Rights Reserved.
-</p>
+
+    <p>
+        Premium Hair & Beauty Salon
+    </p>
+
+
+    <p>
+        © 2026 All Rights Reserved.
+    </p>
+
 
 </footer>
+
+
+
+<!-- =====================================================
+     MAIN JAVASCRIPT
+===================================================== -->
+
 <script src="js/script.js"></script>
+
+
+
+<!-- =====================================================
+     CUSTOMER REVIEWS
+===================================================== -->
+
+<script>
+
+async function loadCustomerReviews() {
+
+    const reviewContainer =
+        document.getElementById("reviewContainer");
+
+
+    if (!reviewContainer) {
+
+        return;
+
+    }
+
+
+    try {
+
+        const response =
+            await fetch(
+                "http://localhost:5000/api/feedback"
+            );
+
+
+        const data =
+            await response.json();
+
+
+        if (
+            !data.success ||
+            !data.feedback ||
+            data.feedback.length === 0
+        ) {
+
+            reviewContainer.innerHTML = `
+
+                <div class="no-reviews">
+
+                    No customer reviews yet.
+
+                </div>
+
+            `;
+
+            return;
+        }
+
+
+        reviewContainer.innerHTML = "";
+
+
+        const reviews =
+            data.feedback.slice(0,6);
+
+
+        reviews.forEach(item => {
+
+
+            const rating =
+                Number(item.rating);
+
+
+            const stars =
+                "★".repeat(rating) +
+                "☆".repeat(5 - rating);
+
+
+            const reviewCard =
+                document.createElement("div");
+
+
+            reviewCard.className =
+                "review-card";
+
+
+            reviewCard.innerHTML = `
+
+                <div class="review-stars">
+
+                    ${stars}
+
+                </div>
+
+
+                <p>
+
+                    ${item.feedback}
+
+                </p>
+
+
+                <h4>
+
+                    - ${item.customer_name}
+
+                </h4>
+
+            `;
+
+
+            reviewContainer.appendChild(
+                reviewCard
+            );
+
+        });
+
+
+    } catch (error) {
+
+
+        console.error(
+            "Customer Reviews Error:",
+            error
+        );
+
+
+        reviewContainer.innerHTML = `
+
+            <div class="no-reviews">
+
+                Unable to load customer reviews.
+
+            </div>
+
+        `;
+
+    }
+
+}
+
+
+loadCustomerReviews();
+
+</script>
+
+
 </body>
 
 </html>

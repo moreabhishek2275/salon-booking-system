@@ -3,40 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About | SalonHub</title>
+
+    <title>About | The Beauty Salon</title>
 
     <link rel="stylesheet" href="css/style.css">
+
+    <style>
+
+        /* =========================
+           ABOUT PAGE NAVBAR
+        ========================= */
+
+        .about-navbar {
+            position: relative;
+            width: 100%;
+            height: 80px;
+            background: #000;
+            display: flex;
+            align-items: center;
+            padding: 0 8%;
+            box-sizing: border-box;
+        }
+
+        /* LEFT - BACK TO HOME */
+
+        .back-home {
+            color: #fff;
+            text-decoration: none;
+            font-size: 17px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .back-home:hover {
+            color: #e0b52f;
+        }
+
+        /* CENTER - ABOUT */
+
+        .about-page-title {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+
+            color: #e0b52f;
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        /* Mobile */
+
+        @media (max-width: 768px) {
+
+            .about-navbar {
+                padding: 0 5%;
+            }
+
+            .back-home {
+                font-size: 15px;
+            }
+
+            .about-page-title {
+                font-size: 18px;
+            }
+
+        }
+
+    </style>
+
 </head>
+
 <body>
 
+
 <!-- =========================
-        NAVBAR
+        ABOUT NAVBAR
 ========================= -->
 
 <header>
 
-    <nav class="navbar">
+    <nav class="about-navbar">
 
-        <div class="logo">
-            Salon<span>Hub</span>
+        <!-- LEFT : BACK TO HOME -->
+
+        <a href="index.html" class="back-home">
+            ← Back to Home
+        </a>
+
+
+        <!-- CENTER : CURRENT PAGE -->
+
+        <div class="about-page-title">
+            About
         </div>
 
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html" class="active">About</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="gallery.html">Gallery</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-
-       <a href="booking.html" class="btn">Book Appointment</a>
-       
-       <button id="themeToggle" class="theme-btn">
-    🌙
-</button>
     </nav>
 
 </header>
+
+
 
 <!-- =========================
         ABOUT HERO
@@ -46,7 +113,10 @@
 
     <div class="about-banner">
 
-        <img src="images/about-salon.png" alt="Salon Interior">
+        <img
+            src="images/about-salon.png"
+            alt="Salon Interior"
+        >
 
         <div class="about-overlay">
 
@@ -62,6 +132,9 @@
     </div>
 
 </section>
+
+
+
 <!-- =========================
         OUR STORY
 ========================= -->
@@ -89,15 +162,22 @@
 
         </div>
 
+
         <div class="story-image">
 
-            <img src="images/about-salon.png" alt="Our Story">
+            <img
+                src="images/about-salon.png"
+                alt="Our Story"
+            >
 
         </div>
 
     </div>
 
 </section>
+
+
+
 <!-- =========================
         OUR JOURNEY
 ========================= -->
@@ -106,7 +186,11 @@
 
     <h2>Our Journey</h2>
 
+
     <div class="timeline">
+
+
+        <!-- 2018 -->
 
         <div class="timeline-item">
 
@@ -119,6 +203,10 @@
 
         </div>
 
+
+
+        <!-- 2020 -->
+
         <div class="timeline-item">
 
             <h3>2020</h3>
@@ -129,28 +217,42 @@
             </p>
 
         </div>
-<div class="timeline-item">
 
-    <h3>2022</h3>
 
-    <p>
-        Expanded our premium services with luxury hair styling,
-        beard grooming, facial care, and modern salon experiences.
-    </p>
 
-</div>
-<div class="timeline-item">
+        <!-- 2022 -->
 
-    <h3>2025</h3>
+        <div class="timeline-item">
 
-    <p>
-        Proudly serving over 5,000+ happy customers and becoming
-        one of the most trusted premium salons in the city.
-    </p>
+            <h3>2022</h3>
 
-</div>
+            <p>
+                Expanded our premium services with luxury hair styling,
+                beard grooming, facial care, and modern salon experiences.
+            </p>
+
+        </div>
+
+
+
+        <!-- 2025 -->
+
+        <div class="timeline-item">
+
+            <h3>2025</h3>
+
+            <p>
+                Proudly serving over 5,000+ happy customers and becoming
+                one of the most trusted premium salons in the city.
+            </p>
+
+        </div>
+
+
     </div>
 
 </section>
+
+
 </body>
 </html>

@@ -1,124 +1,558 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gallery | SalonHub</title>
 
-    <link rel="stylesheet" href="css/style.css">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Gallery | The Beauty Salon</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+    <style>
+
+        /* =========================================
+           GALLERY PAGE NAVBAR
+        ========================================= */
+
+        .gallery-navbar {
+
+            position: relative;
+
+            width: 100%;
+            height: 80px;
+
+            background: #000;
+
+            display: flex;
+            align-items: center;
+
+            padding: 0 8%;
+
+            box-sizing: border-box;
+
+        }
+
+
+        /* LEFT : BACK TO HOME */
+
+        .back-home {
+
+            color: #fff;
+
+            text-decoration: none;
+
+            font-size: 17px;
+
+            font-weight: 600;
+
+            transition: 0.3s;
+
+        }
+
+
+        .back-home:hover {
+
+            color: #e0b52f;
+
+        }
+
+
+        /* CENTER : GALLERY */
+
+        .gallery-page-title {
+
+            position: absolute;
+
+            left: 50%;
+            top: 50%;
+
+            transform:
+                translate(-50%, -50%);
+
+            color: #e0b52f;
+
+            font-size: 22px;
+
+            font-weight: 700;
+
+            letter-spacing: 0.5px;
+
+        }
+
+
+        /* =========================================
+           MOBILE NAVBAR
+        ========================================= */
+
+        @media (max-width: 768px) {
+
+            .gallery-navbar {
+
+                padding: 0 5%;
+
+            }
+
+            .back-home {
+
+                font-size: 15px;
+
+            }
+
+            .gallery-page-title {
+
+                font-size: 19px;
+
+            }
+
+        }
+
+    </style>
+
 </head>
+
+
 <body>
 
-<!-- =========================
-        NAVBAR
-========================= -->
+
+<!-- =========================================
+     GALLERY NAVBAR
+========================================= -->
 
 <header>
 
-    <nav class="navbar">
+    <nav class="gallery-navbar">
 
-        <div class="logo">
-            Salon<span>Hub</span>
+        <!-- LEFT -->
+
+        <a
+            href="index.html"
+            class="back-home"
+        >
+            ← Back to Home
+        </a>
+
+
+        <!-- CENTER -->
+
+        <div class="gallery-page-title">
+
+            Gallery
+
         </div>
-
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="gallery.html" class="active">Gallery</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-
-       <a href="booking.html" class="btn">Book Appointment</a>
-
-       <button id="themeToggle" class="theme-btn">
-    🌙
-</button>
 
     </nav>
 
 </header>
 
-<!-- =========================
-        GALLERY HERO
-========================= -->
 
-<section class="gallery-hero">
 
-    <h1>Our Gallery</h1>
 
-    <p>
-        Explore our premium salon work,
-        modern hairstyles, beard grooming,
-        and luxury transformations.
-    </p>
 
-</section>
-
-<!-- =========================
-        GALLERY
-========================= -->
+<!-- =========================================
+     GALLERY
+========================================= -->
 
 <section class="gallery-page">
+
 
     <!-- Gallery Filter -->
 
     <div class="gallery-filter">
 
-        <button class="active">All</button>
+        <button class="active">
+            All
+        </button>
 
-        <button>Hair Cut</button>
+        <button>
+            Hair Cut
+        </button>
 
-        <button>Hair Styling</button>
+        <button>
+            Hair Styling
+        </button>
 
-        <button>Beard Grooming</button>
+        <button>
+            Beard Grooming
+        </button>
 
-        <button>Facial Care</button>
+        <button>
+            Facial Care
+        </button>
 
     </div>
 
-    <!-- Gallery Grid -->
 
-    <div class="gallery-grid">
 
-        <div class="gallery-item">
-            <img src="images/gallery1.png" alt="Hair Cut">
-        </div>
+    <!-- =========================================
+         LIVE GALLERY GRID
+    ========================================= -->
 
-        <div class="gallery-item">
-            <img src="images/gallery2.png" alt="Hair Styling">
-        </div>
+    <div
+        class="gallery-grid"
+        id="galleryGrid"
+    >
 
-        <div class="gallery-item">
-            <img src="images/gallery3.png" alt="Beard Grooming">
-        </div>
-
-        <div class="gallery-item">
-            <img src="images/gallery4.png" alt="Facial Care">
-        </div>
-
-        <div class="gallery-item">
-            <img src="images/gallery5.png" alt="Salon Interior">
-        </div>
-
-        <div class="gallery-item">
-            <img src="images/gallery6.png" alt="Hair Styling">
-        </div>
+        <!--
+            Images added by Admin
+            will appear here
+        -->
 
     </div>
 
 </section>
-<!-- =========================
-        GALLERY LIGHTBOX
-========================= -->
 
-<div class="lightbox" id="lightbox">
 
-    <span class="close-lightbox">&times;</span>
 
-    <img id="lightbox-img" src="" alt="Gallery Image">
+<!-- =========================================
+     GALLERY LIGHTBOX
+========================================= -->
+
+<div
+    class="lightbox"
+    id="lightbox"
+>
+
+    <span class="close-lightbox">
+        &times;
+    </span>
+
+    <img
+        id="lightbox-img"
+        src=""
+        alt="Gallery Image"
+    >
 
 </div>
+
+
+
+<!-- =========================================
+     MAIN SCRIPT
+========================================= -->
+
 <script src="js/script.js"></script>
+
+
+
+<!-- =========================================
+     LIVE GALLERY SCRIPT
+========================================= -->
+
+<script>
+
+async function loadLiveGallery() {
+
+    try {
+
+        const response =
+            await fetch(
+                "http://localhost:5000/api/gallery"
+            );
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                "Failed to load gallery"
+            );
+
+        }
+
+
+        const images =
+            await response.json();
+
+
+        const galleryGrid =
+            document.getElementById(
+                "galleryGrid"
+            );
+
+
+        galleryGrid.innerHTML = "";
+
+
+        /* =========================================
+           DISPLAY GALLERY IMAGES
+        ========================================= */
+
+        images.forEach(image => {
+
+            const galleryItem =
+                document.createElement("div");
+
+
+            galleryItem.className =
+                "gallery-item";
+
+
+            /* Category */
+
+            galleryItem.dataset.category =
+                image.category;
+
+
+            /* Image */
+
+            const img =
+                document.createElement("img");
+
+
+            img.src =
+                "http://localhost:5000"
+                + image.image;
+
+
+            img.alt =
+                image.category
+                || "Salon Gallery";
+
+
+            galleryItem.appendChild(img);
+
+
+            galleryGrid.appendChild(
+                galleryItem
+            );
+
+        });
+
+
+
+        /* =========================================
+           GALLERY CATEGORY FILTER
+        ========================================= */
+
+        const filterButtons =
+            document.querySelectorAll(
+                ".gallery-filter button"
+            );
+
+
+        filterButtons.forEach(button => {
+
+
+            button.addEventListener(
+                "click",
+                function () {
+
+
+                    /* Active button */
+
+                    filterButtons.forEach(
+                        btn => {
+
+                            btn.classList.remove(
+                                "active"
+                            );
+
+                        }
+                    );
+
+
+                    this.classList.add(
+                        "active"
+                    );
+
+
+                    /* Selected category */
+
+                    const selectedCategory =
+                        this.textContent.trim();
+
+
+                    const galleryItems =
+                        document.querySelectorAll(
+                            ".gallery-item"
+                        );
+
+
+                    /* Filter */
+
+                    galleryItems.forEach(
+                        item => {
+
+
+                            if (
+                                selectedCategory
+                                === "All"
+                            ) {
+
+                                item.style.display =
+                                    "block";
+
+                            }
+
+                            else if (
+                                item.dataset.category
+                                === selectedCategory
+                            ) {
+
+                                item.style.display =
+                                    "block";
+
+                            }
+
+                            else {
+
+                                item.style.display =
+                                    "none";
+
+                            }
+
+                        }
+                    );
+
+                }
+            );
+
+        });
+
+
+        /* =========================================
+           LIGHTBOX
+        ========================================= */
+
+        const lightbox =
+            document.getElementById(
+                "lightbox"
+            );
+
+
+        const lightboxImg =
+            document.getElementById(
+                "lightbox-img"
+            );
+
+
+        const closeLightbox =
+            document.querySelector(
+                ".close-lightbox"
+            );
+
+
+        const galleryImages =
+            document.querySelectorAll(
+                ".gallery-item img"
+            );
+
+
+        galleryImages.forEach(
+            image => {
+
+                image.addEventListener(
+                    "click",
+                    function () {
+
+                        lightboxImg.src =
+                            this.src;
+
+                        lightbox.classList.add(
+                            "active"
+                        );
+
+                    }
+                );
+
+            }
+        );
+
+
+        /* Close button */
+
+        if (closeLightbox) {
+
+            closeLightbox.addEventListener(
+                "click",
+                function () {
+
+                    lightbox.classList.remove(
+                        "active"
+                    );
+
+                }
+            );
+
+        }
+
+
+        /* Click outside image */
+
+        if (lightbox) {
+
+            lightbox.addEventListener(
+                "click",
+                function (event) {
+
+                    if (
+                        event.target ===
+                        lightbox
+                    ) {
+
+                        lightbox.classList.remove(
+                            "active"
+                        );
+
+                    }
+
+                }
+            );
+
+        }
+
+
+        /* ESC key */
+
+        document.addEventListener(
+            "keydown",
+            function (event) {
+
+                if (
+                    event.key === "Escape"
+                ) {
+
+                    lightbox.classList.remove(
+                        "active"
+                    );
+
+                }
+
+            }
+        );
+
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Gallery loading failed:",
+            error
+        );
+
+    }
+
+}
+
+
+/* =========================================
+   LOAD GALLERY
+========================================= */
+
+loadLiveGallery();
+
+</script>
+
+
 </body>
+
 </html>

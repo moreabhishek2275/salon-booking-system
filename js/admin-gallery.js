@@ -14,7 +14,7 @@ async function loadGallery() {
 
     try {
 
-        const response = await fetch("http://localhost:3000/api/gallery");
+        const response = await fetch("http://localhost:5000/api/gallery");
 
         const images = await response.json();
 
@@ -87,25 +87,50 @@ if (galleryForm) {
 
         e.preventDefault();
 
-        const image = document.getElementById("galleryImage").value;
+        const imageFile = document.getElementById("galleryImage").files[0];
+        const category = document.getElementById("galleryCategory").value;
+
+        if (!imageFile) {
+    alert("Please select an image");
+    return;
+}
 
         try {
 
-            const response = await fetch("http://localhost:3000/api/gallery", {
+          const formData = new FormData();
+formData.append("image", imageFile);
 
-                method: "POST",
+const response = await fetch("http://localhost:5000/api/upload", {
+    method: "POST",
+    body: formData
+});
 
-                headers: {
-                    "Content-Type": "application/json"
-                },
+const uploadResult = await response.json();
 
-                body: JSON.stringify({ image })
+if (!uploadResult.success) {
+    alert("Image Upload Failed");
+    return;
+}
 
-            });
+const imagePath = uploadResult.imagePath;
 
-            const result = await response.json();
+ const galleryResponse = await fetch("http://localhost:5000/api/gallery", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+   body: JSON.stringify({
+    image: imagePath,
+    category: category
+})
+});
 
-            alert(result.message);
+if (!galleryResponse.ok) {
+    alert("Gallery Save Failed");
+    return;
+}         
+
+            
 
             galleryForm.reset();
 

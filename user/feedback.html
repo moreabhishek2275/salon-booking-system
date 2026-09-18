@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Give Feedback | SalonHub</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+  <style>
+
+    /* =========================
+       FEEDBACK PAGE
+    ========================= */
+
+    .feedback-page {
+        max-width: 760px;
+        margin: 40px auto;
+        padding: 20px;
+    }
+
+
+    /* =========================
+       FEEDBACK CARD
+    ========================= */
+
+    .feedback-card {
+        background: #1b1b1b;
+        padding: 38px;
+        border-radius: 18px;
+        border: 1px solid #6f5715;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.45);
+    }
+
+
+    /* =========================
+       TITLE
+    ========================= */
+
+    .feedback-card h1 {
+        margin-bottom: 8px;
+        color: #d4af37;
+        font-size: 32px;
+    }
+
+
+    .feedback-card p {
+        margin-bottom: 30px;
+        color: #cfcfcf;
+    }
+
+
+    /* =========================
+       FORM GROUP
+    ========================= */
+
+    .form-group {
+        margin-bottom: 25px;
+    }
+
+
+    .form-group label {
+        display: block;
+        margin-bottom: 10px;
+        color: #f5f5f5;
+        font-weight: 600;
+        font-size: 15px;
+    }
+
+
+    /* =========================
+       INPUT + TEXTAREA
+    ========================= */
+
+    .form-group input,
+    .form-group textarea {
+        width: 100%;
+        padding: 14px 15px;
+        box-sizing: border-box;
+
+        background: #202020;
+        color: #ffffff;
+
+        border: 1px solid #555;
+        border-radius: 8px;
+
+        font-family: Poppins, sans-serif;
+        font-size: 14px;
+
+        outline: none;
+        transition: 0.3s;
+    }
+
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+        border-color: #d4af37;
+        box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.12);
+    }
+
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+        color: #888;
+    }
+
+
+    .form-group textarea {
+        min-height: 130px;
+        resize: vertical;
+    }
+
+
+    /* =========================
+       STAR RATING
+    ========================= */
+
+    .rating {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: flex-end;
+        gap: 5px;
+        margin-top: 8px;
+    }
+
+
+    .rating input {
+        display: none;
+    }
+
+
+    .rating label {
+        font-size: 38px;
+        color: #666;
+        cursor: pointer;
+        transition: 0.2s;
+        line-height: 1;
+    }
+
+
+    .rating label:hover,
+    .rating label:hover ~ label {
+        color: #f5b301;
+        transform: scale(1.05);
+    }
+
+
+    .rating input:checked ~ label {
+        color: #f5b301;
+    }
+
+
+    /* =========================
+       SUBMIT BUTTON
+    ========================= */
+
+    .submit-feedback {
+        width: 100%;
+        padding: 14px;
+
+        border: none;
+        border-radius: 8px;
+
+        background: #d4af37;
+        color: #111;
+
+        font-size: 16px;
+        font-weight: 700;
+
+        cursor: pointer;
+        font-family: Poppins, sans-serif;
+
+        transition: 0.3s;
+    }
+
+
+    .submit-feedback:hover {
+        background: #e4c354;
+        transform: translateY(-1px);
+    }
+
+
+    /* =========================
+       MESSAGE
+    ========================= */
+
+    #message {
+        margin-top: 15px;
+        text-align: center;
+        font-weight: 500;
+    }
+
+
+    /* =========================
+       BACK BUTTON
+    ========================= */
+
+    .back-btn {
+        display: inline-block;
+        margin-top: 22px;
+
+        text-decoration: none;
+        color: #d4af37;
+
+        font-weight: 500;
+
+        transition: 0.3s;
+    }
+
+
+    .back-btn:hover {
+        color: #f0d36b;
+    }
+
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 768px) {
+
+        .feedback-page {
+            margin: 20px auto;
+            padding: 15px;
+        }
+
+        .feedback-card {
+            padding: 25px;
+        }
+
+        .feedback-card h1 {
+            font-size: 26px;
+        }
+
+        .rating label {
+            font-size: 32px;
+        }
+
+    }
+
+</style>
+</head>
+
+
+<body>
+
+
+    <div class="dashboard">
+
+
+        <!-- =========================
+             SIDEBAR
+        ========================== -->
+
+        <aside class="sidebar">
+
+            <h2>SalonHub</h2>
+
+            <ul>
+
+                <li>
+                    <a href="dashboard.html">
+                        🏠 Dashboard
+                    </a>
+                </li>
+
+                <li>
+                    <a href="my-appointments.html">
+                        📋 My Appointments
+                    </a>
+                </li>
+
+                <li>
+                    <a href="profile.html">
+                        👤 My Profile
+                    </a>
+                </li>
+
+                <li>
+                    <a href="payments.html">
+                        💳 Payments
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#" id="logoutBtn">
+                        🚪 Logout
+                    </a>
+                </li>
+
+            </ul>
+
+        </aside>
+
+
+        <!-- =========================
+             MAIN CONTENT
+        ========================== -->
+
+        <main class="main-content">
+
+
+            <div class="feedback-page">
+
+
+                <div class="feedback-card">
+
+
+                    <h1>Customer Feedback</h1>
+
+                    <p>
+                        We would love to hear about your SalonHub experience.
+                    </p>
+
+
+                    <!-- =========================
+                         FEEDBACK FORM
+                    ========================== -->
+
+                    <form id="feedbackForm">
+
+
+                        <!-- CUSTOMER NAME -->
+
+                        <div class="form-group">
+
+                            <label for="customerName">
+                                Your Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="customerName"
+                                placeholder="Enter your name"
+                                required
+                            >
+
+                        </div>
+
+
+                        <!-- RATING -->
+
+                        <div class="form-group">
+
+                            <label>
+                                Your Rating
+                            </label>
+
+                            <div class="rating">
+
+                                <input
+                                    type="radio"
+                                    id="star5"
+                                    name="rating"
+                                    value="5"
+                                    required
+                                >
+
+                                <label for="star5">★</label>
+
+
+                                <input
+                                    type="radio"
+                                    id="star4"
+                                    name="rating"
+                                    value="4"
+                                >
+
+                                <label for="star4">★</label>
+
+
+                                <input
+                                    type="radio"
+                                    id="star3"
+                                    name="rating"
+                                    value="3"
+                                >
+
+                                <label for="star3">★</label>
+
+
+                                <input
+                                    type="radio"
+                                    id="star2"
+                                    name="rating"
+                                    value="2"
+                                >
+
+                                <label for="star2">★</label>
+
+
+                                <input
+                                    type="radio"
+                                    id="star1"
+                                    name="rating"
+                                    value="1"
+                                >
+
+                                <label for="star1">★</label>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- COMMENT -->
+
+                        <div class="form-group">
+
+                            <label for="feedbackText">
+                                Your Feedback
+                            </label>
+
+                            <textarea
+                                id="feedbackText"
+                                placeholder="Write your feedback..."
+                                required
+                            ></textarea>
+
+                        </div>
+
+
+                        <!-- SUBMIT -->
+
+                        <button
+                            type="submit"
+                            class="submit-feedback"
+                        >
+                            Submit Feedback
+                        </button>
+
+
+                        <div id="message"></div>
+
+
+                    </form>
+
+
+                    <a
+                        href="my-appointments.html"
+                        class="back-btn"
+                    >
+                        ← Back to My Appointments
+                    </a>
+
+
+                </div>
+
+
+            </div>
+
+
+        </main>
+
+
+    </div>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script src="../js/script.js"></script>
+
+    <script>
+
+
+        // =========================
+        // CHECK LOGIN
+        // =========================
+
+        const userData =
+            localStorage.getItem("salonhubUser");
+
+
+        if (!userData) {
+
+            window.location.href = "login.html";
+
+        }
+
+
+        const user =
+            JSON.parse(userData);
+
+
+        // =========================
+        // GET BOOKING ID
+        // =========================
+
+        const urlParams =
+            new URLSearchParams(
+                window.location.search
+            );
+
+
+        const bookingId =
+            urlParams.get("booking_id");
+
+
+        // =========================
+        // AUTO FILL USER NAME
+        // =========================
+
+        if (user && user.name) {
+
+            document.getElementById(
+                "customerName"
+            ).value = user.name;
+
+        }
+
+
+        // =========================
+        // SUBMIT FEEDBACK
+        // =========================
+
+        document
+            .getElementById("feedbackForm")
+            .addEventListener(
+                "submit",
+                async function (e) {
+
+                    e.preventDefault();
+
+
+                    const customerName =
+                        document.getElementById(
+                            "customerName"
+                        ).value.trim();
+
+
+                    const rating =
+                        document.querySelector(
+                            'input[name="rating"]:checked'
+                        )?.value;
+
+
+                    const feedbackText =
+                        document.getElementById(
+                            "feedbackText"
+                        ).value.trim();
+
+
+                    const message =
+                        document.getElementById(
+                            "message"
+                        );
+
+
+                    if (!rating) {
+
+                        message.innerText =
+                            "Please select a rating.";
+
+                        return;
+
+                    }
+
+
+                    try {
+
+
+                        const response =
+                            await fetch(
+                                "http://localhost:5000/api/feedback",
+                                {
+
+                                    method: "POST",
+
+                                    headers: {
+                                        "Content-Type":
+                                            "application/json"
+                                    },
+
+                                    body: JSON.stringify({
+
+                                        booking_id:
+                                            bookingId,
+
+                                        customer_name:
+                                            customerName,
+
+                                        customer_email:
+                                            user.email,
+
+                                        rating:
+                                            Number(rating),
+
+                                        feedback:
+                                            feedbackText
+
+                                    })
+
+                                }
+                            );
+
+
+                        const data =
+                            await response.json();
+
+
+                        if (data.success) {
+
+                            message.style.color =
+                                "green";
+
+                            message.innerText =
+                                "Feedback submitted successfully!";
+
+
+                            document
+                                .getElementById(
+                                    "feedbackForm"
+                                )
+                                .reset();
+
+
+                            setTimeout(
+                                function () {
+
+                                    window.location.href =
+                                        "my-appointments.html";
+
+                                },
+                                1500
+                            );
+
+                        } else {
+
+                            message.style.color =
+                                "red";
+
+                            message.innerText =
+                                data.message ||
+                                "Failed to submit feedback.";
+
+                        }
+
+
+                    } catch (error) {
+
+                        console.error(
+                            "Feedback Error:",
+                            error
+                        );
+
+
+                        message.style.color =
+                            "red";
+
+                        message.innerText =
+                            "Server error. Please try again.";
+
+                    }
+
+                }
+            );
+
+
+        // =========================
+        // LOGOUT
+        // =========================
+
+        document
+            .getElementById("logoutBtn")
+            .addEventListener(
+                "click",
+                function (e) {
+
+                    e.preventDefault();
+
+
+                    localStorage.removeItem(
+                        "salonhubUser"
+                    );
+
+
+                    window.location.href =
+                        "login.html";
+
+                }
+            );
+
+    </script>
+
+
+</body>
+
+</html>

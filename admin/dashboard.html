@@ -22,79 +22,189 @@
         <h2>SalonHub</h2>
 
         <ul>
-            <li><a href="dashboard.html" class="active">Dashboard</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="bookings.html">Bookings</a></li>
-            <li><a href="customers.html">Customers</a></li>
-            <li><a href="gallery.html">Gallery</a></li>
-            <li><a href="settings.html">Settings</a></li>
-            <li><a href="#" id="logoutBtn">Logout</a></li>
+
+            <li>
+                <a href="dashboard.html" class="active">
+                    Dashboard
+                </a>
+            </li>
+
+            <li>
+                <a href="services.html">
+                    Services
+                </a>
+            </li>
+
+            <li>
+                <a href="bookings.html">
+                    Bookings
+                </a>
+            </li>
+
+            <li>
+                <a href="customers.html">
+                    Customers
+                </a>
+            </li>
+
+            <li>
+                <a href="gallery.html">
+                    Gallery
+                </a>
+            </li>
+
+            <!-- Feedback -->
+            <li>
+                <a href="feedback.html">
+                    Feedback
+                </a>
+            </li>
+
+            <li>
+                <a href="settings.html">
+                    Settings
+                </a>
+            </li>
+
+            <li>
+                <a href="#" id="logoutBtn">
+                    Logout
+                </a>
+            </li>
+
         </ul>
 
     </aside>
+
 
     <!-- Main Content -->
     <main class="main-content">
 
         <h1>Welcome Admin 👋</h1>
 
+
         <!-- Dashboard Cards -->
         <div class="dashboard-cards">
 
             <div class="dashboard-card">
-                <h2 id="totalBookings">0</h2>
-                <p>Total Bookings</p>
+
+                <h2 id="totalBookings">
+                    0
+                </h2>
+
+                <p>
+                    Total Bookings
+                </p>
+
             </div>
 
-            <div class="dashboard-card">
-                <h2 id="totalRevenue">₹0</h2>
-                <p>Total Revenue</p>
-            </div>
 
             <div class="dashboard-card">
-                <h2 id="todayBookings">0</h2>
-                <p>Today's Bookings</p>
+
+                <h2 id="totalRevenue">
+                    ₹0
+                </h2>
+
+                <p>
+                    Total Revenue
+                </p>
+
             </div>
 
+
             <div class="dashboard-card">
-                <h2 id="todayRevenue">₹0</h2>
-                <p>Today's Revenue</p>
+
+                <h2 id="todayBookings">
+                    0
+                </h2>
+
+                <p>
+                    Today's Bookings
+                </p>
+
+            </div>
+
+
+            <div class="dashboard-card">
+
+                <h2 id="todayRevenue">
+                    ₹0
+                </h2>
+
+                <p>
+                    Today's Revenue
+                </p>
+
             </div>
 
         </div>
+
 
         <!-- Chart Section -->
         <div class="dashboard-section">
 
-            <h2>Revenue Chart</h2>
+            <h2>
+                Revenue Chart
+            </h2>
 
-            <canvas id="revenueChart" height="100"></canvas>
+            <canvas
+                id="revenueChart"
+                height="100">
+            </canvas>
 
         </div>
+
 
         <!-- Recent Bookings -->
         <div class="dashboard-section">
 
-            <h2>Recent Bookings</h2>
+            <h2>
+                Recent Bookings
+            </h2>
+
 
             <table class="services-table">
 
                 <thead>
+
                     <tr>
-                        <th>Customer</th>
-                        <th>Service</th>
-                        <th>Date</th>
-                        <th>Time</th>
-                        <th>Status</th>
+
+                        <th>
+                            Customer
+                        </th>
+
+                        <th>
+                            Service
+                        </th>
+
+                        <th>
+                            Date
+                        </th>
+
+                        <th>
+                            Time
+                        </th>
+
+                        <th>
+                            Status
+                        </th>
+
                     </tr>
+
                 </thead>
+
 
                 <tbody id="recentBookingsBody">
 
                     <tr>
-                        <td colspan="5" style="text-align:center;">
+
+                        <td
+                            colspan="5"
+                            style="text-align:center;"
+                        >
                             No Recent Bookings
                         </td>
+
                     </tr>
 
                 </tbody>
@@ -107,11 +217,14 @@
 
 </div>
 
+
 <!-- Chart.js -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
+
 <!-- Main JS -->
 <script src="../js/script.js"></script>
+
 
 </body>
 

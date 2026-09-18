@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Appointments | SalonHub</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+
+        /* =========================
+           FEEDBACK BUTTON
+        ========================= */
+
+        .feedback-btn {
+
+            display: inline-block;
+
+            padding: 8px 14px;
+
+            background: #d4af37;
+
+            color: #fff;
+
+            text-decoration: none;
+
+            border-radius: 6px;
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+            transition: 0.3s;
+
+        }
+
+        .feedback-btn:hover {
+
+            background: #b8941f;
+
+            transform: translateY(-1px);
+
+        }
+
+        .feedback-given {
+
+            color: #28a745;
+
+            font-weight: 600;
+
+            font-size: 13px;
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="dashboard">
+
+        <!-- =========================
+             SIDEBAR
+        ========================== -->
+
+        <aside class="sidebar">
+
+            <h2>SalonHub</h2>
+
+            <ul>
+
+                <li>
+                    <a href="dashboard.html">
+                        🏠 Dashboard
+                    </a>
+                </li>
+
+                <li>
+                    <a href="my-appointments.html" class="active">
+                        📋 My Appointments
+                    </a>
+                </li>
+
+                <li>
+                    <a href="profile.html">
+                        👤 My Profile
+                    </a>
+                </li>
+
+                <li>
+                    <a href="payments.html">
+                        💳 Payments
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#" id="logoutBtn">
+                        🚪 Logout
+                    </a>
+                </li>
+
+            </ul>
+
+        </aside>
+
+
+        <!-- =========================
+             MAIN CONTENT
+        ========================== -->
+
+        <main class="main-content">
+
+            <h1>My Appointments</h1>
+
+            <p>
+                View and manage your salon appointments.
+            </p>
+
+
+            <!-- =========================
+                 APPOINTMENTS TABLE
+            ========================= -->
+
+            <div class="appointments-container">
+
+                <table class="services-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Service</th>
+
+                            <th>Date</th>
+
+                            <th>Time</th>
+
+                            <th>Amount</th>
+
+                            <th>Payment</th>
+
+                            <th>Status</th>
+
+                            <th>Feedback</th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="appointmentsTableBody">
+
+                        <tr>
+
+                            <td colspan="7" style="text-align:center;">
+                                Loading appointments...
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </main>
+
+    </div>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================= -->
+
+    <script src="../js/script.js"></script>
+
+    <script>
+
+        // =========================
+        // CHECK USER LOGIN
+        // =========================
+
+        const userData = localStorage.getItem("salonhubUser");
+
+        if (!userData) {
+
+            window.location.href = "login.html";
+
+        }
+
+
+        // =========================
+        // LOAD USER APPOINTMENTS
+        // =========================
+
+        async function loadAppointments() {
+
+            const user = JSON.parse(
+                localStorage.getItem("salonhubUser")
+            );
+
+            if (!user) {
+                return;
+            }
+
+            const tableBody =
+                document.getElementById(
+                    "appointmentsTableBody"
+                );
+
+
+            try {
+
+                const response = await fetch(
+                    `http://localhost:5000/api/users/appointments?email=${encodeURIComponent(user.email)}`
+                );
+
+
+                const data = await response.json();
+
+
+                // =========================
+                // NO APPOINTMENTS
+                // =========================
+
+                if (
+                    !data.success ||
+                    data.appointments.length === 0
+                ) {
+
+                    tableBody.innerHTML = `
+                        <tr>
+
+                            <td colspan="7"
+                                style="text-align:center;">
+
+                                No appointments found.
+
+                            </td>
+
+                        </tr>
+                    `;
+
+                    return;
+
+                }
+
+
+                tableBody.innerHTML = "";
+
+
+                // =========================
+                // DISPLAY APPOINTMENTS
+                // =========================
+
+                data.appointments.forEach(
+                    appointment => {
+
+                        const row =
+                            document.createElement("tr");
+
+
+                        // =========================
+                        // FEEDBACK BUTTON
+                        // =========================
+
+                        let feedbackHTML = `
+                            <a
+                                href="feedback.html?booking_id=${appointment.id}"
+                                class="feedback-btn"
+                            >
+                                Give Feedback
+                            </a>
+                        `;
+
+
+                        // =========================
+                        // CREATE ROW
+                        // =========================
+
+                        row.innerHTML = `
+
+                            <td>
+                                ${appointment.service}
+                            </td>
+
+
+                            <td>
+
+                                ${
+                                    new Date(
+                                        appointment.booking_date
+                                    ).toLocaleDateString(
+                                        "en-GB"
+                                    )
+                                }
+
+                            </td>
+
+
+                            <td>
+                                ${appointment.booking_time}
+                            </td>
+
+
+                            <td>
+                                ₹${appointment.payment_amount}
+                            </td>
+
+
+                            <td>
+                                ${
+                                    appointment.payment_status ||
+                                    "Pending"
+                                }
+                            </td>
+
+
+                            <td>
+                                ${
+                                    appointment.status ||
+                                    "Pending"
+                                }
+                            </td>
+
+
+                            <td>
+
+                                ${feedbackHTML}
+
+                            </td>
+
+                        `;
+
+
+                        tableBody.appendChild(row);
+
+                    }
+                );
+
+
+            } catch (error) {
+
+                console.error(
+                    "Appointments Error:",
+                    error
+                );
+
+
+                tableBody.innerHTML = `
+
+                    <tr>
+
+                        <td colspan="7"
+                            style="text-align:center;">
+
+                            Failed to load appointments.
+
+                        </td>
+
+                    </tr>
+
+                `;
+
+            }
+
+        }
+
+
+        // =========================
+        // LOAD APPOINTMENTS
+        // =========================
+
+        loadAppointments();
+
+
+        // =========================
+        // LOGOUT
+        // =========================
+
+        document
+            .getElementById("logoutBtn")
+            .addEventListener(
+                "click",
+                function (e) {
+
+                    e.preventDefault();
+
+
+                    localStorage.removeItem(
+                        "salonhubUser"
+                    );
+
+
+                    window.location.href =
+                        "login.html";
+
+                }
+            );
+
+    </script>
+
+</body>
+
+</html>

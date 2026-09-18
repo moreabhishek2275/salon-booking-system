@@ -2395,3 +2395,358 @@ body.light-theme .logo span{
     width:100%;
     display:block;
 }
+/* =========================================
+   ADMIN SETTINGS PAGE
+========================================= */
+
+.settings-container {
+    max-width: 850px;
+    margin-top: 35px;
+    padding: 35px;
+    background: #1f1f1f;
+    border: 1px solid rgba(218, 175, 47, 0.25);
+    border-radius: 18px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.35);
+}
+
+.settings-header {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.settings-header h2 {
+    margin: 0 0 8px;
+    color: #ffffff;
+    font-size: 24px;
+}
+
+.settings-header p {
+    margin: 0;
+    color: #aaa;
+    font-size: 14px;
+}
+
+
+/* FORM */
+
+.settings-form {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+
+/* INPUTS */
+
+.settings-form input,
+.settings-form textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 14px 16px;
+    border: 1px solid #444;
+    border-radius: 10px;
+    background: #151515;
+    color: #ffffff;
+    font-size: 15px;
+    outline: none;
+    transition: 0.3s ease;
+}
+
+.settings-form input {
+    height: 48px;
+}
+
+.settings-form textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+
+/* INPUT FOCUS */
+
+.settings-form input:focus,
+.settings-form textarea:focus {
+    border-color: #d8af2f;
+    box-shadow: 0 0 0 3px rgba(216, 175, 47, 0.12);
+}
+
+
+/* PLACEHOLDER */
+
+.settings-form input::placeholder,
+.settings-form textarea::placeholder {
+    color: #777;
+}
+
+
+/* SAVE BUTTON */
+
+.settings-actions {
+    margin-top: 5px;
+}
+
+.save-settings-btn {
+    padding: 13px 28px;
+    border: none;
+    border-radius: 10px;
+    background: #d8af2f;
+    color: #111;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.save-settings-btn:hover {
+    background: #f0c84b;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(216, 175, 47, 0.2);
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+
+    .settings-container {
+        margin: 20px;
+        padding: 25px;
+    }
+
+    .settings-header h2 {
+        font-size: 21px;
+    }
+
+    .settings-form input,
+    .settings-form textarea {
+        font-size: 14px;
+    }
+
+}
+
+/* =========================
+   USER LOGIN / REGISTER
+========================= */
+
+.login-container{
+    min-height:100vh;
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#111;
+    padding:30px;
+    box-sizing:border-box;
+}
+
+.login-container .login-box{
+    width:420px;
+    max-width:100%;
+    box-sizing:border-box;
+    background:#141414;
+    padding:40px;
+    border-radius:20px;
+    border:1px solid #D4AF37;
+    text-align:center;
+    box-shadow:0 15px 40px rgba(0,0,0,.5);
+}
+
+.login-container .login-box h1{
+    color:#D4AF37;
+    font-size:36px;
+    margin-bottom:15px;
+}
+
+.login-container .login-box h1 span{
+    color:#fff;
+}
+
+.login-container .login-box h2{
+    color:#fff;
+    margin-bottom:10px;
+}
+
+.login-container .login-box p{
+    color:#bbb;
+    margin-bottom:25px;
+}
+
+.login-container .login-box input{
+    width:100%;
+    box-sizing:border-box;
+    padding:15px;
+    margin-bottom:18px;
+    border:1px solid #333;
+    border-radius:10px;
+    background:#222;
+    color:#fff;
+    font-size:15px;
+    outline:none;
+}
+
+.login-container .login-box input:focus{
+    border-color:#D4AF37;
+}
+
+.login-container .login-box button{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:10px;
+    background:#D4AF37;
+    color:#111;
+    font-size:17px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.login-container .login-box button:hover{
+    background:#fff;
+}
+
+.login-container .login-footer{
+    margin-top:20px;
+    margin-bottom:15px;
+}
+
+.login-container .login-footer a,
+.login-container .back-home a{
+    color:#D4AF37;
+    text-decoration:none;
+}
+
+.login-container .login-footer a:hover,
+.login-container .back-home a:hover{
+    text-decoration:underline;
+}
+
+.login-container .back-home{
+    margin-top:15px;
+    margin-bottom:0;
+}
+
+/* =========================
+   SERVICE SELECTION
+========================= */
+
+.service-selection {
+    width: 100%;
+}
+
+.service-select-btn {
+    width: 100%;
+    padding: 15px;
+    background: #222;
+    color: #fff;
+    border: 1px solid #D4AF37;
+    border-radius: 10px;
+    font-size: 16px;
+    text-align: left;
+    cursor: pointer;
+}
+
+.service-select-btn:hover {
+    border-color: #fff;
+}
+
+
+/* =========================
+   SERVICE TYPE POPUP
+========================= */
+
+.service-popup {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.service-popup-box {
+    width: 420px;
+    max-width: 90%;
+    padding: 35px;
+    background: #181818;
+    border: 1px solid #D4AF37;
+    border-radius: 18px;
+    text-align: center;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+}
+
+.service-popup-box h3 {
+    color: #D4AF37;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.service-popup-box p {
+    color: #bbb;
+    margin-bottom: 25px;
+}
+
+.service-type-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.service-type-buttons button {
+    flex: 1;
+    padding: 13px;
+    border: none;
+    border-radius: 9px;
+    background: #D4AF37;
+    color: #111;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.service-type-buttons button:hover {
+    background: #fff;
+}
+
+/* NAVBAR LOGO - UPDATED */
+
+.navbar .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 28px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.navbar .logo img {
+    width: 280px !important;
+    height: 280px !important;
+    max-width: 280px !important;
+    max-height: 280px !important;
+    object-fit: contain;
+    display: block;
+}
+
+.navbar .logo span {
+    color: #ffffff;
+}
+
+.navbar .logo strong {
+    color: #e5b72f;
+    font-weight: 700;
+}

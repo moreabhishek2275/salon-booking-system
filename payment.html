@@ -113,7 +113,7 @@ const params = new URLSearchParams(window.location.search);
 
 const bookingId = params.get("bookingId");
 
-fetch(`http://localhost:3000/api/payment/${bookingId}`)
+fetch(`http://localhost:5000/api/payment/${bookingId}`)
 
 .then(response => response.json())
 
@@ -144,7 +144,7 @@ document.getElementById("payBtn").addEventListener("click", async () => {
 
         const amount = Number(document.getElementById("amount").innerText);
 
-        const response = await fetch("http://localhost:3000/api/create-order", {
+        const response = await fetch("http://localhost:5000/api/create-order", {
 
             method: "POST",
 
@@ -177,9 +177,9 @@ document.getElementById("payBtn").addEventListener("click", async () => {
     handler: async function (response) {
 
         // Generate Invoice First
-await fetch(`http://localhost:3000/api/invoice/${bookingId}`);
+await fetch(`http://localhost:5000/api/invoice/${bookingId}`);
 
-    await fetch(`http://localhost:3000/api/payment/${bookingId}`, {
+    await fetch(`http://localhost:5000/api/payment/${bookingId}`, {
 
         method: "PUT",
 

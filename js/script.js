@@ -88,7 +88,7 @@ if (bookingForm) {
 
         try {
 
-            const response = await fetch("http://localhost:3000/api/bookings", {
+            const response = await fetch("http://localhost:5000/api/bookings", {
 
                 method: "POST",
 
@@ -149,7 +149,7 @@ async function loadTimeSlots() {
         const selectedDate = document.getElementById("bookingDate").value;
 
 const response = await fetch(
-    `http://localhost:3000/api/time-slots?date=${selectedDate}`
+    `http://localhost:5000/api/time-slots?date=${selectedDate}`
 );
 
         const slots = await response.json();
@@ -183,7 +183,7 @@ const bookingTableBody = document.getElementById("bookingTableBody");
 
 if (bookingTableBody) {
 
-    fetch("http://localhost:3000/api/bookings")
+    fetch("http://localhost:5000/api/bookings")
 
         .then(response => response.json())
 
@@ -283,7 +283,7 @@ document.addEventListener("change", async (e) => {
         try {
 
             const response = await fetch(
-                `http://localhost:3000/api/bookings/${id}/status`,
+                `http://localhost:5000/api/bookings/${id}/status`,
                 {
                     method: "PUT",
                     headers: {
@@ -325,7 +325,7 @@ document.addEventListener("click", async (e) => {
 
         try {
 
-            const response = await fetch(`http://localhost:3000/api/bookings/${id}`, {
+            const response = await fetch(`http://localhost:5000/api/bookings/${id}`, {
 
                 method: "DELETE"
 
@@ -362,7 +362,7 @@ const todayBookings = document.getElementById("todayBookings");
 
 if (totalBookings) {
 
-    fetch("http://localhost:3000/api/dashboard")
+    fetch("http://localhost:5000/api/dashboard")
 
         .then(response => response.json())
 
@@ -521,7 +521,7 @@ async function loadRecentBookings() {
 
     try {
 
-        const response = await fetch("http://localhost:3000/api/recent-bookings");
+        const response = await fetch("http://localhost:5000/api/recent-bookings");
         const bookings = await response.json();
 
         if (bookings.length === 0) {
@@ -609,7 +609,7 @@ const servicesContainer = document.getElementById("servicesContainer");
 
 if (servicesContainer) {
 
-    fetch("http://localhost:3000/api/services")
+    fetch("http://localhost:5000/api/services")
 
         .then(response => response.json())
 
@@ -623,7 +623,7 @@ if (servicesContainer) {
 
                     <div class="service-card">
 
-                        <img src="http://localhost:3000${service.service_image}" alt="${service.service_name}">
+                        <img src="http://localhost:5000${service.service_image}" alt="${service.service_name}">
 
                         <div class="service-content">
 
@@ -668,7 +668,7 @@ const homeServicesContainer = document.getElementById("homeServicesContainer");
 
 if (homeServicesContainer) {
 
-    fetch("http://localhost:3000/api/services")
+    fetch("http://localhost:5000/api/services")
 
         .then(response => response.json())
 
@@ -682,7 +682,7 @@ if (homeServicesContainer) {
 <div class="service-card">
 
     <img
-        src="http://localhost:3000${service.service_image}"
+        src="http://localhost:5000${service.service_image}"
         alt="${service.service_name}">
 
     <div class="service-content">
@@ -722,58 +722,14 @@ if (homeServicesContainer) {
         .catch(error => {
             console.log("Failed to load services:", error);
         });
-
-}
-
-// =========================
-// LOAD SERVICES INTO BOOKING PAGE
-// =========================
-
-const bookingServiceDropdown = document.getElementById("customerService");
-
-if (bookingServiceDropdown) {
-
-    fetch("http://localhost:3000/api/services")
-
-        .then(response => response.json())
-
-        .then(services => {
-
-            bookingServiceDropdown.innerHTML =
-                `<option value="">Select Service</option>`;
-
-            services.forEach(service => {
-
-                bookingServiceDropdown.innerHTML += `
-                    <option value="${service.service_name}">
-                        ${service.service_name}
-                    </option>
-                `;
-
-            });
-
-            const params = new URLSearchParams(window.location.search);
-            const selectedService = params.get("service");
-
-            if (selectedService) {
-                bookingServiceDropdown.value = selectedService;
-            }
-
-        })
-
-        .catch(error => {
-            console.log("Error loading services:", error);
-        });
-
-}
-
+    }
 // =========================
 // DASHBOARD DATA LOAD
 // =========================
 
 if (window.location.pathname.includes("dashboard.html")) {
 
-    fetch("http://localhost:3000/api/dashboard")
+    fetch("http://localhost:5000/api/dashboard")
 
         .then(res => res.json())
 
@@ -804,7 +760,7 @@ if (window.location.pathname.includes("dashboard.html")) {
 
 if (window.location.pathname.includes("dashboard.html")) {
 
-    fetch("http://localhost:3000/api/bookings")
+    fetch("http://localhost:5000/api/bookings")
 
         .then(res => res.json())
 

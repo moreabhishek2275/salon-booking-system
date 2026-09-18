@@ -1,145 +1,1047 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Services | SalonHub</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services | The Beauty Salon</title>
 
-    <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/style.css">
+
+<style>
+
+/* =========================
+   SERVICES PAGE NAVBAR
+========================= */
+
+.services-navbar{
+    position:relative;
+    width:100%;
+    height:80px;
+    background:#000;
+    display:flex;
+    align-items:center;
+    padding:0 8%;
+    box-sizing:border-box;
+}
+
+.back-home{
+    color:#fff;
+    text-decoration:none;
+    font-size:17px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.back-home:hover{
+    color:#e0b52f;
+}
+
+.services-page-title{
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    color:#e0b52f;
+    font-size:22px;
+    font-weight:700;
+    letter-spacing:.5px;
+}
+
+
+/* =========================
+   SERVICES SECTION
+========================= */
+
+.services-page{
+    padding:70px 6% 90px;
+    background:#111;
+}
+
+
+/* =========================
+   CATEGORY HEADER
+========================= */
+
+.category-header{
+    text-align:center;
+    margin-bottom:45px;
+}
+
+.category-header .small-title{
+    color:#D4AF37;
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:5px;
+    text-transform:uppercase;
+}
+
+.category-header h2{
+    color:#fff;
+    font-size:44px;
+    margin:12px 0;
+}
+
+.category-header h2 span{
+    color:#D4AF37;
+}
+
+.category-header p{
+    color:#aaa;
+    font-size:16px;
+    margin:0 auto;
+    max-width:750px;
+    line-height:1.6;
+}
+
+
+/* =========================
+   CATEGORY BUTTONS
+========================= */
+
+.service-categories{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:15px;
+    margin-bottom:50px;
+    flex-wrap:wrap;
+}
+
+.category-btn{
+    min-width:120px;
+    padding:13px 28px;
+    background:transparent;
+    color:#fff;
+    border:1px solid #D4AF37;
+    border-radius:30px;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s ease;
+}
+
+.category-btn:hover{
+    background:#D4AF37;
+    color:#111;
+    transform:translateY(-2px);
+}
+
+.category-btn.active{
+    background:#D4AF37;
+    color:#111;
+}
+
+
+/* =========================
+   SERVICE GRID
+========================= */
+
+.service-grid{
+    max-width:1400px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:28px;
+}
+
+
+/* =========================
+   SERVICE CARD
+========================= */
+
+.service-card{
+    background:#1b1b1b;
+    border:1px solid #333;
+    border-radius:18px;
+    overflow:hidden;
+    transition:.35s ease;
+    position:relative;
+}
+
+.service-card:hover{
+    transform:translateY(-8px);
+    border-color:#D4AF37;
+    box-shadow:0 15px 35px rgba(0,0,0,.4);
+}
+
+.service-card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    display:block;
+}
+
+.service-content{
+    padding:24px;
+    text-align:center;
+}
+
+.service-content h2{
+    color:#fff;
+    font-size:22px;
+    margin:0 0 12px;
+}
+
+.service-content p{
+    color:#aaa;
+    font-size:14px;
+    line-height:1.5;
+    margin:7px 0;
+}
+
+.service-content h3{
+    color:#D4AF37;
+    font-size:24px;
+    margin:15px 0;
+}
+
+.service-content .book-btn{
+    display:inline-block;
+    padding:11px 25px;
+    background:#D4AF37;
+    color:#111;
+    text-decoration:none;
+    border-radius:8px;
+    font-weight:700;
+    transition:.3s ease;
+}
+
+.service-content .book-btn:hover{
+    background:#fff;
+}
+
+
+/* =========================
+   CATEGORY BADGE
+========================= */
+
+.service-category-badge{
+    display:inline-block;
+    margin-bottom:12px;
+    padding:6px 14px;
+    border:1px solid #D4AF37;
+    border-radius:20px;
+    color:#D4AF37;
+    font-size:12px;
+    font-weight:700;
+}
+
+
+/* =========================
+   NO SERVICES
+========================= */
+
+.no-services{
+    grid-column:1/-1;
+    text-align:center;
+    padding:60px 20px;
+    color:#aaa;
+    font-size:18px;
+}
+
+
+/* =========================
+   PREMIUM PACKAGES
+========================= */
+
+.packages{
+    padding:80px 6%;
+    background:#171717;
+    text-align:center;
+}
+
+.packages > h2{
+    color:#D4AF37;
+    font-size:42px;
+    margin-bottom:45px;
+}
+
+.package-grid{
+    max-width:1200px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:30px;
+}
+
+.package-card{
+    position:relative;
+    background:#1b1b1b;
+    border:1px solid #444;
+    border-radius:18px;
+    padding:35px 25px;
+    transition:.3s ease;
+}
+
+.package-card:hover{
+    transform:translateY(-8px);
+    border-color:#D4AF37;
+}
+
+.package-card.featured{
+    border-color:#D4AF37;
+}
+
+.package-card h3{
+    color:#fff;
+    font-size:25px;
+}
+
+.package-card h1{
+    color:#D4AF37;
+    font-size:38px;
+}
+
+.package-card ul{
+    list-style:none;
+    padding:0;
+    margin:25px 0;
+}
+
+.package-card li{
+    color:#ddd;
+    margin:12px 0;
+}
+
+.package-card .book-btn{
+    padding:12px 25px;
+    background:#D4AF37;
+    color:#111;
+    border:none;
+    border-radius:8px;
+    font-weight:700;
+    cursor:pointer;
+}
+
+.package-card .book-btn:hover{
+    background:#fff;
+}
+
+.badge{
+    position:absolute;
+    top:15px;
+    right:15px;
+    background:#D4AF37;
+    color:#111;
+    padding:6px 12px;
+    border-radius:20px;
+    font-size:11px;
+    font-weight:700;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:1100px){
+    .service-grid{
+        grid-template-columns:repeat(3,1fr);
+    }
+}
+
+@media(max-width:800px){
+
+    .services-page-title{
+        font-size:20px;
+    }
+
+    .service-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .package-grid{
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:550px){
+
+    .services-navbar{
+        padding:0 5%;
+    }
+
+    .back-home{
+        font-size:15px;
+    }
+
+    .services-page-title{
+        font-size:18px;
+    }
+
+    .services-page{
+        padding:50px 18px 70px;
+    }
+
+    .service-grid{
+        grid-template-columns:1fr;
+    }
+
+    .category-btn{
+        min-width:100px;
+        padding:11px 18px;
+    }
+}
+
+</style>
 </head>
+
 <body>
 
+
 <!-- =========================
-        NAVBAR
+     NAVBAR
 ========================= -->
 
 <header>
 
-    <nav class="navbar">
+<nav class="services-navbar">
 
-        <div class="logo">
-            Salon<span>Hub</span>
-        </div>
+    <!-- LEFT -->
 
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="services.html" class="active">Services</a></li>
-            <li><a href="gallery.html">Gallery</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
+    <a href="index.html" class="back-home">
+        ← Back to Home
+    </a>
 
-      <a href="booking.html" class="btn">Book Appointment</a>
+    <!-- CENTER -->
 
-      <button id="themeToggle" class="theme-btn">
-    🌙
-</button>
-    </nav>
+    <div class="services-page-title">
+        Services
+    </div>
+
+</nav>
 
 </header>
 
-<!-- =========================
-        SERVICES HERO
-========================= -->
 
-<section class="services-hero">
-
-    <h1>Our Premium Services</h1>
-
-    <p>
-        Experience luxury grooming, professional hair styling,
-        beard grooming, facial treatments and premium salon
-        services by our expert stylists.
-    </p>
-
-</section>
 
 <!-- =========================
-        SERVICES
+     SERVICES
 ========================= -->
 
 <section class="services-page">
 
-    <div class="service-grid" id="servicesContainer">
+    <!-- CATEGORY HEADER -->
 
-        <!-- Services will load automatically from database -->
+    <div class="category-header">
+
+        <span class="small-title">
+            Explore
+        </span>
+
+        <h2>
+            Service <span>Categories</span>
+        </h2>
+
+        <p>
+            Select a category to explore the services
+            specially available for you.
+        </p>
+
+    </div>
+
+
+    <!-- CATEGORY BUTTONS -->
+
+    <div class="service-categories">
+
+        <button
+            class="category-btn active"
+            data-category="all">
+            All
+        </button>
+
+        <button
+            class="category-btn"
+            data-category="him">
+            Him ♂
+        </button>
+
+        <button
+            class="category-btn"
+            data-category="her">
+            Her ♀
+        </button>
+
+        <button
+            class="category-btn"
+            data-category="child">
+            Child 🧒
+        </button>
+
+    </div>
+
+
+    <!-- SERVICES CONTAINER -->
+
+    <div
+        class="service-grid"
+        id="servicesContainer">
+
+        <div class="no-services">
+            Loading services...
+        </div>
 
     </div>
 
 </section>
+
+
+
 <!-- =========================
-        PREMIUM PACKAGES
+     PREMIUM PACKAGES
 ========================= -->
 
 <section class="packages">
 
-    <h2>Premium Packages</h2>
+    <h2>
+        Premium Packages
+    </h2>
 
     <div class="package-grid">
 
-        <!-- Silver -->
+
+        <!-- SILVER -->
 
         <div class="package-card">
 
-            <h3>Silver</h3>
+            <h3>
+                Silver
+            </h3>
 
-            <h1>₹799</h1>
+            <h1>
+                ₹799
+            </h1>
 
             <ul>
-                <li>✔ Hair Cut</li>
-                <li>✔ Hair Wash</li>
-                <li>✔ Basic Styling</li>
+
+                <li>
+                    ✔ Hair Cut
+                </li>
+
+                <li>
+                    ✔ Hair Wash
+                </li>
+
+                <li>
+                    ✔ Basic Styling
+                </li>
+
             </ul>
 
-            <button class="book-btn">Choose Plan</button>
+            <button
+                class="book-btn"
+                onclick="window.location.href='booking.html'">
+                Choose Plan
+            </button>
 
         </div>
 
-        <!-- Gold -->
+
+        <!-- GOLD -->
 
         <div class="package-card featured">
 
-            <span class="badge">Most Popular</span>
+            <span class="badge">
+                Most Popular
+            </span>
 
-            <h3>Gold</h3>
+            <h3>
+                Gold
+            </h3>
 
-            <h1>₹1499</h1>
+            <h1>
+                ₹1499
+            </h1>
 
             <ul>
-                <li>✔ Hair Cut</li>
-                <li>✔ Beard Grooming</li>
-                <li>✔ Facial</li>
-                <li>✔ Hair Styling</li>
+
+                <li>
+                    ✔ Hair Cut
+                </li>
+
+                <li>
+                    ✔ Beard Grooming
+                </li>
+
+                <li>
+                    ✔ Facial
+                </li>
+
+                <li>
+                    ✔ Hair Styling
+                </li>
+
             </ul>
 
-            <button class="book-btn">Choose Plan</button>
+            <button
+                class="book-btn"
+                onclick="window.location.href='booking.html'">
+                Choose Plan
+            </button>
 
         </div>
 
-        <!-- Platinum -->
+
+        <!-- PLATINUM -->
 
         <div class="package-card">
 
-            <h3>Platinum</h3>
+            <h3>
+                Platinum
+            </h3>
 
-            <h1>₹2499</h1>
+            <h1>
+                ₹2499
+            </h1>
 
             <ul>
-                <li>✔ Premium Hair Cut</li>
-                <li>✔ Luxury Facial</li>
-                <li>✔ Hair Spa</li>
-                <li>✔ Beard Styling</li>
-                <li>✔ Head Massage</li>
+
+                <li>
+                    ✔ Premium Hair Cut
+                </li>
+
+                <li>
+                    ✔ Luxury Facial
+                </li>
+
+                <li>
+                    ✔ Hair Spa
+                </li>
+
+                <li>
+                    ✔ Beard Styling
+                </li>
+
+                <li>
+                    ✔ Head Massage
+                </li>
+
             </ul>
 
-            <button class="book-btn">Choose Plan</button>
+            <button
+                class="book-btn"
+                onclick="window.location.href='booking.html'">
+                Choose Plan
+            </button>
 
         </div>
 
     </div>
 
 </section>
-</section>
+
+
+
+<!-- =========================
+     MAIN SCRIPT
+========================= -->
+
 <script src="js/script.js"></script>
+
+
+
+<!-- =========================
+     CATEGORY FILTER SCRIPT
+========================= -->
+
+<script>
+
+let allSalonServices = [];
+let currentCategory = "all";
+
+
+/* GET ELEMENTS */
+
+const servicesContainer =
+    document.getElementById("servicesContainer");
+
+const categoryButtons =
+    document.querySelectorAll(".category-btn");
+
+
+/* LOAD SERVICES FROM DATABASE */
+
+async function loadSalonServices(){
+
+    try{
+
+        const response =
+            await fetch(
+                "http://localhost:5000/api/services"
+            );
+
+        if(!response.ok){
+
+            throw new Error(
+                "Failed to load services"
+            );
+
+        }
+
+        allSalonServices =
+            await response.json();
+
+        displayServices(
+            currentCategory
+        );
+
+    }
+    catch(error){
+
+        console.log(
+            "Services Error:",
+            error
+        );
+
+        servicesContainer.innerHTML = `
+
+            <div class="no-services">
+
+                Unable to load services.
+                Please try again.
+
+            </div>
+
+        `;
+
+    }
+
+}
+
+
+/* DETERMINE SERVICE CATEGORY */
+
+function getServiceCategory(service){
+
+    /* Backend category */
+
+    if(service.category){
+
+        return String(
+            service.category
+        )
+        .toLowerCase()
+        .trim();
+
+    }
+
+    if(service.service_category){
+
+        return String(
+            service.service_category
+        )
+        .toLowerCase()
+        .trim();
+
+    }
+
+
+    /* Service name fallback */
+
+    const name =
+        String(
+            service.service_name || ""
+        )
+        .toLowerCase();
+
+
+    /* HIM */
+
+    const himKeywords = [
+
+        "men",
+        "man",
+        "male",
+        "beard",
+        "shaving",
+        "beard grooming",
+        "men haircut",
+        "men hair",
+        "gents",
+        "gent"
+
+    ];
+
+
+    for(
+        const keyword of himKeywords
+    ){
+
+        if(name.includes(keyword)){
+
+            return "him";
+
+        }
+
+    }
+
+
+    /* CHILD */
+
+    const childKeywords = [
+
+        "child",
+        "children",
+        "kid",
+        "kids",
+        "boy",
+        "girl",
+        "junior"
+
+    ];
+
+
+    for(
+        const keyword of childKeywords
+    ){
+
+        if(name.includes(keyword)){
+
+            return "child";
+
+        }
+
+    }
+
+
+    /* HER */
+
+    const herKeywords = [
+
+        "women",
+        "woman",
+        "female",
+        "ladies",
+        "lady",
+        "bridal",
+        "makeup",
+        "manicure",
+        "pedicure",
+        "waxing",
+        "threading",
+        "hair styling",
+        "facial"
+
+    ];
+
+
+    for(
+        const keyword of herKeywords
+    ){
+
+        if(name.includes(keyword)){
+
+            return "her";
+
+        }
+
+    }
+
+
+    return "all";
+
+}
+
+
+/* DISPLAY SERVICES */
+
+function displayServices(category){
+
+    servicesContainer.innerHTML = "";
+
+    let filteredServices;
+
+
+    if(category === "all"){
+
+        filteredServices =
+            allSalonServices;
+
+    }
+    else{
+
+        filteredServices =
+            allSalonServices.filter(
+                function(service){
+
+                    return (
+                        getServiceCategory(service)
+                        === category
+                    );
+
+                }
+            );
+
+    }
+
+
+    /* NO SERVICES */
+
+    if(filteredServices.length === 0){
+
+        servicesContainer.innerHTML = `
+
+            <div class="no-services">
+
+                No services available
+                in this category.
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    /* SERVICE CARDS */
+
+    filteredServices.forEach(
+        function(service){
+
+            const categoryName =
+                getServiceCategory(service);
+
+            let badgeText = "Salon";
+
+
+            if(categoryName === "him"){
+
+                badgeText = "Him ♂";
+
+            }
+
+            if(categoryName === "her"){
+
+                badgeText = "Her ♀";
+
+            }
+
+            if(categoryName === "child"){
+
+                badgeText = "Child 🧒";
+
+            }
+
+
+            servicesContainer.innerHTML += `
+
+                <div
+                    class="service-card"
+                    data-category="${categoryName}"
+                >
+
+                    <img
+                        src="http://localhost:5000${service.service_image}"
+                        alt="${service.service_name}"
+                        onerror="
+                            this.src='images/default-service.jpg';
+                        "
+                    >
+
+                    <div class="service-content">
+
+                        <span class="service-category-badge">
+                            ${badgeText}
+                        </span>
+
+                        <h2>
+                            ${service.service_name}
+                        </h2>
+
+                        <p>
+                            Premium salon service by
+                            our expert stylists.
+                        </p>
+
+                        <p>
+
+                            <strong>
+                                Duration:
+                            </strong>
+
+                            ${service.service_duration}
+
+                        </p>
+
+                        <h3>
+                            ₹${service.service_price}
+                        </h3>
+
+                        <a
+                            href="booking.html?service=${encodeURIComponent(service.service_name)}"
+                            class="book-btn"
+                        >
+                            Book Now
+                        </a>
+
+                    </div>
+
+                </div>
+
+            `;
+
+        }
+    );
+
+}
+
+
+/* CATEGORY BUTTON CLICK */
+
+categoryButtons.forEach(
+    function(button){
+
+        button.addEventListener(
+            "click",
+            function(){
+
+                /* Remove active */
+
+                categoryButtons.forEach(
+                    function(btn){
+
+                        btn.classList.remove(
+                            "active"
+                        );
+
+                    }
+                );
+
+
+                /* Add active */
+
+                this.classList.add(
+                    "active"
+                );
+
+
+                /* Get category */
+
+                currentCategory =
+                    this.dataset.category;
+
+
+                /* Display */
+
+                displayServices(
+                    currentCategory
+                );
+
+            }
+        );
+
+    }
+);
+
+
+/* INITIAL LOAD */
+
+loadSalonServices();
+
+</script>
+
 </body>
 </html>
