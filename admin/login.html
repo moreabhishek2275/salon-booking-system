@@ -1,49 +1,951 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Admin Login | The Beauty Salon</title>
 
     <link rel="stylesheet" href="../css/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+
+        /* =====================================================
+           RESET
+        ===================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            width: 100%;
+            min-height: 100%;
+        }
+
+        body {
+            font-family: "DM Sans", sans-serif;
+            background: #050505;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+
+        /* =====================================================
+           MAIN PAGE
+        ===================================================== */
+
+        .admin-login {
+            position: relative;
+            min-height: 100vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 80px 20px 40px;
+
+            overflow: hidden;
+
+            background:
+                radial-gradient(
+                    circle at 10% 20%,
+                    rgba(212, 175, 55, 0.10),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 90% 80%,
+                    rgba(212, 175, 55, 0.08),
+                    transparent 30%
+                ),
+                linear-gradient(
+                    135deg,
+                    #020202,
+                    #111111 50%,
+                    #030303
+                );
+        }
+
+
+        /* =====================================================
+           GOLD GLOW
+        ===================================================== */
+
+        .admin-login::before {
+            content: "";
+
+            position: absolute;
+
+            width: 450px;
+            height: 450px;
+
+            top: -200px;
+            right: -180px;
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(212, 175, 55, 0.13),
+                    transparent 68%
+                );
+
+            filter: blur(25px);
+
+            pointer-events: none;
+        }
+
+
+        .admin-login::after {
+            content: "";
+
+            position: absolute;
+
+            width: 420px;
+            height: 420px;
+
+            bottom: -220px;
+            left: -180px;
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(212, 175, 55, 0.08),
+                    transparent 68%
+                );
+
+            filter: blur(25px);
+
+            pointer-events: none;
+        }
+
+
+        /* =====================================================
+           BACK TO WEBSITE
+        ===================================================== */
+
+        .back-home {
+            position: absolute;
+
+            top: 28px;
+            left: 35px;
+
+            z-index: 20;
+
+            color: #999;
+
+            text-decoration: none;
+
+            font-size: 13px;
+            font-weight: 600;
+
+            transition: 0.3s ease;
+        }
+
+        .back-home:hover {
+            color: #D4AF37;
+            transform: translateX(-4px);
+        }
+
+
+        /* =====================================================
+           MAIN WRAPPER
+        ===================================================== */
+
+        .login-wrapper {
+            position: relative;
+
+            z-index: 5;
+
+            width: 100%;
+            max-width: 430px;
+
+            margin: auto;
+        }
+
+
+        /* =====================================================
+           BRAND
+        ===================================================== */
+
+        .brand {
+            text-align: center;
+
+            margin-bottom: 22px;
+        }
+
+
+        .brand-mark {
+            width: 62px;
+            height: 62px;
+
+            margin: 0 auto 12px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border: 1px solid #D4AF37;
+
+            border-radius: 50%;
+
+            color: #D4AF37;
+
+            font-family: "Playfair Display", serif;
+
+            font-size: 28px;
+
+            background: rgba(212, 175, 55, 0.04);
+
+            box-shadow:
+                0 0 25px rgba(212, 175, 55, 0.10);
+        }
+
+
+        .brand h1 {
+            color: #fff;
+
+            font-family: "Playfair Display", serif;
+
+            font-size: 29px;
+            line-height: 1.1;
+        }
+
+
+        .brand h1 span {
+            color: #D4AF37;
+        }
+
+
+        .brand p {
+            margin-top: 8px;
+
+            color: #777;
+
+            font-size: 9px;
+
+            font-weight: 700;
+
+            letter-spacing: 3px;
+
+            text-transform: uppercase;
+        }
+
+
+        /* =====================================================
+           LOGIN CARD
+        ===================================================== */
+
+        .login-box {
+            position: relative;
+
+            width: 100%;
+
+            padding: 36px 38px;
+
+            border-radius: 22px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255, 255, 255, 0.075),
+                    rgba(255, 255, 255, 0.025)
+                );
+
+            border: 1px solid rgba(212, 175, 55, 0.30);
+
+            box-shadow:
+                0 30px 70px rgba(0, 0, 0, 0.55),
+                inset 0 1px 0 rgba(255, 255, 255, 0.05);
+
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+
+
+        .login-box::before {
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+            left: 35px;
+            right: 35px;
+
+            height: 1px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    #D4AF37,
+                    transparent
+                );
+        }
+
+
+        /* =====================================================
+           HEADING
+        ===================================================== */
+
+        .login-heading {
+            margin-bottom: 26px;
+        }
+
+
+        .mini-title {
+            margin-bottom: 7px;
+
+            color: #D4AF37;
+
+            font-size: 9px;
+
+            font-weight: 800;
+
+            letter-spacing: 3px;
+
+            text-transform: uppercase;
+        }
+
+
+        .login-heading h2 {
+            color: #fff;
+
+            font-family: "Playfair Display", serif;
+
+            font-size: 27px;
+
+            margin-bottom: 7px;
+        }
+
+
+        .login-heading p {
+            color: #858585;
+
+            font-size: 11px;
+
+            line-height: 1.6;
+        }
+
+
+        /* =====================================================
+           FORM
+        ===================================================== */
+
+        #loginForm {
+            width: 100%;
+        }
+
+
+        /* =====================================================
+           INPUT GROUP
+        ===================================================== */
+
+        .input-group {
+            position: relative;
+
+            width: 100%;
+
+            margin-bottom: 17px;
+        }
+
+
+        /* =====================================================
+           INPUTS
+        ===================================================== */
+
+        .login-box input {
+            display: block;
+
+            width: 100% !important;
+
+            height: 55px !important;
+
+            margin: 0 !important;
+
+            padding: 0 17px 0 47px !important;
+
+            border-radius: 11px !important;
+
+            border: 1px solid rgba(255, 255, 255, 0.10) !important;
+
+            outline: none !important;
+
+            background: rgba(255, 255, 255, 0.055) !important;
+
+            color: #fff !important;
+
+            font-family: "DM Sans", sans-serif !important;
+
+            font-size: 13px !important;
+
+            box-shadow: none !important;
+
+            transition: 0.3s ease;
+        }
+
+
+        .login-box input::placeholder {
+            color: #666;
+        }
+
+
+        .login-box input:focus {
+            border-color: #D4AF37 !important;
+
+            background: rgba(212, 175, 55, 0.035) !important;
+
+            box-shadow:
+                0 0 0 3px rgba(212, 175, 55, 0.07) !important;
+        }
+
+
+        /* =====================================================
+           INPUT ICON
+        ===================================================== */
+
+        .input-icon {
+            position: absolute;
+
+            left: 17px;
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            width: 18px;
+
+            color: #D4AF37;
+
+            font-size: 13px;
+
+            z-index: 3;
+
+            pointer-events: none;
+        }
+
+
+        /* =====================================================
+           PASSWORD FIELD
+        ===================================================== */
+
+        .password-group {
+            position: relative;
+        }
+
+
+        .password-group input {
+            padding-right: 52px !important;
+        }
+
+
+        /* =====================================================
+           EYE BUTTON - IMPORTANT FIX
+        ===================================================== */
+
+        .password-toggle {
+            position: absolute !important;
+
+            top: 50% !important;
+            right: 12px !important;
+
+            transform: translateY(-50%) !important;
+
+            width: 36px !important;
+            height: 36px !important;
+
+            min-width: 36px !important;
+            max-width: 36px !important;
+
+            min-height: 36px !important;
+            max-height: 36px !important;
+
+            margin: 0 !important;
+            padding: 0 !important;
+
+            border: none !important;
+            outline: none !important;
+
+            border-radius: 8px !important;
+
+            background: transparent !important;
+
+            color: #777 !important;
+
+            display: flex !important;
+
+            align-items: center !important;
+            justify-content: center !important;
+
+            cursor: pointer !important;
+
+            box-shadow: none !important;
+
+            font-size: 14px !important;
+
+            z-index: 10 !important;
+
+            transition: 0.25s ease !important;
+        }
+
+
+        .password-toggle:hover {
+            color: #D4AF37 !important;
+
+            background: rgba(212, 175, 55, 0.08) !important;
+
+            transform:
+                translateY(-50%) !important;
+        }
+
+
+        .password-toggle:active {
+            transform:
+                translateY(-50%)
+                scale(0.94) !important;
+        }
+
+
+        /* =====================================================
+           LOGIN BUTTON
+        ===================================================== */
+
+        .login-button {
+            display: flex !important;
+
+            align-items: center !important;
+            justify-content: center !important;
+
+            width: 100% !important;
+
+            height: 55px !important;
+
+            margin: 7px 0 0 !important;
+
+            padding: 0 20px !important;
+
+            border: none !important;
+
+            border-radius: 11px !important;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #D4AF37,
+                    #E4C34F
+                ) !important;
+
+            color: #080808 !important;
+
+            font-family: "DM Sans", sans-serif !important;
+
+            font-size: 13px !important;
+
+            font-weight: 800 !important;
+
+            cursor: pointer !important;
+
+            box-shadow:
+                0 12px 28px
+                rgba(212, 175, 55, 0.15) !important;
+
+            transition: 0.3s ease !important;
+        }
+
+
+        .login-button:hover {
+            transform: translateY(-2px);
+
+            background: #fff !important;
+
+            color: #080808 !important;
+        }
+
+
+        .login-button:active {
+            transform: translateY(0) scale(0.99);
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        .login-footer {
+            margin-top: 23px;
+
+            padding-top: 18px;
+
+            border-top:
+                1px solid
+                rgba(255, 255, 255, 0.07);
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            gap: 7px;
+
+            color: #666;
+
+            font-size: 9px;
+
+            text-align: center;
+        }
+
+
+        .login-footer span {
+            color: #D4AF37;
+        }
+
+
+        .security-note {
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            gap: 6px;
+
+            margin-top: 12px;
+
+            color: #555;
+
+            font-size: 9px;
+        }
+
+
+        .security-note i {
+            color: #D4AF37;
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media (max-width: 600px) {
+
+            .admin-login {
+                padding:
+                    75px 15px 30px;
+            }
+
+
+            .back-home {
+                top: 20px;
+                left: 20px;
+
+                font-size: 11px;
+            }
+
+
+            .login-wrapper {
+                max-width: 100%;
+            }
+
+
+            .brand {
+                margin-bottom: 18px;
+            }
+
+
+            .brand-mark {
+                width: 55px;
+                height: 55px;
+
+                font-size: 25px;
+            }
+
+
+            .brand h1 {
+                font-size: 25px;
+            }
+
+
+            .brand p {
+                font-size: 8px;
+
+                letter-spacing: 2px;
+            }
+
+
+            .login-box {
+                padding: 29px 20px;
+
+                border-radius: 19px;
+            }
+
+
+            .login-heading h2 {
+                font-size: 24px;
+            }
+
+
+            .login-heading p {
+                font-size: 10px;
+            }
+
+
+            .login-box input {
+                height: 53px !important;
+            }
+
+
+            .login-button {
+                height: 53px !important;
+            }
+
+        }
+
+
+        /* =====================================================
+           SMALL MOBILE
+        ===================================================== */
+
+        @media (max-width: 380px) {
+
+            .admin-login {
+                padding-left: 12px;
+                padding-right: 12px;
+            }
+
+
+            .login-box {
+                padding:
+                    26px 17px;
+            }
+
+
+            .brand h1 {
+                font-size: 23px;
+            }
+
+        }
+
+    </style>
+
 </head>
+
+
 <body>
+
 
 <div class="admin-login">
 
-    <div class="login-box">
 
-        <h1>Admin Login</h1>
+    <!-- BACK TO WEBSITE -->
 
-        <p>Salon Management System</p>
+    <a
+        href="../index.html"
+        class="back-home"
+    >
+        ← Back to Website
+    </a>
 
-        <form id="loginForm">
 
-            <input
-                type="text"
-                id="username"
-                placeholder="Username"
-                required
-            >
+    <div class="login-wrapper">
 
-            <input
-                type="password"
-                id="password"
-                placeholder="Password"
-                required
-            >
 
-            <button type="submit">
-                Login
-            </button>
+        <!-- BRAND -->
 
-        </form>
+        <div class="brand">
+
+            <div class="brand-mark">
+                B
+            </div>
+
+            <h1>
+                The Beauty <span>Salon</span>
+            </h1>
+
+            <p>
+                Hair · Beauty · Wellness
+            </p>
+
+        </div>
+
+
+        <!-- LOGIN CARD -->
+
+        <div class="login-box">
+
+
+            <div class="login-heading">
+
+                <div class="mini-title">
+                    Secure Access
+                </div>
+
+                <h2>
+                    Admin Login
+                </h2>
+
+                <p>
+                    Sign in to manage appointments,
+                    services, customers and salon operations.
+                </p>
+
+            </div>
+
+
+            <form id="loginForm">
+
+
+                <!-- USERNAME -->
+
+                <div class="input-group">
+
+                    <span class="input-icon">
+                        👤
+                    </span>
+
+                    <input
+                        type="text"
+                        id="username"
+                        placeholder="Enter username"
+                        autocomplete="username"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- PASSWORD -->
+
+                <div class="input-group password-group">
+
+                    <span class="input-icon">
+                        🔒
+                    </span>
+
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="Enter password"
+                        autocomplete="current-password"
+                        required
+                    >
+
+                    <button
+                        type="button"
+                        class="password-toggle"
+                        id="passwordToggle"
+                        aria-label="Show password"
+                    >
+                        👁
+                    </button>
+
+                </div>
+
+
+                <!-- LOGIN -->
+
+                <button
+                    type="submit"
+                    class="login-button"
+                >
+                    Login to Admin Panel
+                </button>
+
+
+            </form>
+
+
+            <div class="login-footer">
+
+                <span>✦</span>
+
+                The Beauty Salon Admin Management
+
+                <span>✦</span>
+
+            </div>
+
+
+            <div class="security-note">
+
+                <span>🛡</span>
+
+                Secure administrator access
+
+            </div>
+
+
+        </div>
 
     </div>
 
 </div>
 
+
+<!-- EXISTING LOGIN JS -->
+
 <script src="../js/admin-login.js"></script>
 
+
+<!-- PASSWORD SHOW / HIDE -->
+
+<script>
+
+    const passwordInput =
+        document.getElementById("password");
+
+    const passwordToggle =
+        document.getElementById("passwordToggle");
+
+
+    passwordToggle.addEventListener(
+        "click",
+        function () {
+
+            if (
+                passwordInput.type === "password"
+            ) {
+
+                passwordInput.type = "text";
+
+                this.textContent = "🙈";
+
+                this.setAttribute(
+                    "aria-label",
+                    "Hide password"
+                );
+
+            } else {
+
+                passwordInput.type = "password";
+
+                this.textContent = "👁";
+
+                this.setAttribute(
+                    "aria-label",
+                    "Show password"
+                );
+
+            }
+
+        }
+    );
+
+</script>
+
+
 </body>
+
 </html>
