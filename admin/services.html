@@ -1,71 +1,2005 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
     <title>Manage Services | The Beauty Salon</title>
 
-    <link rel="stylesheet" href="../css/style.css">
+    <link
+        rel="stylesheet"
+        href="../css/style.css"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <style>
+
+        /* =====================================================
+           RESET
+        ===================================================== */
+
+        *{
+            box-sizing:border-box;
+        }
+
+        html{
+            scroll-behavior:smooth;
+        }
+
+        body{
+
+            margin:0;
+
+            font-family:
+                "DM Sans",
+                sans-serif;
+
+            background:#070707;
+
+            color:#fff;
+
+            overflow-x:hidden;
+        }
+
+
+        /* =====================================================
+           ANIMATED BACKGROUND
+        ===================================================== */
+
+        .services-bg{
+
+            position:fixed;
+
+            inset:0;
+
+            pointer-events:none;
+
+            overflow:hidden;
+
+            z-index:0;
+        }
+
+
+        .bg-glow{
+
+            position:absolute;
+
+            border-radius:50%;
+
+            filter:blur(5px);
+
+            opacity:.5;
+        }
+
+
+        .glow-one{
+
+            width:430px;
+            height:430px;
+
+            top:-200px;
+            left:200px;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(212,175,55,.10),
+                    transparent 70%
+                );
+
+            animation:
+                floatOne 10s ease-in-out infinite alternate;
+        }
+
+
+        .glow-two{
+
+            width:480px;
+            height:480px;
+
+            right:-220px;
+            bottom:-220px;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(212,175,55,.075),
+                    transparent 70%
+                );
+
+            animation:
+                floatTwo 12s ease-in-out infinite alternate;
+        }
+
+
+        @keyframes floatOne{
+
+            from{
+                transform:
+                    translate(0,0)
+                    scale(1);
+            }
+
+            to{
+                transform:
+                    translate(80px,60px)
+                    scale(1.16);
+            }
+        }
+
+
+        @keyframes floatTwo{
+
+            from{
+                transform:
+                    translate(0,0)
+                    scale(1);
+            }
+
+            to{
+                transform:
+                    translate(-60px,-55px)
+                    scale(1.13);
+            }
+        }
+
+
+        /* =====================================================
+           DASHBOARD
+        ===================================================== */
+
+        .dashboard{
+
+            position:relative;
+
+            z-index:2;
+
+            min-height:100vh;
+
+            display:flex;
+        }
+
+
+        /* =====================================================
+           SIDEBAR
+        ===================================================== */
+
+        .sidebar{
+
+            position:fixed;
+
+            top:0;
+            left:0;
+            bottom:0;
+
+            width:245px;
+
+            padding:
+                30px 18px;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    rgba(17,17,17,.98),
+                    rgba(5,5,5,.98)
+                );
+
+            border-right:
+                1px solid
+                rgba(212,175,55,.25);
+
+            box-shadow:
+                15px 0 50px
+                rgba(0,0,0,.35);
+
+            z-index:100;
+
+            overflow-y:auto;
+
+            animation:
+                sidebarIn .7s ease;
+        }
+
+
+        @keyframes sidebarIn{
+
+            from{
+                opacity:0;
+                transform:
+                    translateX(-30px);
+            }
+
+            to{
+                opacity:1;
+                transform:
+                    translateX(0);
+            }
+        }
+
+
+        .sidebar-brand{
+
+            text-align:center;
+
+            margin-bottom:30px;
+        }
+
+
+        .sidebar-brand h2{
+
+            margin:0;
+
+            font-family:
+                "Playfair Display",
+                serif;
+
+            font-size:25px;
+
+            line-height:1.15;
+
+            color:#D4AF37;
+
+            text-shadow:
+                0 0 20px
+                rgba(212,175,55,.16);
+        }
+
+
+        .sidebar-brand p{
+
+            margin:
+                7px 0 0;
+
+            color:#666;
+
+            font-size:8px;
+
+            text-transform:uppercase;
+
+            letter-spacing:2.5px;
+        }
+
+
+        .sidebar-line{
+
+            width:45px;
+            height:1px;
+
+            margin:
+                13px auto 0;
+
+            background:#D4AF37;
+
+            opacity:.65;
+        }
+
+
+        /* =====================================================
+           SIDEBAR NAVIGATION
+        ===================================================== */
+
+        .sidebar ul{
+
+            list-style:none;
+
+            margin:0;
+            padding:0;
+        }
+
+
+        .sidebar li{
+
+            margin-bottom:7px;
+        }
+
+
+        .sidebar li a{
+
+            position:relative;
+
+            display:flex;
+
+            align-items:center;
+
+            min-height:48px;
+
+            padding:
+                0 15px;
+
+            border-radius:12px;
+
+            color:#999;
+
+            text-decoration:none;
+
+            font-size:12px;
+
+            font-weight:600;
+
+            transition:.3s ease;
+
+            overflow:hidden;
+        }
+
+
+        .sidebar li a::before{
+
+            content:"";
+
+            position:absolute;
+
+            left:0;
+
+            top:0;
+
+            width:3px;
+            height:100%;
+
+            background:#D4AF37;
+
+            transform:
+                scaleY(0);
+
+            transition:.3s ease;
+        }
+
+
+        .sidebar li a:hover{
+
+            color:#fff;
+
+            background:
+                rgba(212,175,55,.07);
+
+            transform:
+                translateX(4px);
+        }
+
+
+        .sidebar li a.active{
+
+            color:#D4AF37;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(212,175,55,.14),
+                    rgba(212,175,55,.025)
+                );
+
+            border:
+                1px solid
+                rgba(212,175,55,.12);
+        }
+
+
+        .sidebar li a.active::before{
+
+            transform:
+                scaleY(1);
+        }
+
+
+        /* =====================================================
+           MAIN CONTENT
+        ===================================================== */
+
+        .main-content{
+
+            position:relative;
+
+            margin-left:245px;
+
+            width:
+                calc(100% - 245px);
+
+            min-height:100vh;
+
+            padding:
+                38px 42px 70px;
+
+            animation:
+                contentIn .8s ease;
+        }
+
+
+        @keyframes contentIn{
+
+            from{
+                opacity:0;
+                transform:
+                    translateY(18px);
+            }
+
+            to{
+                opacity:1;
+                transform:
+                    translateY(0);
+            }
+        }
+
+
+        /* =====================================================
+           PAGE HEADER
+        ===================================================== */
+
+        .page-header{
+
+            display:flex;
+
+            align-items:flex-end;
+
+            justify-content:space-between;
+
+            gap:25px;
+
+            margin-bottom:28px;
+        }
+
+
+        .page-title small{
+
+            display:block;
+
+            color:#D4AF37;
+
+            font-size:9px;
+
+            font-weight:800;
+
+            letter-spacing:3px;
+
+            text-transform:uppercase;
+
+            margin-bottom:8px;
+        }
+
+
+        .page-title h1{
+
+            margin:0;
+
+            font-family:
+                "Playfair Display",
+                serif;
+
+            font-size:
+                clamp(31px,4vw,46px);
+
+            line-height:1.1;
+
+            color:#fff;
+        }
+
+
+        .page-title h1 span{
+
+            color:#D4AF37;
+        }
+
+
+        .page-title p{
+
+            margin:
+                10px 0 0;
+
+            color:#777;
+
+            font-size:11px;
+
+            line-height:1.7;
+
+            max-width:600px;
+        }
+
+
+        /* =====================================================
+           ADD SERVICE BUTTON
+        ===================================================== */
+
+        .add-service-btn{
+
+            position:relative;
+
+            border:none;
+
+            outline:none;
+
+            min-height:50px;
+
+            padding:
+                0 22px;
+
+            border-radius:12px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #D4AF37,
+                    #E5C44F
+                );
+
+            color:#080808;
+
+            font-family:
+                "DM Sans",
+                sans-serif;
+
+            font-size:11px;
+
+            font-weight:800;
+
+            cursor:pointer;
+
+            box-shadow:
+                0 12px 28px
+                rgba(212,175,55,.16);
+
+            transition:.3s ease;
+
+            overflow:hidden;
+        }
+
+
+        .add-service-btn::before{
+
+            content:"";
+
+            position:absolute;
+
+            top:0;
+            left:-120px;
+
+            width:80px;
+            height:100%;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(255,255,255,.35),
+                    transparent
+                );
+
+            transform:
+                skewX(-20deg);
+
+            transition:
+                .6s ease;
+        }
+
+
+        .add-service-btn:hover{
+
+            transform:
+                translateY(-3px);
+
+            background:#fff;
+
+            box-shadow:
+                0 18px 35px
+                rgba(255,255,255,.09);
+        }
+
+
+        .add-service-btn:hover::before{
+
+            left:120%;
+        }
+
+
+        /* =====================================================
+           SERVICE STATS
+        ===================================================== */
+
+        .service-stats{
+
+            display:grid;
+
+            grid-template-columns:
+                repeat(3,1fr);
+
+            gap:15px;
+
+            margin-bottom:26px;
+        }
+
+
+        .service-stat{
+
+            position:relative;
+
+            min-height:110px;
+
+            padding:20px;
+
+            border-radius:16px;
+
+            border:
+                1px solid
+                rgba(255,255,255,.07);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,.055),
+                    rgba(255,255,255,.018)
+                );
+
+            box-shadow:
+                0 18px 40px
+                rgba(0,0,0,.20);
+
+            overflow:hidden;
+
+            transition:.3s ease;
+        }
+
+
+        .service-stat:hover{
+
+            transform:
+                translateY(-5px);
+
+            border-color:
+                rgba(212,175,55,.24);
+        }
+
+
+        .service-stat::after{
+
+            content:"";
+
+            position:absolute;
+
+            width:100px;
+            height:100px;
+
+            right:-40px;
+            top:-40px;
+
+            border-radius:50%;
+
+            background:
+                rgba(212,175,55,.07);
+        }
+
+
+        .stat-icon{
+
+            width:34px;
+            height:34px;
+
+            display:flex;
+
+            align-items:center;
+            justify-content:center;
+
+            border-radius:9px;
+
+            background:
+                rgba(212,175,55,.08);
+
+            color:#D4AF37;
+
+            margin-bottom:11px;
+
+            font-size:15px;
+        }
+
+
+        .service-stat strong{
+
+            display:block;
+
+            color:#D4AF37;
+
+            font-size:23px;
+
+            line-height:1;
+        }
+
+
+        .service-stat span{
+
+            display:block;
+
+            margin-top:6px;
+
+            color:#777;
+
+            font-size:9px;
+
+            text-transform:uppercase;
+
+            letter-spacing:1px;
+        }
+
+
+        /* =====================================================
+           TABLE CARD
+        ===================================================== */
+
+        .services-container{
+
+            border:
+                1px solid
+                rgba(255,255,255,.07);
+
+            border-radius:20px;
+
+            background:
+                rgba(255,255,255,.025);
+
+            box-shadow:
+                0 25px 60px
+                rgba(0,0,0,.25);
+
+            overflow:hidden;
+
+            animation:
+                tableAppear .8s ease;
+        }
+
+
+        @keyframes tableAppear{
+
+            from{
+                opacity:0;
+                transform:
+                    translateY(25px);
+            }
+
+            to{
+                opacity:1;
+                transform:
+                    translateY(0);
+            }
+        }
+
+
+        .services-toolbar{
+
+            display:flex;
+
+            align-items:center;
+
+            justify-content:space-between;
+
+            gap:20px;
+
+            padding:
+                22px 23px;
+
+            border-bottom:
+                1px solid
+                rgba(255,255,255,.06);
+        }
+
+
+        .toolbar-title h2{
+
+            margin:0;
+
+            font-family:
+                "Playfair Display",
+                serif;
+
+            font-size:21px;
+        }
+
+
+        .toolbar-title p{
+
+            margin:
+                6px 0 0;
+
+            color:#666;
+
+            font-size:9px;
+        }
+
+
+        .services-badge{
+
+            padding:
+                8px 12px;
+
+            border-radius:20px;
+
+            color:#D4AF37;
+
+            background:
+                rgba(212,175,55,.06);
+
+            border:
+                1px solid
+                rgba(212,175,55,.15);
+
+            font-size:9px;
+
+            font-weight:700;
+        }
+
+
+        /* =====================================================
+           TABLE WRAPPER
+        ===================================================== */
+
+        .table-wrapper{
+
+            width:100%;
+
+            overflow-x:auto;
+
+            scrollbar-width:thin;
+        }
+
+
+        .services-table{
+
+            width:100%;
+
+            min-width:800px;
+
+            border-collapse:collapse;
+
+            background:
+                rgba(0,0,0,.12);
+        }
+
+
+        .services-table thead{
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #D4AF37,
+                    #E2C14D
+                );
+        }
+
+
+        .services-table th{
+
+            padding:
+                16px 18px;
+
+            color:#080808;
+
+            font-size:10px;
+
+            font-weight:800;
+
+            text-align:left;
+
+            text-transform:uppercase;
+
+            letter-spacing:.7px;
+        }
+
+
+        .services-table td{
+
+            padding:
+                15px 18px;
+
+            border-bottom:
+                1px solid
+                rgba(255,255,255,.055);
+
+            color:#bbb;
+
+            font-size:11px;
+
+            vertical-align:middle;
+        }
+
+
+        .services-table tbody tr{
+
+            transition:.3s ease;
+        }
+
+
+        .services-table tbody tr:hover{
+
+            background:
+                rgba(212,175,55,.045);
+
+            transform:
+                scale(1.002);
+        }
+
+
+        .services-table tbody tr:last-child td{
+
+            border-bottom:none;
+        }
+
+
+        /* =====================================================
+           SERVICE IMAGE
+        ===================================================== */
+
+        .service-image{
+
+            width:65px !important;
+
+            height:55px !important;
+
+            object-fit:cover;
+
+            display:block;
+
+            border-radius:10px;
+
+            border:
+                1px solid
+                rgba(212,175,55,.16);
+
+            background:#111;
+
+            transition:.35s ease;
+        }
+
+
+        .services-table tr:hover
+        .service-image{
+
+            transform:
+                scale(1.08);
+
+            border-color:
+                rgba(212,175,55,.35);
+        }
+
+
+        /* =====================================================
+           SERVICE NAME
+        ===================================================== */
+
+        .service-name{
+
+            color:#eee !important;
+
+            font-weight:700;
+
+            font-size:12px !important;
+        }
+
+
+        .service-price{
+
+            color:#D4AF37 !important;
+
+            font-weight:800;
+
+            font-size:12px !important;
+        }
+
+
+        .service-duration{
+
+            color:#999 !important;
+        }
+
+
+        /* =====================================================
+           ACTION BUTTONS
+        ===================================================== */
+
+        .edit-btn,
+        .delete-btn{
+
+            border:none;
+
+            outline:none;
+
+            min-width:58px;
+
+            min-height:35px;
+
+            padding:
+                0 12px;
+
+            margin-right:6px;
+
+            border-radius:8px;
+
+            font-family:
+                "DM Sans",
+                sans-serif;
+
+            font-size:9px;
+
+            font-weight:800;
+
+            cursor:pointer;
+
+            transition:.3s ease;
+        }
+
+
+        .edit-btn{
+
+            background:
+                rgba(212,175,55,.12);
+
+            color:#D4AF37;
+
+            border:
+                1px solid
+                rgba(212,175,55,.18);
+        }
+
+
+        .edit-btn:hover{
+
+            color:#080808;
+
+            background:#D4AF37;
+
+            transform:
+                translateY(-2px);
+        }
+
+
+        .delete-btn{
+
+            background:
+                rgba(239,68,68,.10);
+
+            color:#ff6868;
+
+            border:
+                1px solid
+                rgba(239,68,68,.15);
+        }
+
+
+        .delete-btn:hover{
+
+            color:#fff;
+
+            background:#ef4444;
+
+            transform:
+                translateY(-2px);
+        }
+
+
+        /* =====================================================
+           POPUP OVERLAY
+        ===================================================== */
+
+        .popup{
+
+            position:fixed;
+
+            inset:0;
+
+            display:none;
+
+            align-items:center;
+
+            justify-content:center;
+
+            padding:20px;
+
+            background:
+                rgba(0,0,0,.78);
+
+            backdrop-filter:
+                blur(12px);
+
+            -webkit-backdrop-filter:
+                blur(12px);
+
+            z-index:9999;
+
+            animation:
+                popupFade .25s ease;
+        }
+
+
+        .popup.show{
+
+            display:flex;
+        }
+
+
+        @keyframes popupFade{
+
+            from{
+                opacity:0;
+            }
+
+            to{
+                opacity:1;
+            }
+        }
+
+
+        /* =====================================================
+           POPUP CONTENT
+        ===================================================== */
+
+        .popup-content{
+
+            position:relative;
+
+            width:100%;
+
+            max-width:520px;
+
+            max-height:
+                calc(100vh - 40px);
+
+            overflow-y:auto;
+
+            padding:30px;
+
+            border-radius:22px;
+
+            border:
+                1px solid
+                rgba(212,175,55,.25);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #181818,
+                    #0d0d0d
+                );
+
+            box-shadow:
+                0 35px 100px
+                rgba(0,0,0,.7),
+
+                0 0 40px
+                rgba(212,175,55,.06);
+
+            animation:
+                popupIn .35s ease;
+        }
+
+
+        @keyframes popupIn{
+
+            from{
+                opacity:0;
+
+                transform:
+                    translateY(25px)
+                    scale(.96);
+            }
+
+            to{
+                opacity:1;
+
+                transform:
+                    translateY(0)
+                    scale(1);
+            }
+        }
+
+
+        .popup-content::before{
+
+            content:"";
+
+            position:absolute;
+
+            top:0;
+
+            left:50px;
+            right:50px;
+
+            height:1px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    #D4AF37,
+                    transparent
+                );
+        }
+
+
+        .popup-content h2{
+
+            margin:
+                0 0 23px;
+
+            font-family:
+                "Playfair Display",
+                serif;
+
+            color:#fff;
+
+            font-size:25px;
+        }
+
+
+        .popup-content h2::after{
+
+            content:"";
+
+            display:block;
+
+            width:40px;
+            height:2px;
+
+            margin-top:9px;
+
+            background:#D4AF37;
+        }
+
+
+        /* =====================================================
+           FORM
+        ===================================================== */
+
+        #serviceForm{
+
+            display:flex;
+
+            flex-direction:column;
+
+            gap:14px;
+        }
+
+
+        #serviceForm input,
+        #serviceForm textarea{
+
+            width:100%;
+
+            border:
+                1px solid
+                rgba(255,255,255,.09);
+
+            border-radius:11px;
+
+            background:
+                rgba(255,255,255,.045);
+
+            color:#fff;
+
+            padding:
+                13px 15px;
+
+            outline:none;
+
+            font-family:
+                "DM Sans",
+                sans-serif;
+
+            font-size:11px;
+
+            transition:.3s ease;
+        }
+
+
+        #serviceForm input{
+
+            min-height:48px;
+        }
+
+
+        #serviceForm textarea{
+
+            min-height:95px;
+
+            resize:vertical;
+        }
+
+
+        #serviceForm input::placeholder,
+        #serviceForm textarea::placeholder{
+
+            color:#666;
+        }
+
+
+        #serviceForm input:focus,
+        #serviceForm textarea:focus{
+
+            border-color:#D4AF37;
+
+            background:
+                rgba(212,175,55,.035);
+
+            box-shadow:
+                0 0 0 3px
+                rgba(212,175,55,.06);
+        }
+
+
+        #serviceForm input[type="file"]{
+
+            padding:10px;
+
+            color:#888;
+
+            cursor:pointer;
+        }
+
+
+        #serviceForm input[type="file"]::file-selector-button{
+
+            margin-right:10px;
+
+            padding:
+                8px 12px;
+
+            border:none;
+
+            border-radius:7px;
+
+            background:
+                rgba(212,175,55,.12);
+
+            color:#D4AF37;
+
+            font-family:
+                "DM Sans",
+                sans-serif;
+
+            font-size:9px;
+
+            font-weight:700;
+
+            cursor:pointer;
+        }
+
+
+        /* =====================================================
+           POPUP BUTTONS
+        ===================================================== */
+
+        .popup-buttons{
+
+            display:flex;
+
+            gap:10px;
+
+            margin-top:5px;
+        }
+
+
+        .popup-buttons button{
+
+            flex:1;
+
+            min-height:48px;
+
+            border:none;
+
+            border-radius:10px;
+
+            font-family:
+                "DM Sans",
+                sans-serif;
+
+            font-size:10px;
+
+            font-weight:800;
+
+            cursor:pointer;
+
+            transition:.3s ease;
+        }
+
+
+        .popup-buttons button[type="submit"]{
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #D4AF37,
+                    #E5C44F
+                );
+
+            color:#080808;
+
+            box-shadow:
+                0 10px 25px
+                rgba(212,175,55,.12);
+        }
+
+
+        .popup-buttons button[type="submit"]:hover{
+
+            background:#fff;
+
+            transform:
+                translateY(-2px);
+        }
+
+
+        #cancelBtn{
+
+            background:
+                rgba(255,255,255,.05);
+
+            color:#999;
+
+            border:
+                1px solid
+                rgba(255,255,255,.08);
+        }
+
+
+        #cancelBtn:hover{
+
+            color:#fff;
+
+            background:
+                rgba(255,255,255,.09);
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media(max-width:900px){
+
+            .sidebar{
+
+                width:205px;
+            }
+
+
+            .main-content{
+
+                margin-left:205px;
+
+                width:
+                    calc(100% - 205px);
+
+                padding:
+                    30px 25px 60px;
+            }
+
+
+            .service-stats{
+
+                grid-template-columns:
+                    1fr 1fr;
+            }
+        }
+
+
+        @media(max-width:700px){
+
+            .dashboard{
+
+                display:block;
+            }
+
+
+            .sidebar{
+
+                position:relative;
+
+                width:100%;
+
+                min-height:auto;
+
+                padding:
+                    20px 14px;
+
+                border-right:none;
+
+                border-bottom:
+                    1px solid
+                    rgba(212,175,55,.20);
+            }
+
+
+            .sidebar-brand{
+
+                margin-bottom:18px;
+            }
+
+
+            .sidebar ul{
+
+                display:flex;
+
+                gap:7px;
+
+                overflow-x:auto;
+
+                padding-bottom:4px;
+            }
+
+
+            .sidebar li{
+
+                flex-shrink:0;
+
+                margin:0;
+            }
+
+
+            .sidebar li a{
+
+                min-height:40px;
+
+                padding:
+                    0 13px;
+
+                font-size:10px;
+
+                white-space:nowrap;
+            }
+
+
+            .main-content{
+
+                width:100%;
+
+                margin:0;
+
+                padding:
+                    25px 15px 50px;
+            }
+
+
+            .page-header{
+
+                align-items:flex-start;
+
+                flex-direction:column;
+            }
+
+
+            .add-service-btn{
+
+                width:100%;
+            }
+
+
+            .service-stats{
+
+                grid-template-columns:
+                    1fr 1fr;
+
+                gap:10px;
+            }
+
+
+            .service-stat{
+
+                padding:16px;
+            }
+
+
+            .services-toolbar{
+
+                align-items:flex-start;
+
+                flex-direction:column;
+            }
+
+
+            .services-badge{
+
+                align-self:flex-start;
+            }
+
+
+            .services-container{
+
+                border-radius:16px;
+            }
+        }
+
+
+        @media(max-width:450px){
+
+            .service-stats{
+
+                grid-template-columns:1fr;
+            }
+
+
+            .page-title h1{
+
+                font-size:30px;
+            }
+
+
+            .popup-content{
+
+                padding:23px;
+
+                border-radius:18px;
+            }
+
+
+            .popup-buttons{
+
+                flex-direction:column;
+            }
+        }
+
+    </style>
+
 </head>
+
+
 <body>
+
+
+<!-- =====================================================
+     BACKGROUND
+====================================================== -->
+
+<div class="services-bg">
+
+    <div class="bg-glow glow-one"></div>
+
+    <div class="bg-glow glow-two"></div>
+
+</div>
+
+
 
 <div class="dashboard">
 
-    <!-- Sidebar -->
+
+    <!-- =================================================
+         SIDEBAR
+    ================================================== -->
+
     <aside class="sidebar">
 
-        <h2>The Beauty Salon</h2>
+
+        <div class="sidebar-brand">
+
+            <h2>
+                The Beauty Salon
+            </h2>
+
+            <p>
+                Admin Management
+            </p>
+
+            <div class="sidebar-line"></div>
+
+        </div>
+
 
         <ul>
-            <li><a href="dashboard.html">Dashboard</a></li>
-            <li><a href="services.html" class="active">Services</a></li>
-            <li><a href="bookings.html">Bookings</a></li>
-            <li><a href="customers.html">Customers</a></li>
-            <li><a href="gallery.html">Gallery</a>li>
-            <li><a href="settings.html">Settings</a></li>
-            <li><a href="#" id="logoutBtn">Logout</a></li>
+
+
+            <li>
+
+                <a href="dashboard.html">
+                    Dashboard
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a
+                    href="services.html"
+                    class="active"
+                >
+                    Services
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="bookings.html">
+                    Bookings
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="customers.html">
+                    Customers
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="gallery.html">
+                    Gallery
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="feedback.html">
+                    Feedback
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="settings.html">
+                    Settings
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a
+                    href="#"
+                    id="logoutBtn"
+                >
+                    Logout
+                </a>
+
+            </li>
+
+
         </ul>
+
 
     </aside>
 
-    <!-- Main Content -->
+
+
+    <!-- =================================================
+         MAIN
+    ================================================== -->
+
     <main class="main-content">
 
-        <h1>Manage Services</h1>
 
-        <div class="services-header">
-            <button class="add-service-btn">
+        <!-- PAGE HEADER -->
+
+        <div class="page-header">
+
+
+            <div class="page-title">
+
+                <small>
+                    Salon Management
+                </small>
+
+                <h1>
+                    Manage
+                    <span>Services</span>
+                </h1>
+
+                <p>
+                    Create, update and organize the beauty
+                    services offered by The Beauty Salon.
+                </p>
+
+            </div>
+
+
+            <button
+                class="add-service-btn"
+                type="button"
+            >
                 + Add New Service
             </button>
+
+
         </div>
 
-        <table class="services-table">
 
-            <thead>
-                <tr>
-                    <th>Image</th>
-                    <th>Service Name</th>
-                    <th>Price</th>
-                    <th>Duration</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
 
-            <tbody id="servicesTableBody">
-                <!-- Services Loaded Here -->
-            </tbody>
+        <!-- =================================================
+             SERVICE STATS
+        ================================================== -->
 
-        </table>
+        <div class="service-stats">
 
-        <!-- Popup -->
 
-        <div class="popup" id="servicePopup">
+            <div class="service-stat">
+
+                <div class="stat-icon">
+                    ✦
+                </div>
+
+                <strong id="serviceCount">
+                    0
+                </strong>
+
+                <span>
+                    Total Services
+                </span>
+
+            </div>
+
+
+            <div class="service-stat">
+
+                <div class="stat-icon">
+                    ✂
+                </div>
+
+                <strong>
+                    Beauty
+                </strong>
+
+                <span>
+                    Salon Category
+                </span>
+
+            </div>
+
+
+            <div class="service-stat">
+
+                <div class="stat-icon">
+                    ✨
+                </div>
+
+                <strong>
+                    Active
+                </strong>
+
+                <span>
+                    Service Management
+                </span>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- =================================================
+             SERVICES TABLE
+        ================================================== -->
+
+        <div class="services-container">
+
+
+            <div class="services-toolbar">
+
+
+                <div class="toolbar-title">
+
+                    <h2>
+                        All Services
+                    </h2>
+
+                    <p>
+                        Manage your salon service catalogue
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="services-badge"
+                    id="serviceBadge"
+                >
+                    Loading Services...
+                </div>
+
+
+            </div>
+
+
+            <div class="table-wrapper">
+
+
+                <table class="services-table">
+
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Image
+                            </th>
+
+                            <th>
+                                Service Name
+                            </th>
+
+                            <th>
+                                Price
+                            </th>
+
+                            <th>
+                                Duration
+                            </th>
+
+                            <th>
+                                Actions
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="servicesTableBody">
+
+                        <!--
+                            Services are loaded
+                            dynamically by admin-services.js
+                        -->
+
+                    </tbody>
+
+
+                </table>
+
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- =================================================
+             POPUP
+        ================================================== -->
+
+        <div
+            class="popup"
+            id="servicePopup"
+        >
+
 
             <div class="popup-content">
 
-                <h2>Add / Edit Service</h2>
+
+                <h2>
+                    Add / Edit Service
+                </h2>
+
 
                 <form id="serviceForm">
+
 
                     <input
                         type="text"
@@ -74,12 +2008,14 @@
                         required
                     >
 
+
                     <input
                         type="number"
                         id="servicePrice"
                         placeholder="Price"
                         required
                     >
+
 
                     <input
                         type="text"
@@ -88,21 +2024,27 @@
                         required
                     >
 
+
                     <textarea
                         id="serviceDescription"
-                        placeholder="Description"
+                        placeholder="Service Description"
                     ></textarea>
+
 
                     <input
                         type="file"
                         id="serviceImage"
+                        accept="image/*"
                     >
+
 
                     <div class="popup-buttons">
 
+
                         <button type="submit">
-                            Save
+                            Save Service
                         </button>
+
 
                         <button
                             type="button"
@@ -111,20 +2053,186 @@
                             Cancel
                         </button>
 
+
                     </div>
+
 
                 </form>
 
+
             </div>
+
 
         </div>
 
+
     </main>
+
 
 </div>
 
+
+
+<!-- =====================================================
+     EXISTING JAVASCRIPT
+====================================================== -->
+
 <script src="../js/script.js"></script>
+
 <script src="../js/admin-services.js"></script>
 
+
+
+<!-- =====================================================
+     SMALL UI ENHANCEMENTS
+====================================================== -->
+
+<script>
+
+    /*
+       Update service count/badge after
+       dynamic table loading.
+    */
+
+    function updateServiceUI(){
+
+        const rows =
+            document.querySelectorAll(
+                "#servicesTableBody tr"
+            );
+
+        const serviceCount =
+            document.getElementById(
+                "serviceCount"
+            );
+
+        const serviceBadge =
+            document.getElementById(
+                "serviceBadge"
+            );
+
+
+        let count = 0;
+
+
+        rows.forEach(
+            function(row){
+
+                /*
+                   Ignore empty/loading rows.
+                */
+
+                const cells =
+                    row.querySelectorAll("td");
+
+                if(
+                    cells.length >= 4
+                ){
+                    count++;
+                }
+
+            }
+        );
+
+
+        if(serviceCount){
+
+            serviceCount.textContent =
+                count;
+        }
+
+
+        if(serviceBadge){
+
+            if(count > 0){
+
+                serviceBadge.textContent =
+                    count +
+                    " Services Available";
+
+            }
+            else{
+
+                serviceBadge.textContent =
+                    "No Services Found";
+            }
+
+        }
+
+    }
+
+
+    /*
+       Watch dynamic table changes.
+    */
+
+    const serviceTable =
+        document.getElementById(
+            "servicesTableBody"
+        );
+
+
+    if(serviceTable){
+
+        const observer =
+            new MutationObserver(
+                function(){
+
+                    setTimeout(
+                        updateServiceUI,
+                        100
+                    );
+
+                }
+            );
+
+
+        observer.observe(
+            serviceTable,
+            {
+                childList:true,
+                subtree:true
+            }
+        );
+
+    }
+
+
+    /*
+       Close popup with ESC.
+    */
+
+    document.addEventListener(
+        "keydown",
+        function(event){
+
+            if(
+                event.key === "Escape"
+            ){
+
+                const popup =
+                    document.getElementById(
+                        "servicePopup"
+                    );
+
+                if(popup){
+
+                    popup.classList.remove(
+                        "show"
+                    );
+
+                    popup.style.display =
+                        "none";
+                }
+
+            }
+
+        }
+    );
+
+</script>
+
+
 </body>
+
 </html>
