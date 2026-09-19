@@ -1,574 +1,1472 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>The Beauty Salon | Premium Salon</title>
 
+    <meta name="description"
+        content="The Beauty Salon - Premium hair, beauty and wellness services with professional stylists and personalized care.">
+
     <link rel="stylesheet" href="css/style.css">
 
-    <link rel="preconnect"
-          href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossorigin>
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
         rel="stylesheet">
-
 
     <style>
 
         /* =====================================================
-           HERO SECTION
+           GLOBAL
         ===================================================== */
 
-        .hero {
-
-            min-height: 760px;
-
-            position: relative;
-
-            overflow: hidden;
-
-            display: flex;
-
-            align-items: flex-start;
-
-            background-color: #050505;
-
-            background-image:
-
-                linear-gradient(
-                    90deg,
-                    rgba(0,0,0,0.98) 0%,
-                    rgba(0,0,0,0.96) 28%,
-                    rgba(0,0,0,0.78) 48%,
-                    rgba(0,0,0,0.35) 72%,
-                    rgba(0,0,0,0.10) 100%
-                ),
-
-                url("images/beauty-salon-bg.png");
-
-            background-size: cover;
-
-            background-position: right center;
-
-            background-repeat: no-repeat;
-        }
-
-
-        /* =====================================================
-           HERO CONTENT
-        ===================================================== */
-
-       .hero-content {
-    width: 100%;
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 80px 70px 55px;
-    box-sizing: border-box;
-    text-align: left;
-    position: relative;
-    z-index: 2;
-}
-
-
-        .hero-content > * {
-
-            text-align: left;
-        }
-
-
-        /* =====================================================
-           PREMIUM TAG
-        ===================================================== */
-
-        .hero-content .tag {
-
-            display: inline-block;
-
-            padding: 8px 18px;
-
-            margin-bottom: 12px;
-
-            border: 1px solid #d4af37;
-
-            border-radius: 30px;
-
-            color: #d4af37;
-
-            background: rgba(0,0,0,0.55);
-
-            font-size: 14px;
-
-            font-weight: 600;
-        }
-
-
-        /* =====================================================
-           HERO TITLE
-        ===================================================== */
-
-        .hero-content h1 {
-
-            max-width: 650px;
-
-            margin: 0 0 20px;
-
-            font-size: 64px;
-
-            line-height: 1.1;
-
-            color: #ffffff;
-
-            font-weight: 700;
-        }
-
-
-        /* =====================================================
-           HERO DESCRIPTION
-        ===================================================== */
-
-        .hero-content > p {
-
-            max-width: 590px;
-
-            margin: 0 0 30px;
-
-            font-size: 18px;
-
-            line-height: 1.8;
-
-            color: #dddddd;
-        }
-
-
-        /* =====================================================
-           HERO BUTTONS
-        ===================================================== */
-
-        .hero-buttons {
-
-            display: flex !important;
-
-            flex-direction: row !important;
-
-            justify-content: flex-start !important;
-
-            align-items: flex-start !important;
-
-            gap: 18px;
-
-            width: 100%;
-
-            margin-bottom: 38px;
-        }
-
-
-        .hero-btn,
-        .hero-btn-outline {
-
-            display: inline-flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            min-width: 190px;
-
-            padding: 15px 25px;
-
-            border-radius: 30px;
-
-            text-decoration: none;
-
-            font-weight: 600;
-
-            transition: 0.3s;
-
-            box-sizing: border-box;
-        }
-
-
-        .hero-btn {
-
-            background: #d4af37;
-
-            color: #111111;
-
-            border: 1px solid #d4af37;
-        }
-
-
-        .hero-btn:hover {
-
-            background: #edcd58;
-
-            color: #111111;
-
-            transform: translateY(-3px);
-        }
-
-
-        .hero-btn-outline {
-
-            color: #ffffff;
-
-            border: 1px solid #d4af37;
-
-            background: rgba(0,0,0,0.45);
-        }
-
-
-        .hero-btn-outline:hover {
-
-            background: #d4af37;
-
-            color: #111111;
-
-            transform: translateY(-3px);
-        }
-
-
-        /* =====================================================
-           HERO STATS
-        ===================================================== */
-
-        .hero-info {
-
-            display: flex !important;
-
-            flex-direction: row !important;
-
-            justify-content: flex-start !important;
-
-            align-items: flex-start !important;
-
-            gap: 20px;
-
-            width: 100%;
-        }
-
-
-        .info-box {
-
-            width: 210px;
-
-            min-width: 210px;
-
-            padding: 20px 25px;
-
-            box-sizing: border-box;
-
-            background: rgba(25,25,25,0.92);
-
-            border-left: 3px solid #d4af37;
-
-            border-radius: 10px;
-
-            backdrop-filter: blur(5px);
-        }
-
-
-        .info-box h3 {
-
-            margin: 0 0 5px;
-
-            color: #d4af37;
-
-            font-size: 25px;
-        }
-
-
-        .info-box p {
-
+        * {
             margin: 0;
-
-            color: #eeeeee;
-
-            font-size: 14px;
+            padding: 0;
+            box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "DM Sans", sans-serif;
+            background: #080808;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        :root {
+            --gold: #d4af37;
+            --gold-light: #f1d675;
+            --black: #080808;
+            --dark: #101010;
+            --dark2: #151515;
+            --dark3: #1d1d1d;
+            --white: #ffffff;
+            --muted: #b7b7b7;
+            --border: rgba(212,175,55,0.28);
+        }
+
+        .container {
+            width: min(1180px, calc(100% - 40px));
+            margin: auto;
+        }
+
+        .gold {
+            color: var(--gold);
+        }
 
         /* =====================================================
            NAVBAR
         ===================================================== */
 
         .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 9999;
+            background: rgba(5,5,5,0.97);
+            border-bottom: 1px solid rgba(212,175,55,0.18);
+            backdrop-filter: blur(12px);
+        }
 
-            display: flex !important;
+        .nav-container {
+            min-height: 82px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 25px;
+        }
 
-            align-items: center !important;
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+            min-width: 250px;
+        }
 
-            justify-content: flex-start !important;
+        .brand-icon {
+            width: 46px;
+            height: 46px;
+            border: 1px solid var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            font-family: "Playfair Display", serif;
+            font-size: 22px;
+            font-weight: 700;
+        }
 
+        .brand-main {
+            font-family: "Playfair Display", serif;
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .brand-sub {
+            margin-top: 7px;
+            color: var(--gold);
+            font-size: 8px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 27px;
+        }
+
+        .nav-links a {
+            position: relative;
+            color: #eeeeee;
+            font-size: 14px;
+            font-weight: 600;
+            padding: 8px 0;
+            transition: 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .menu-btn {
+            display: none;
+            width: 44px;
+            height: 44px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: transparent;
+            color: var(--gold);
+            font-size: 23px;
+            cursor: pointer;
+        }
+
+        .mobile-menu {
+            display: none;
+            background: #080808;
+            border-top: 1px solid rgba(212,175,55,0.15);
+        }
+
+        .mobile-menu.active {
+            display: block;
+        }
+
+        .mobile-menu a {
+            display: block;
+            padding: 15px 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            color: #eeeeee;
+            font-weight: 600;
+        }
+
+        .mobile-menu a:hover {
+            color: var(--gold);
+        }
+
+        /* =====================================================
+           HERO
+        ===================================================== */
+
+        .hero {
+            min-height: 850px;
+            padding-top: 82px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(0,0,0,0.98) 0%,
+                    rgba(0,0,0,0.94) 34%,
+                    rgba(0,0,0,0.72) 62%,
+                    rgba(0,0,0,0.86) 100%
+                ),
+                url("images/beauty-salon-bg.png") center center / cover no-repeat;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(
+                    circle at 72% 45%,
+                    rgba(212,175,55,0.14),
+                    transparent 34%
+                );
+            pointer-events: none;
+        }
+
+        .hero-container {
+            position: relative;
+            z-index: 2;
+            width: min(1180px, calc(100% - 40px));
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: 1.05fr 0.95fr;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .hero-content {
+            max-width: 660px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+
+            border: 1px solid rgba(212,175,55,0.75);
+            border-radius: 30px;
+
+            padding: 10px 18px;
+
+            color: var(--gold-light);
+            background: rgba(0,0,0,0.32);
+
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+
+            margin-bottom: 27px;
+        }
+
+        .hero-badge span {
+            color: var(--gold);
+        }
+
+        .hero h1 {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(48px, 5.5vw, 78px);
+            line-height: 1.04;
+            margin-bottom: 25px;
+        }
+
+        .gold-text {
+            color: var(--gold);
+            display: block;
+        }
+
+        .hero-description {
+            max-width: 620px;
+            color: #d5d5d5;
+            font-size: 17px;
+            line-height: 1.9;
+            margin-bottom: 35px;
+        }
+
+        /* BUTTON FIX */
+
+        .hero-buttons {
+             display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 18px;
+    margin-left: 0;
+    margin-bottom: 44px;
+        }
+
+        .btn {
+            min-width: 180px;
+            min-height: 52px;
+            padding: 14px 26px;
+
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 30px;
+
+            font-size: 14px;
+            font-weight: 700;
+
+            transition: 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--gold);
+            border: 1px solid var(--gold);
+            color: #080808;
+        }
+
+        .btn-primary:hover {
+            background: var(--gold-light);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(212,175,55,0.18);
+        }
+
+        .btn-outline {
+            background: rgba(0,0,0,0.25);
+            border: 1px solid var(--gold);
+            color: #ffffff;
+        }
+
+        .btn-outline:hover {
+            background: var(--gold);
+            color: #080808;
+            transform: translateY(-3px);
+        }
+
+        .hero-stats {
+              display: grid;
+    grid-template-columns: repeat(2, 190px);
+    gap: 16px;
+    justify-content: center;
+        }
+
+        .hero-stat {
+            padding: 20px;
+            text-align: center;
+
+            background: rgba(20,20,20,0.88);
+            border: 1px solid rgba(212,175,55,0.42);
+            border-radius: 12px;
+        }
+
+        .hero-stat h3 {
+            color: var(--gold);
+            font-size: 27px;
+            margin-bottom: 6px;
+        }
+
+        .hero-stat p {
+            color: #d0d0d0;
+            font-size: 12px;
+        }
+
+        .hero-visual {
+            min-height: 540px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-circle {
+            width: min(500px, 100%);
+            aspect-ratio: 1;
+
+            border-radius: 50%;
+            border: 1px solid rgba(212,175,55,0.35);
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            position: relative;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(212,175,55,0.10),
+                    transparent 68%
+                );
+        }
+
+        .hero-circle::before,
+        .hero-circle::after {
+            content: "";
+            position: absolute;
+            border-radius: 50%;
+            border: 1px solid rgba(212,175,55,0.18);
+        }
+
+        .hero-circle::before {
+            width: 86%;
+            height: 86%;
+        }
+
+        .hero-circle::after {
+            width: 72%;
+            height: 72%;
+        }
+
+        .hero-circle-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .hero-circle-content .symbol {
+            color: var(--gold);
+            font-family: "Playfair Display", serif;
+            font-size: 75px;
+            line-height: 1;
+            margin-bottom: 15px;
+        }
+
+        .hero-circle-content h2 {
+            font-family: "Playfair Display", serif;
+            font-size: 38px;
+            margin-bottom: 8px;
+        }
+
+        .hero-circle-content p {
+            color: var(--gold);
+            font-size: 11px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+
+        /* =====================================================
+           EXPERIENCE STRIP
+        ===================================================== */
+
+        .experience-strip {
+            background: #0b0b0b;
+            border-top: 1px solid rgba(212,175,55,0.18);
+            border-bottom: 1px solid rgba(212,175,55,0.18);
+            padding: 30px 0;
+        }
+
+        .experience-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .experience-item {
+            text-align: center;
+            padding: 12px 15px;
+            border-right: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .experience-item:last-child {
+            border-right: none;
+        }
+
+        .experience-icon {
+            color: var(--gold);
+            font-size: 25px;
+            margin-bottom: 8px;
+        }
+
+        .experience-item h3 {
+            font-family: "Playfair Display", serif;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .experience-item p {
+            color: #999999;
+            font-size: 11px;
+        }
+
+        /* =====================================================
+           COMMON
+        ===================================================== */
+
+        .section {
+            padding: 100px 0;
+        }
+
+        .section-dark {
+            background: #0c0c0c;
+        }
+
+        .section-black {
+            background: #070707;
+        }
+
+        .section-heading {
+            max-width: 720px;
+            text-align: center;
+            margin: 0 auto 55px;
+        }
+
+        .section-label {
+            color: var(--gold);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .section-heading h2 {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(36px, 4vw, 52px);
+            line-height: 1.15;
+            margin-bottom: 17px;
+        }
+
+        .section-heading p {
+            color: var(--muted);
+            line-height: 1.8;
+            font-size: 15px;
+        }
+
+        /* =====================================================
+           ABOUT
+        ===================================================== */
+
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .intro-content h2 {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(38px, 4vw, 55px);
+            line-height: 1.15;
+            margin-bottom: 24px;
+        }
+
+        .intro-content p {
+            color: var(--muted);
+            line-height: 1.9;
+            font-size: 15px;
+            margin-bottom: 18px;
+        }
+
+        .intro-list {
+            margin-top: 28px;
+            display: grid;
+            gap: 13px;
+        }
+
+        .intro-list div {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #e4e4e4;
+            font-size: 14px;
+        }
+
+        .intro-list span {
+            width: 27px;
+            height: 27px;
+            flex-shrink: 0;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+            border: 1px solid var(--border);
+            background: rgba(212,175,55,0.12);
+
+            color: var(--gold);
+        }
+
+        .intro-card {
+            min-height: 470px;
+
+            border: 1px solid var(--border);
+            border-radius: 20px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            position: relative;
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(212,175,55,0.09),
+                    rgba(255,255,255,0.015)
+                );
+        }
+
+        .intro-card::before {
+            content: "";
+            position: absolute;
+
+            width: 330px;
+            height: 330px;
+
+            border: 1px solid rgba(212,175,55,0.22);
+            border-radius: 50%;
+        }
+
+        .intro-card-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .big-letter {
+            font-family: "Playfair Display", serif;
+            color: var(--gold);
+            font-size: 150px;
+            line-height: 1;
+        }
+
+        .intro-card-content h3 {
+            font-family: "Playfair Display", serif;
+            font-size: 30px;
+        }
+
+        .intro-card-content p {
+            color: var(--gold);
+            font-size: 10px;
+            letter-spacing: 4px;
+            margin-top: 8px;
+        }
+
+        /* =====================================================
+           HOW IT WORKS
+        ===================================================== */
+
+        .steps-section {
+            background: #111111;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 25px;
+        }
+
+        .step-card {
+            background: #171717;
+            border: 1px solid rgba(212,175,55,0.18);
+            border-radius: 16px;
+            padding: 35px 28px;
+            text-align: center;
+            transition: 0.3s ease;
+        }
+
+        .step-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--gold);
+        }
+
+        .step-number {
+            width: 58px;
+            height: 58px;
+
+            margin: 0 auto 20px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border: 1px solid var(--gold);
+            border-radius: 50%;
+
+            color: var(--gold);
+
+            font-family: "Playfair Display", serif;
+            font-size: 22px;
+            font-weight: 700;
+        }
+
+        .step-card h3 {
+            font-family: "Playfair Display", serif;
+            font-size: 23px;
+            margin-bottom: 10px;
+        }
+
+        .step-card p {
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.75;
+        }
+
+        /* =====================================================
+           SERVICES
+        ===================================================== */
+
+        .services-section {
+            background: #101010;
+        }
+
+        #homeServicesContainer {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 24px;
+        }
+
+        .service-card {
+            background: #171717;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-7px);
+            border-color: var(--border);
+            box-shadow: 0 18px 40px rgba(0,0,0,0.3);
+        }
+
+        .service-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .service-card-content {
+            padding: 24px;
+        }
+
+        .service-card h3 {
+            font-family: "Playfair Display", serif;
+            font-size: 23px;
+            margin-bottom: 9px;
+        }
+
+        .service-card p {
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+        .service-card .price {
+            color: var(--gold);
+            font-size: 18px;
+            font-weight: 700;
+            margin-top: 18px;
+        }
+
+        /* =====================================================
+           WHY CHOOSE US
+        ===================================================== */
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 22px;
+        }
+
+        .why-card {
+            background: #131313;
+            border: 1px solid rgba(212,175,55,0.17);
+            border-radius: 15px;
+            padding: 30px 25px;
+            transition: 0.3s ease;
+        }
+
+        .why-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-5px);
+        }
+
+        .why-icon {
+            width: 52px;
+            height: 52px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border: 1px solid var(--border);
+            border-radius: 12px;
+
+            color: var(--gold);
+            font-size: 22px;
+
+            margin-bottom: 20px;
+        }
+
+        .why-card h3 {
+            font-family: "Playfair Display", serif;
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .why-card p {
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.75;
+        }
+
+        /* =====================================================
+           GALLERY
+        ===================================================== */
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: 1.3fr 0.7fr 1fr;
+            grid-template-rows: 240px 240px;
+            gap: 14px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+
+            border-radius: 14px;
+            border: 1px solid rgba(212,175,55,0.18);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #171717,
+                    #090909
+                );
+        }
+
+        .gallery-item:first-child {
+            grid-row: span 2;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.07);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+
+            display: flex;
+            align-items: flex-end;
+
+            padding: 22px;
+
+            background:
+                linear-gradient(
+                    transparent 45%,
+                    rgba(0,0,0,0.88)
+                );
+        }
+
+        .gallery-overlay span {
+            color: #ffffff;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        /* =====================================================
+           STATS
+        ===================================================== */
+
+        .stats-section {
+            padding: 65px 0;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #0b0b0b,
+                    #17130a,
+                    #0b0b0b
+                );
+
+            border-top: 1px solid rgba(212,175,55,0.15);
+            border-bottom: 1px solid rgba(212,175,55,0.15);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
             gap: 20px;
         }
 
-
-        .logo {
-
-            font-size: 28px !important;
-
-            font-weight: 700;
-
-            white-space: nowrap;
-
-            margin-right: auto;
+        .stat-box {
+            text-align: center;
+            padding: 20px;
         }
 
-
-        .logo span {
-
-            color: #d4af37;
+        .stat-box h3 {
+            font-family: "Playfair Display", serif;
+            color: var(--gold);
+            font-size: 42px;
+            margin-bottom: 5px;
         }
 
-
-        .nav-links {
-
-            display: flex !important;
-
-            align-items: center;
-
-            justify-content: flex-end;
-
-            gap: 28px;
-
-            margin-left: auto;
+        .stat-box p {
+            color: #cccccc;
+            font-size: 13px;
         }
-
-
-        .nav-links li a {
-
-            white-space: nowrap;
-        }
-
 
         /* =====================================================
            REVIEWS
         ===================================================== */
 
-        .review-container {
-
-            display: grid;
-
-            grid-template-columns: repeat(3,1fr);
-
-            gap: 30px;
+        .reviews-section {
+            background: #0d0d0d;
         }
 
+        #reviewsContainer {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 22px;
+        }
 
         .review-card {
-
-            background: #1d1d1d;
-
+            background: #161616;
+            border: 1px solid rgba(255,255,255,0.07);
             border-radius: 15px;
-
-            padding: 30px;
-
-            text-align: center;
-
-            border: 1px solid #2f2f2f;
-
-            transition: 0.3s;
+            padding: 28px;
         }
-
-
-        .review-card:hover {
-
-            transform: translateY(-5px);
-
-            border-color: #d4af37;
-        }
-
 
         .review-stars {
-
-            color: #f5b301;
-
-            font-size: 20px;
-
+            color: var(--gold);
             letter-spacing: 2px;
-
-            margin-bottom: 15px;
+            margin-bottom: 18px;
         }
-
 
         .review-card p {
-
-            color: #eeeeee;
-
-            line-height: 1.6;
-
-            margin-bottom: 15px;
+            color: #d0d0d0;
+            line-height: 1.8;
+            font-size: 14px;
+            margin-bottom: 22px;
         }
 
-
-        .review-card h4 {
-
-            color: #d4af37;
-
-            margin: 0;
-
-            font-weight: 600;
+        .review-name {
+            color: #ffffff;
+            font-weight: 700;
         }
 
+        /* =====================================================
+           CTA
+        ===================================================== */
 
-        .no-reviews {
+        .cta {
+            padding: 100px 0;
 
-            grid-column: 1 / -1;
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(212,175,55,0.10),
+                    rgba(0,0,0,0.9)
+                );
+        }
+
+        .cta-box {
+            border: 1px solid var(--border);
+            border-radius: 24px;
+
+            padding: 70px 40px;
 
             text-align: center;
 
-            color: #aaaaaa;
-
-            padding: 30px;
+            background:
+                radial-gradient(
+                    circle at center,
+                    rgba(212,175,55,0.10),
+                    transparent 60%
+                ),
+                #111111;
         }
 
+        .cta-box h2 {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(38px,5vw,58px);
+            margin-bottom: 17px;
+        }
+
+        .cta-box p {
+            max-width: 620px;
+            margin: 0 auto 30px;
+
+            color: var(--muted);
+            line-height: 1.8;
+        }
 
         /* =====================================================
-           RESPONSIVE
+           FOOTER
         ===================================================== */
 
-        @media (max-width:1200px) {
+        footer {
+            background: #050505;
+            border-top: 1px solid rgba(212,175,55,0.18);
+            padding-top: 65px;
+        }
 
-            .logo {
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.3fr 1fr 1fr 1fr;
+            gap: 45px;
+            padding-bottom: 55px;
+        }
 
-                font-size: 24px !important;
-            }
+        .footer-brand h2 {
+            font-family: "Playfair Display", serif;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
 
+        .footer-brand h2 span {
+            color: var(--gold);
+        }
+
+        .footer-brand p {
+            max-width: 310px;
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        .footer-column h3 {
+            color: var(--gold);
+            font-size: 14px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .footer-column a,
+        .footer-column p {
+            display: block;
+            color: #aaaaaa;
+            font-size: 13px;
+            margin-bottom: 12px;
+            transition: 0.3s ease;
+        }
+
+        .footer-column a:hover {
+            color: var(--gold);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.08);
+            padding: 20px;
+
+            text-align: center;
+
+            color: #777777;
+            font-size: 12px;
+        }
+
+        /* =====================================================
+           TABLET
+        ===================================================== */
+
+        @media (max-width: 1000px) {
 
             .nav-links {
-
-                gap: 18px;
-            }
-        }
-
-
-        @media (max-width:1100px) {
-
-            .hero-content {
-
-                padding-left: 50px;
-
-                padding-right: 50px;
+                gap: 17px;
             }
 
-
-            .hero-content h1 {
-
-                font-size: 55px;
+            .nav-links a {
+                font-size: 12px;
             }
-        }
 
+            .brand {
+                min-width: auto;
+            }
 
-        @media (max-width:900px) {
+            .brand-main {
+                font-size: 20px;
+            }
 
             .hero {
-
                 min-height: auto;
-
-                background-position: 70% center;
+                padding: 145px 0 80px;
             }
 
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 45px;
+            }
 
             .hero-content {
-
-                padding: 25px 30px 60px;
+                max-width: 760px;
+                margin: auto;
             }
 
-
-            .hero-content h1 {
-
-                font-size: 45px;
+            .hero-description {
+                margin-left: auto;
+                margin-right: auto;
             }
-
-
-            .hero-content > p {
-
-                font-size: 16px;
-            }
-
 
             .hero-buttons {
-
-                flex-direction: column !important;
-
-                align-items: flex-start !important;
+                justify-content: center;
+                margin-left: 0;
             }
 
-
-            .hero-info {
-
-                flex-direction: column !important;
-
-                align-items: flex-start !important;
+            .hero-stats {
+                justify-content: center;
             }
 
+            .hero-visual {
+                min-height: 350px;
+            }
 
-            .review-container {
+            .hero-circle {
+                width: 390px;
+            }
 
+            .experience-grid {
+                grid-template-columns: repeat(2,1fr);
+            }
+
+            .experience-item:nth-child(2) {
+                border-right: none;
+            }
+
+            .intro-grid {
                 grid-template-columns: 1fr;
             }
 
-
-            .logo {
-
-                font-size: 22px !important;
+            .steps-grid {
+                grid-template-columns: repeat(3,1fr);
             }
 
+            #homeServicesContainer {
+                grid-template-columns: repeat(2,1fr);
+            }
+
+            .why-grid {
+                grid-template-columns: repeat(2,1fr);
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2,1fr);
+                grid-template-rows: 250px 250px 250px;
+            }
+
+            .gallery-item:first-child {
+                grid-row: span 2;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2,1fr);
+            }
+
+            #reviewsContainer {
+                grid-template-columns: repeat(2,1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2,1fr);
+            }
         }
 
+        /* =====================================================
+           MOBILE
+        ===================================================== */
 
-        @media (max-width:500px) {
+        @media (max-width: 700px) {
+
+            .container {
+                width: calc(100% - 28px);
+            }
+
+            .nav-container {
+                min-height: 72px;
+            }
+
+            .brand-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 19px;
+            }
+
+            .brand-main {
+                font-size: 18px;
+            }
+
+            .brand-sub {
+                font-size: 6px;
+                letter-spacing: 2.5px;
+                margin-top: 5px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .menu-btn {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
 
             .hero {
-
-                background-position: 68% center;
+                padding-top: 120px;
+                padding-bottom: 70px;
             }
 
-
-            .hero-content {
-
-                padding: 20px 20px 50px;
+            .hero-container {
+                width: calc(100% - 28px);
             }
 
-
-            .hero-content h1 {
-
-                font-size: 36px;
+            .hero-badge {
+                font-size: 9px;
+                padding: 9px 13px;
+                letter-spacing: 1px;
             }
 
-
-            .hero-content .tag {
-
-                font-size: 12px;
-
-                margin-bottom: 10px;
+            .hero h1 {
+                font-size: 43px;
             }
 
+            .hero-description {
+                font-size: 14px;
+                line-height: 1.75;
+            }
 
-            .hero-btn,
-            .hero-btn-outline {
+            /* MOBILE BUTTONS - NO OVERLAP */
 
-                min-width: 180px;
+            .hero-buttons {
+                width: 100%;
+                flex-direction: column;
+                gap: 13px;
+                margin-left: 0;
+                margin-bottom: 35px;
+            }
 
-                width: auto;
+            .hero-buttons .btn {
+                width: 100%;
+                max-width: 330px;
+                min-width: 0;
+            }
+
+            .hero-stats {
+                width: 100%;
+                grid-template-columns: repeat(2,1fr);
+                gap: 10px;
+            }
+
+            .hero-stat {
+                padding: 17px 10px;
+            }
+
+            .hero-stat h3 {
+                font-size: 22px;
+            }
+
+            .hero-stat p {
+                font-size: 10px;
+            }
+
+            .hero-visual {
+                min-height: 280px;
+            }
+
+            .hero-circle {
+                width: 285px;
+            }
+
+            .hero-circle-content .symbol {
+                font-size: 55px;
+            }
+
+            .hero-circle-content h2 {
+                font-size: 27px;
+            }
+
+            .hero-circle-content p {
+                font-size: 8px;
+                letter-spacing: 2.5px;
+            }
+
+            .experience-strip {
+                padding: 25px 0;
+            }
+
+            .experience-grid {
+                grid-template-columns: repeat(2,1fr);
+            }
+
+            .experience-item {
+                border-right: none;
+                border-bottom: 1px solid rgba(255,255,255,0.07);
+                padding: 15px 8px;
+            }
+
+            .experience-item:nth-child(3),
+            .experience-item:nth-child(4) {
+                border-bottom: none;
+            }
+
+            .section {
+                padding: 75px 0;
+            }
+
+            .section-heading {
+                margin-bottom: 38px;
+            }
+
+            .section-heading h2 {
+                font-size: 35px;
+            }
+
+            .section-heading p {
+                font-size: 13px;
+            }
+
+            .intro-grid {
+                gap: 35px;
+            }
+
+            .intro-content h2 {
+                font-size: 38px;
+            }
+
+            .intro-content p {
+                font-size: 13px;
+            }
+
+            .intro-card {
+                min-height: 330px;
+            }
+
+            .intro-card::before {
+                width: 240px;
+                height: 240px;
+            }
+
+            .big-letter {
+                font-size: 110px;
+            }
+
+            .steps-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            #homeServicesContainer {
+                grid-template-columns: 1fr;
+                gap: 17px;
+            }
+
+            .service-card img {
+                height: 210px;
+            }
+
+            .why-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .why-card {
+                padding: 25px 22px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(5,230px);
+            }
+
+            .gallery-item:first-child {
+                grid-row: span 1;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2,1fr);
+                gap: 5px;
+            }
+
+            .stat-box {
+                padding: 15px 5px;
+            }
+
+            .stat-box h3 {
+                font-size: 31px;
+            }
+
+            .stat-box p {
+                font-size: 10px;
+            }
+
+            #reviewsContainer {
+                grid-template-columns: 1fr;
+            }
+
+            .review-card {
+                padding: 23px;
+            }
+
+            .cta {
+                padding: 70px 0;
+            }
+
+            .cta-box {
+                padding: 50px 22px;
+            }
+
+            .cta-box h2 {
+                font-size: 37px;
+            }
+
+            .cta-box p {
+                font-size: 13px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            footer {
+                padding-top: 50px;
+            }
+        }
+
+        /* =====================================================
+           SMALL MOBILE
+        ===================================================== */
+
+        @media (max-width:380px) {
+
+            .brand-main {
+                font-size: 16px;
+            }
+
+            .brand-sub {
+                font-size: 5px;
+            }
+
+            .hero h1 {
+                font-size: 37px;
+            }
+
+            .hero-stat h3 {
+                font-size: 19px;
+            }
+
+            .hero-circle {
+                width: 250px;
             }
 
         }
 
-
     </style>
-
 </head>
 
 
@@ -576,90 +1474,72 @@
 
 
 <!-- =====================================================
-     LOADER
-===================================================== -->
-
-<div id="loader">
-
-    <div class="loader-content">
-
-        <div class="loader-line"></div>
-
-    </div>
-
-</div>
-
-
-
-<!-- =====================================================
      NAVBAR
 ===================================================== -->
 
-<header>
+<header class="navbar">
 
-    <nav class="navbar">
+    <div class="nav-container container">
 
+        <a href="index.html" class="brand">
 
-      <div class="logo">
-    <img src="images/salon-logo.png" alt="The Beauty Salon Logo">
-</div>
+            <div class="brand-icon">
+                B
+            </div>
 
-        <ul class="nav-links">
+            <div>
 
-            <li>
-                <a href="index.html">
-                    Home
-                </a>
-            </li>
+                <div class="brand-main">
+                    The Beauty Salon
+                </div>
 
+                <div class="brand-sub">
+                    Hair • Beauty • Wellness
+                </div>
 
-            <li>
-                <a href="about.html">
-                    About
-                </a>
-            </li>
+            </div>
 
-
-            <li>
-                <a href="services.html">
-                    Services
-                </a>
-            </li>
+        </a>
 
 
-            <li>
-                <a href="gallery.html">
-                    Gallery
-                </a>
-            </li>
+        <nav class="nav-links">
+
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="contact.html">Contact</a>
+            <a href="user-login.html">User Login</a>
+            <a href="admin/login.html">Admin Login</a>
+
+        </nav>
 
 
-            <li>
-                <a href="contact.html">
-                    Contact
-                </a>
-            </li>
+        <button
+            class="menu-btn"
+            id="menuBtn"
+            type="button">
+            ☰
+        </button>
+
+    </div>
 
 
-            <li>
-                <a href="user/login.html">
-                    User Login
-                </a>
-            </li>
+    <div
+        class="mobile-menu"
+        id="mobileMenu">
 
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html">Contact</a>
+        <a href="user-login.html">User Login</a>
+        <a href="admin/login.html">Admin Login</a>
 
-            <li>
-                <a href="admin/login.html">
-                    Admin Login
-                </a>
-            </li>
-
-        </ul>
-
-    </nav>
+    </div>
 
 </header>
-
 
 
 <!-- =====================================================
@@ -668,74 +1548,708 @@
 
 <section class="hero">
 
+    <div class="hero-container">
 
-    <div class="hero-content">
+        <div class="hero-content">
 
-
-        <!-- PREMIUM TAG -->
-
-        <span class="tag">
-
-            ✂ Premium Salon Since 2020
-
-        </span>
+            <div class="hero-badge">
+                <span>✦</span>
+                Premium Salon Experience
+            </div>
 
 
-        <!-- TITLE -->
+            <h1>
 
-        <h1>
+                Premium Hair &
 
-            Premium Hair &<br>
+                <span class="gold-text">
+                    Beauty Salon
+                </span>
 
-            Beauty Salon
-
-        </h1>
-
-
-        <!-- DESCRIPTION -->
-
-        <p>
-
-            Experience luxury grooming with professional stylists,
-            premium products, and modern hairstyles tailored just for you.
-
-        </p>
+            </h1>
 
 
-        <!-- BUTTONS -->
+            <p class="hero-description">
 
-        <div class="hero-buttons">
+                Experience luxury grooming with professional stylists,
+                premium products, modern techniques and personalized
+                beauty services designed especially for you.
 
-
-            <a
-                href="booking.html"
-                class="hero-btn"
-            >
-
-                Book Appointment
-
-            </a>
+            </p>
 
 
-            <a
-                href="services.html"
-                class="hero-btn-outline"
-            >
+            <div class="hero-buttons">
 
-                Our Services
+                <a
+                    href="booking.html"
+                    class="btn btn-primary">
 
-            </a>
+                    Book Appointment
 
+                </a>
+
+
+                <a
+                    href="services.html"
+                    class="btn btn-outline">
+
+                    Explore Services
+
+                </a>
+
+            </div>
+
+
+            <div class="hero-stats">
+
+                <div class="hero-stat">
+
+                    <h3>
+                        5000+
+                    </h3>
+
+                    <p>
+                        Happy Customers
+                    </p>
+
+                </div>
+
+
+                <div class="hero-stat">
+
+                    <h3>
+                        15+
+                    </h3>
+
+                    <p>
+                        Professional Stylists
+                    </p>
+
+                </div>
+
+            </div>
 
         </div>
 
 
-        <!-- STATS -->
+        <div class="hero-visual">
 
-        <div class="hero-info">
+            <div class="hero-circle">
+
+                <div class="hero-circle-content">
+
+                    <div class="symbol">
+                        B
+                    </div>
+
+                    <h2>
+                        Beauty
+                    </h2>
+
+                    <p>
+                        Hair • Beauty • Wellness
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
 
 
-            <div class="info-box">
+<!-- =====================================================
+     EXPERIENCE
+===================================================== -->
+
+<section class="experience-strip">
+
+    <div class="container">
+
+        <div class="experience-grid">
+
+            <div class="experience-item">
+
+                <div class="experience-icon">
+                    ✦
+                </div>
+
+                <h3>
+                    Premium Care
+                </h3>
+
+                <p>
+                    Luxury salon experience
+                </p>
+
+            </div>
+
+
+            <div class="experience-item">
+
+                <div class="experience-icon">
+                    ★
+                </div>
+
+                <h3>
+                    Expert Stylists
+                </h3>
+
+                <p>
+                    Professional beauty experts
+                </p>
+
+            </div>
+
+
+            <div class="experience-item">
+
+                <div class="experience-icon">
+                    ♡
+                </div>
+
+                <h3>
+                    Personal Care
+                </h3>
+
+                <p>
+                    Services made for you
+                </p>
+
+            </div>
+
+
+            <div class="experience-item">
+
+                <div class="experience-icon">
+                    ✓
+                </div>
+
+                <h3>
+                    Easy Booking
+                </h3>
+
+                <p>
+                    Quick online appointments
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     ABOUT
+===================================================== -->
+
+<section class="section section-dark">
+
+    <div class="container">
+
+        <div class="intro-grid">
+
+            <div class="intro-content">
+
+                <div class="section-label">
+                    Our Philosophy
+                </div>
+
+
+                <h2>
+
+                    Beauty is not just
+
+                    <span class="gold">
+                        a service.
+                    </span>
+
+                </h2>
+
+
+                <p>
+
+                    At The Beauty Salon, we believe every client deserves
+                    personalized care, professional expertise and an
+                    experience that makes them feel confident.
+
+                </p>
+
+
+                <p>
+
+                    From hair styling to beauty treatments, our goal is
+                    to create a premium salon experience in a comfortable
+                    and welcoming environment.
+
+                </p>
+
+
+                <div class="intro-list">
+
+                    <div>
+                        <span>✓</span>
+                        Professional Beauty Experts
+                    </div>
+
+                    <div>
+                        <span>✓</span>
+                        Premium Quality Products
+                    </div>
+
+                    <div>
+                        <span>✓</span>
+                        Personalized Services
+                    </div>
+
+                    <div>
+                        <span>✓</span>
+                        Clean & Comfortable Environment
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="intro-card">
+
+                <div class="intro-card-content">
+
+                    <div class="big-letter">
+                        B
+                    </div>
+
+                    <h3>
+                        The Beauty Salon
+                    </h3>
+
+                    <p>
+                        Premium Beauty Experience
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     HOW IT WORKS
+===================================================== -->
+
+<section class="section steps-section">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <div class="section-label">
+                Simple & Easy
+            </div>
+
+            <h2>
+                Your Appointment in 3 Steps
+            </h2>
+
+            <p>
+                Booking your beauty appointment is simple,
+                quick and convenient.
+            </p>
+
+        </div>
+
+
+        <div class="steps-grid">
+
+            <div class="step-card">
+
+                <div class="step-number">
+                    01
+                </div>
+
+                <h3>
+                    Choose a Service
+                </h3>
+
+                <p>
+                    Explore our professional hair and beauty
+                    services and choose what you need.
+                </p>
+
+            </div>
+
+
+            <div class="step-card">
+
+                <div class="step-number">
+                    02
+                </div>
+
+                <h3>
+                    Select Date & Time
+                </h3>
+
+                <p>
+                    Select a convenient date and available
+                    appointment time.
+                </p>
+
+            </div>
+
+
+            <div class="step-card">
+
+                <div class="step-number">
+                    03
+                </div>
+
+                <h3>
+                    Visit The Salon
+                </h3>
+
+                <p>
+                    Confirm your appointment and visit us
+                    for your premium beauty experience.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     SERVICES
+===================================================== -->
+
+<section class="section services-section">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <div class="section-label">
+                What We Offer
+            </div>
+
+            <h2>
+                Our Premium Services
+            </h2>
+
+            <p>
+                Discover professional salon services designed
+                to help you look your best and feel confident.
+            </p>
+
+        </div>
+
+
+        <div id="homeServicesContainer">
+
+            <div style="
+                grid-column:1/-1;
+                text-align:center;
+                padding:40px;
+                color:#999;
+            ">
+                Loading services...
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     WHY CHOOSE US
+===================================================== -->
+
+<section class="section section-black">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <div class="section-label">
+                Why Choose Us
+            </div>
+
+            <h2>
+                A Better Salon Experience
+            </h2>
+
+            <p>
+                We combine professional expertise, premium products
+                and personalized service to create an experience
+                you can trust.
+            </p>
+
+        </div>
+
+
+        <div class="why-grid">
+
+            <div class="why-card">
+
+                <div class="why-icon">
+                    ✦
+                </div>
+
+                <h3>
+                    Professional Stylists
+                </h3>
+
+                <p>
+                    Skilled professionals who understand modern
+                    hair and beauty techniques.
+                </p>
+
+            </div>
+
+
+            <div class="why-card">
+
+                <div class="why-icon">
+                    ♢
+                </div>
+
+                <h3>
+                    Premium Products
+                </h3>
+
+                <p>
+                    Carefully selected products for quality,
+                    comfort and beautiful results.
+                </p>
+
+            </div>
+
+
+            <div class="why-card">
+
+                <div class="why-icon">
+                    ♡
+                </div>
+
+                <h3>
+                    Personalized Care
+                </h3>
+
+                <p>
+                    Every appointment is designed according to
+                    your individual preferences.
+                </p>
+
+            </div>
+
+
+            <div class="why-card">
+
+                <div class="why-icon">
+                    ✓
+                </div>
+
+                <h3>
+                    Easy Booking
+                </h3>
+
+                <p>
+                    Book your salon appointment online quickly
+                    and conveniently.
+                </p>
+
+            </div>
+
+
+            <div class="why-card">
+
+                <div class="why-icon">
+                    ★
+                </div>
+
+                <h3>
+                    Modern Techniques
+                </h3>
+
+                <p>
+                    Stay updated with modern styling and beauty
+                    techniques.
+                </p>
+
+            </div>
+
+
+            <div class="why-card">
+
+                <div class="why-icon">
+                    ◇
+                </div>
+
+                <h3>
+                    Comfortable Environment
+                </h3>
+
+                <p>
+                    Relax in a clean, elegant and welcoming
+                    salon environment.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     GALLERY
+===================================================== -->
+
+<section class="section section-dark">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <div class="section-label">
+                Our Space
+            </div>
+
+            <h2>
+                Inside The Beauty Salon
+            </h2>
+
+            <p>
+                Take a look at our salon environment and
+                premium beauty experience.
+            </p>
+
+        </div>
+
+
+        <div class="gallery-grid">
+
+            <div class="gallery-item">
+
+                <img
+                    src="images/salon1.jpg"
+                    alt="The Beauty Salon"
+                    onerror="this.style.display='none';"
+                >
+
+                <div class="gallery-overlay">
+                    <span>
+                        Premium Salon
+                    </span>
+                </div>
+
+            </div>
+
+
+            <div class="gallery-item">
+
+                <img
+                    src="images/salon2.jpg"
+                    alt="Salon Interior"
+                    onerror="this.style.display='none';"
+                >
+
+                <div class="gallery-overlay">
+                    <span>
+                        Elegant Interior
+                    </span>
+                </div>
+
+            </div>
+
+
+            <div class="gallery-item">
+
+                <img
+                    src="images/salon3.jpg"
+                    alt="Beauty Service"
+                    onerror="this.style.display='none';"
+                >
+
+                <div class="gallery-overlay">
+                    <span>
+                        Beauty Care
+                    </span>
+                </div>
+
+            </div>
+
+
+            <div class="gallery-item">
+
+                <img
+                    src="images/salon4.jpg"
+                    alt="Salon Experience"
+                    onerror="this.style.display='none';"
+                >
+
+                <div class="gallery-overlay">
+                    <span>
+                        Professional Care
+                    </span>
+                </div>
+
+            </div>
+
+
+            <div class="gallery-item">
+
+                <img
+                    src="images/salon1.jpg"
+                    alt="Salon Experience"
+                    onerror="this.style.display='none';"
+                >
+
+                <div class="gallery-overlay">
+                    <span>
+                        Relax & Refresh
+                    </span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     STATS
+===================================================== -->
+
+<section class="stats-section">
+
+    <div class="container">
+
+        <div class="stats-grid">
+
+            <div class="stat-box">
 
                 <h3>
                     5000+
@@ -748,7 +2262,7 @@
             </div>
 
 
-            <div class="info-box">
+            <div class="stat-box">
 
                 <h3>
                     15+
@@ -761,131 +2275,126 @@
             </div>
 
 
+            <div class="stat-box">
+
+                <h3>
+                    20+
+                </h3>
+
+                <p>
+                    Beauty Services
+                </p>
+
+            </div>
+
+
+            <div class="stat-box">
+
+                <h3>
+                    100%
+                </h3>
+
+                <p>
+                    Customer Care
+                </p>
+
+            </div>
+
         </div>
 
-
     </div>
-
 
 </section>
 
 
-
 <!-- =====================================================
-     SERVICES
+     REVIEWS
 ===================================================== -->
 
-<section class="services">
+<section class="section reviews-section">
 
+    <div class="container">
 
-    <h2>
-        Our Services
-    </h2>
+        <div class="section-heading">
 
+            <div class="section-label">
+                Client Reviews
+            </div>
 
-    <div
-        class="service-container"
-        id="homeServicesContainer"
-    >
-
-        <!-- Services loaded from database -->
-
-    </div>
-
-
-</section>
-
-
-
-<!-- =====================================================
-     WHY CHOOSE US
-===================================================== -->
-
-<section class="why">
-
-
-    <h2>
-        Why Choose Us
-    </h2>
-
-
-    <div class="why-box">
-
-
-        <div>
-
-            <h3>
-                Professional Staff
-            </h3>
+            <h2>
+                What Our Customers Say
+            </h2>
 
             <p>
-                Experienced Hair Experts
+                Real experiences from customers who visited
+                The Beauty Salon.
             </p>
 
         </div>
 
 
-        <div>
+        <div id="reviewsContainer">
 
-            <h3>
-                Affordable Price
-            </h3>
-
-            <p>
-                Premium Service At Best Price
-            </p>
-
-        </div>
-
-
-        <div>
-
-            <h3>
-                Premium Products
-            </h3>
-
-            <p>
-                Only Trusted Brands
-            </p>
+            <div style="
+                grid-column:1/-1;
+                text-align:center;
+                color:#999;
+                padding:35px;
+            ">
+                Loading reviews...
+            </div>
 
         </div>
-
 
     </div>
 
-
 </section>
-
 
 
 <!-- =====================================================
-     CUSTOMER REVIEWS
+     FINAL CTA
 ===================================================== -->
 
-<section class="reviews">
+<section class="cta">
+
+    <div class="container">
+
+        <div class="cta-box">
+
+            <div class="section-label">
+                Your Beauty Journey Starts Here
+            </div>
+
+            <h2>
+
+                Ready for Your
+
+                <span class="gold">
+                    Next Look?
+                </span>
+
+            </h2>
 
 
-    <h2>
-        Customer Reviews
-    </h2>
+            <p>
+                Book your appointment today and experience
+                professional beauty care at The Beauty Salon.
+            </p>
 
 
-    <div
-        class="review-container"
-        id="reviewContainer"
-    >
+            <a
+                href="booking.html"
+                class="btn btn-primary">
 
-        <div class="no-reviews">
+                Book Your Appointment
 
-            Loading customer reviews...
+            </a>
 
         </div>
 
     </div>
 
-
 </section>
-
 
 
 <!-- =====================================================
@@ -894,32 +2403,166 @@
 
 <footer>
 
+    <div class="container">
 
-    <h2>
-        The Beauty Salon
-    </h2>
+        <div class="footer-grid">
+
+            <div class="footer-brand">
+
+                <h2>
+                    The <span>Beauty</span> Salon
+                </h2>
+
+                <p>
+                    Premium hair, beauty and wellness services
+                    designed to make you look and feel your best.
+                </p>
+
+            </div>
 
 
-    <p>
-        Premium Hair & Beauty Salon
-    </p>
+            <div class="footer-column">
+
+                <h3>
+                    Quick Links
+                </h3>
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="about.html">
+                    About
+                </a>
+
+                <a href="services.html">
+                    Services
+                </a>
+
+                <a href="gallery.html">
+                    Gallery
+                </a>
+
+            </div>
 
 
-    <p>
-        © 2026 All Rights Reserved.
-    </p>
+            <div class="footer-column">
 
+                <h3>
+                    Services
+                </h3>
+
+                <a href="services.html">
+                    Hair Styling
+                </a>
+
+                <a href="services.html">
+                    Hair Cut
+                </a>
+
+                <a href="services.html">
+                    Hair Colour
+                </a>
+
+                <a href="services.html">
+                    Beauty Care
+                </a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>
+                    Contact
+                </h3>
+
+                <p>
+                    📍 Baramati, Maharashtra
+                </p>
+
+                <p>
+                    📞 Contact Us
+                </p>
+
+                <p>
+                    ✉️ Email Support
+                </p>
+
+                <p>
+                    🕐 Salon Hours
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        © 2026 The Beauty Salon. All Rights Reserved.
+
+    </div>
 
 </footer>
 
 
-
 <!-- =====================================================
-     MAIN JAVASCRIPT
+     MOBILE MENU
 ===================================================== -->
 
-<script src="js/script.js"></script>
+<script>
 
+    const menuBtn =
+        document.getElementById("menuBtn");
+
+    const mobileMenu =
+        document.getElementById("mobileMenu");
+
+
+    if (menuBtn && mobileMenu) {
+
+        menuBtn.addEventListener(
+            "click",
+            function() {
+
+                mobileMenu.classList.toggle(
+                    "active"
+                );
+
+                menuBtn.innerHTML =
+                    mobileMenu.classList.contains("active")
+                    ? "✕"
+                    : "☰";
+
+            }
+        );
+
+
+        mobileMenu
+            .querySelectorAll("a")
+            .forEach(function(link) {
+
+                link.addEventListener(
+                    "click",
+                    function() {
+
+                        mobileMenu.classList.remove(
+                            "active"
+                        );
+
+                        menuBtn.innerHTML = "☰";
+
+                    }
+                );
+
+            });
+
+    }
+
+</script>
 
 
 <!-- =====================================================
@@ -928,139 +2571,154 @@
 
 <script>
 
-async function loadCustomerReviews() {
+    async function loadHomeReviews() {
 
-    const reviewContainer =
-        document.getElementById("reviewContainer");
+        const container =
+            document.getElementById(
+                "reviewsContainer"
+            );
 
-
-    if (!reviewContainer) {
-
-        return;
-
-    }
+        if (!container) return;
 
 
-    try {
+        try {
 
-        const response =
-            await fetch(
+            const response = await fetch(
                 "https://salon-booking-system-nsui.onrender.com/api/feedback"
             );
 
 
-        const data =
-            await response.json();
+            if (!response.ok) {
+                throw new Error(
+                    "Unable to load reviews"
+                );
+            }
 
 
-        if (
-            !data.success ||
-            !data.feedback ||
-            data.feedback.length === 0
-        ) {
-
-            reviewContainer.innerHTML = `
-
-                <div class="no-reviews">
-
-                    No customer reviews yet.
-
-                </div>
-
-            `;
-
-            return;
-        }
+            const reviews =
+                await response.json();
 
 
-        reviewContainer.innerHTML = "";
+            if (
+                !Array.isArray(reviews) ||
+                reviews.length === 0
+            ) {
+
+                container.innerHTML = `
+
+                    <div style="
+                        grid-column:1/-1;
+                        text-align:center;
+                        padding:35px;
+                        color:#999;
+                    ">
+
+                        No reviews available yet.
+
+                    </div>
+
+                `;
+
+                return;
+            }
 
 
-        const reviews =
-            data.feedback.slice(0,6);
+            container.innerHTML =
+                reviews
+                .slice(0,6)
+                .map(function(review) {
+
+                    const rating =
+                        Math.max(
+                            0,
+                            Math.min(
+                                5,
+                                Number(
+                                    review.rating
+                                ) || 0
+                            )
+                        );
 
 
-        reviews.forEach(item => {
+                    const stars =
+                        "★".repeat(rating) +
+                        "☆".repeat(5-rating);
 
 
-            const rating =
-                Number(item.rating);
+                    const name =
+                        review.name ||
+                        review.customer_name ||
+                        "Customer";
 
 
-            const stars =
-                "★".repeat(rating) +
-                "☆".repeat(5 - rating);
+                    const message =
+                        review.message ||
+                        review.feedback ||
+                        review.comment ||
+                        "Great salon experience.";
 
 
-            const reviewCard =
-                document.createElement("div");
+                    return `
+
+                        <div class="review-card">
+
+                            <div class="review-stars">
+                                ${stars}
+                            </div>
+
+                            <p>
+                                "${message}"
+                            </p>
+
+                            <div class="review-name">
+                                ${name}
+                            </div>
+
+                        </div>
+
+                    `;
+
+                })
+                .join("");
 
 
-            reviewCard.className =
-                "review-card";
+        } catch (error) {
 
-
-            reviewCard.innerHTML = `
-
-                <div class="review-stars">
-
-                    ${stars}
-
-                </div>
-
-
-                <p>
-
-                    ${item.feedback}
-
-                </p>
-
-
-                <h4>
-
-                    - ${item.customer_name}
-
-                </h4>
-
-            `;
-
-
-            reviewContainer.appendChild(
-                reviewCard
+            console.error(
+                "Reviews loading error:",
+                error
             );
 
-        });
 
+            container.innerHTML = `
 
-    } catch (error) {
+                <div style="
+                    grid-column:1/-1;
+                    text-align:center;
+                    padding:35px;
+                    color:#888;
+                ">
 
+                    Customer reviews will appear here.
 
-        console.error(
-            "Customer Reviews Error:",
-            error
-        );
+                </div>
 
+            `;
 
-        reviewContainer.innerHTML = `
-
-            <div class="no-reviews">
-
-                Unable to load customer reviews.
-
-            </div>
-
-        `;
+        }
 
     }
 
-}
 
-
-loadCustomerReviews();
+    loadHomeReviews();
 
 </script>
 
 
-</body>
+<!-- EXISTING WEBSITE JAVASCRIPT -->
 
+<script src="js/script.js"></script>
+
+
+</body>
 </html>
