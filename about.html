@@ -1,258 +1,2974 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>About | The Beauty Salon</title>
+<meta charset="UTF-8">
 
-    <link rel="stylesheet" href="css/style.css">
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
 
-    <style>
+<title>About | The Beauty Salon</title>
 
-        /* =========================
-           ABOUT PAGE NAVBAR
-        ========================= */
+<link rel="stylesheet" href="css/style.css">
 
-        .about-navbar {
-            position: relative;
-            width: 100%;
-            height: 80px;
-            background: #000;
-            display: flex;
-            align-items: center;
-            padding: 0 8%;
-            box-sizing: border-box;
-        }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-        /* LEFT - BACK TO HOME */
+<link
+href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap"
+rel="stylesheet"
+>
 
-        .back-home {
-            color: #fff;
-            text-decoration: none;
-            font-size: 17px;
-            font-weight: 600;
-            transition: 0.3s;
-        }
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+>
 
-        .back-home:hover {
-            color: #e0b52f;
-        }
 
-        /* CENTER - ABOUT */
+<style>
 
-        .about-page-title {
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
+/* =========================================================
+   RESET
+========================================================= */
 
-            color: #e0b52f;
-            font-size: 22px;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-        }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-        /* Mobile */
+html{
+    scroll-behavior:smooth;
+}
 
-        @media (max-width: 768px) {
+body{
+    margin:0;
+    background:#070707;
+    color:#fff;
+    font-family:"DM Sans",sans-serif;
+    overflow-x:hidden;
+}
 
-            .about-navbar {
-                padding: 0 5%;
-            }
+:root{
+    --gold:#D4AF37;
+    --gold-light:#F2D46F;
+    --black:#070707;
+    --dark:#0d0d0d;
+    --dark2:#141414;
+    --gray:#999;
+}
 
-            .back-home {
-                font-size: 15px;
-            }
 
-            .about-page-title {
-                font-size: 18px;
-            }
+/* =========================================================
+   NAVBAR
+========================================================= */
 
-        }
+.about-navbar{
 
-    </style>
+    position:sticky;
+    top:0;
+    z-index:1000;
+
+    height:78px;
+
+    display:flex;
+    align-items:center;
+
+    padding:0 7%;
+
+    background:rgba(5,5,5,.94);
+
+    border-bottom:1px solid rgba(212,175,55,.20);
+
+    backdrop-filter:blur(18px);
+}
+
+.back-home{
+
+    color:#fff;
+
+    text-decoration:none;
+
+    font-size:14px;
+
+    font-weight:700;
+
+    transition:.3s;
+}
+
+.back-home:hover{
+    color:var(--gold);
+    transform:translateX(-4px);
+}
+
+.about-page-title{
+
+    position:absolute;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    color:var(--gold);
+
+    font-family:"Playfair Display",serif;
+
+    font-size:25px;
+
+    font-weight:700;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.about-hero{
+
+    position:relative;
+
+    min-height:760px;
+
+    display:flex;
+
+    align-items:center;
+
+    overflow:hidden;
+
+    background:#050505;
+}
+
+
+/* Background image */
+
+.about-hero-bg{
+
+    position:absolute;
+
+    inset:0;
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    opacity:.30;
+
+    filter:
+        brightness(.40)
+        contrast(1.1);
+}
+
+
+/* Dark overlay */
+
+.about-hero::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            rgba(0,0,0,.97) 0%,
+            rgba(0,0,0,.88) 45%,
+            rgba(0,0,0,.60) 100%
+        );
+
+    z-index:1;
+}
+
+
+/* Main hero container */
+
+.hero-container{
+
+    position:relative;
+
+    z-index:3;
+
+    width:86%;
+
+    max-width:1200px;
+
+    margin:0 auto;
+
+    display:grid;
+
+    grid-template-columns:
+        1.05fr
+        .95fr;
+
+    align-items:center;
+
+    gap:70px;
+
+    padding:70px 0;
+}
+
+
+/* =========================================================
+   HERO LEFT
+========================================================= */
+
+.hero-left{
+
+    min-width:0;
+}
+
+.hero-label{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    color:var(--gold);
+
+    font-size:11px;
+
+    font-weight:800;
+
+    letter-spacing:4px;
+
+    text-transform:uppercase;
+
+    margin-bottom:22px;
+}
+
+.hero-label::before{
+
+    content:"";
+
+    width:38px;
+
+    height:1px;
+
+    background:var(--gold);
+}
+
+
+.hero-title{
+
+    font-family:"Playfair Display",serif;
+
+    font-size:clamp(55px,6.3vw,88px);
+
+    line-height:.98;
+
+    letter-spacing:-2px;
+
+    margin:0 0 27px;
+
+    max-width:720px;
+}
+
+.hero-title .gold{
+
+    color:var(--gold);
+
+    display:block;
+}
+
+
+.hero-description{
+
+    max-width:620px;
+
+    color:#bcbcbc;
+
+    font-size:15px;
+
+    line-height:1.9;
+
+    margin-bottom:32px;
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.hero-buttons{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:13px;
+
+    margin-bottom:35px;
+}
+
+.hero-button{
+
+    min-height:51px;
+
+    padding:13px 24px;
+
+    border-radius:10px;
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:9px;
+
+    font-size:13px;
+
+    font-weight:800;
+
+    text-decoration:none;
+
+    transition:.3s;
+}
+
+.hero-button.primary{
+
+    background:var(--gold);
+
+    color:#090909;
+}
+
+.hero-button.primary:hover{
+
+    background:#fff;
+
+    transform:translateY(-3px);
+}
+
+.hero-button.secondary{
+
+    color:var(--gold);
+
+    border:1px solid var(--gold);
+
+    background:rgba(0,0,0,.30);
+
+    backdrop-filter:blur(10px);
+}
+
+.hero-button.secondary:hover{
+
+    background:var(--gold);
+
+    color:#080808;
+
+    transform:translateY(-3px);
+}
+
+
+/* =========================================================
+   STATS
+========================================================= */
+
+.hero-stats{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:12px;
+
+    max-width:620px;
+}
+
+.hero-stat{
+
+    min-height:95px;
+
+    padding:17px 12px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    background:
+        rgba(255,255,255,.045);
+
+    border:
+        1px solid rgba(212,175,55,.25);
+
+    border-radius:15px;
+
+    backdrop-filter:blur(15px);
+
+    transition:.3s;
+}
+
+.hero-stat:hover{
+
+    transform:translateY(-5px);
+
+    border-color:
+        rgba(212,175,55,.60);
+
+    background:
+        rgba(212,175,55,.07);
+}
+
+.hero-stat strong{
+
+    color:var(--gold);
+
+    font-size:23px;
+
+    font-weight:800;
+
+    line-height:1.2;
+}
+
+.hero-stat span{
+
+    color:#999;
+
+    font-size:10px;
+
+    margin-top:6px;
+}
+
+
+/* =========================================================
+   HERO RIGHT GLASS IMAGE
+========================================================= */
+
+.hero-right{
+
+    position:relative;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    min-width:0;
+}
+
+.hero-image-card{
+
+    position:relative;
+
+    width:100%;
+
+    max-width:500px;
+
+    height:550px;
+
+    padding:10px;
+
+    border-radius:28px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(212,175,55,.30),
+            rgba(255,255,255,.05),
+            rgba(212,175,55,.15)
+        );
+
+    box-shadow:
+        0 35px 90px rgba(0,0,0,.60);
+
+    overflow:hidden;
+}
+
+.hero-image-inner{
+
+    position:relative;
+
+    width:100%;
+
+    height:100%;
+
+    border-radius:21px;
+
+    overflow:hidden;
+
+    background:#111;
+}
+
+.hero-image-inner img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    display:block;
+
+    filter:
+        brightness(.68)
+        contrast(1.05);
+
+    transition:
+        transform .8s ease;
+}
+
+.hero-image-card:hover img{
+
+    transform:scale(1.05);
+}
+
+
+/* image overlay */
+
+.hero-image-inner::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+        linear-gradient(
+            180deg,
+            transparent 35%,
+            rgba(0,0,0,.85) 100%
+        );
+}
+
+
+/* Glass badge */
+
+.hero-image-badge{
+
+    position:absolute;
+
+    left:28px;
+
+    right:28px;
+
+    bottom:28px;
+
+    z-index:3;
+
+    padding:20px;
+
+    border-radius:16px;
+
+    background:
+        rgba(0,0,0,.55);
+
+    border:
+        1px solid rgba(212,175,55,.30);
+
+    backdrop-filter:blur(18px);
+}
+
+.hero-image-badge small{
+
+    color:var(--gold);
+
+    font-size:9px;
+
+    font-weight:800;
+
+    letter-spacing:3px;
+
+    text-transform:uppercase;
+}
+
+.hero-image-badge h3{
+
+    font-family:"Playfair Display",serif;
+
+    font-size:27px;
+
+    margin:5px 0;
+}
+
+.hero-image-badge p{
+
+    color:#aaa;
+
+    font-size:10px;
+}
+
+
+/* Floating gold circle */
+
+.hero-floating-circle{
+
+    position:absolute;
+
+    right:-20px;
+
+    top:35px;
+
+    width:95px;
+
+    height:95px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    border-radius:50%;
+
+    color:#080808;
+
+    background:var(--gold);
+
+    font-size:10px;
+
+    font-weight:800;
+
+    letter-spacing:1px;
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,.45);
+
+    z-index:5;
+
+    animation:
+        floatCircle 3s ease-in-out infinite;
+}
+
+@keyframes floatCircle{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-8px);
+    }
+}
+
+
+/* =========================================================
+   SCROLL
+========================================================= */
+
+.scroll-down{
+
+    position:absolute;
+
+    bottom:25px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    z-index:5;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:7px;
+
+    color:#777;
+
+    font-size:8px;
+
+    letter-spacing:4px;
+
+    text-transform:uppercase;
+}
+
+.scroll-down i{
+
+    color:var(--gold);
+
+    animation:
+        arrowMove 1.5s infinite;
+}
+
+@keyframes arrowMove{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(7px);
+    }
+}
+
+
+/* =========================================================
+   COMMON SECTION
+========================================================= */
+
+.about-section{
+
+    padding:110px 7%;
+
+    overflow:hidden;
+}
+
+.section-container{
+
+    width:100%;
+
+    max-width:1200px;
+
+    margin:auto;
+}
+
+.section-label{
+
+    color:var(--gold);
+
+    font-size:10px;
+
+    font-weight:800;
+
+    letter-spacing:4px;
+
+    text-transform:uppercase;
+
+    margin-bottom:12px;
+}
+
+.section-title{
+
+    font-family:"Playfair Display",serif;
+
+    font-size:clamp(38px,5vw,58px);
+
+    line-height:1.08;
+
+    margin-bottom:20px;
+}
+
+.section-title span{
+
+    color:var(--gold);
+}
+
+.section-description{
+
+    color:#999;
+
+    font-size:14px;
+
+    line-height:1.9;
+}
+
+
+/* =========================================================
+   STORY
+========================================================= */
+
+.story-section{
+
+    background:
+        radial-gradient(
+            circle at 15% 30%,
+            rgba(212,175,55,.08),
+            transparent 30%
+        ),
+        #0c0c0c;
+}
+
+.story-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        1fr
+        1fr;
+
+    gap:65px;
+
+    align-items:center;
+}
+
+.story-image{
+
+    position:relative;
+
+    height:520px;
+
+    border-radius:25px;
+
+    overflow:hidden;
+
+    border:
+        1px solid rgba(212,175,55,.28);
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.50);
+}
+
+.story-image img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    transition:.7s;
+}
+
+.story-image:hover img{
+
+    transform:scale(1.05);
+}
+
+.story-image::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+        linear-gradient(
+            180deg,
+            transparent 45%,
+            rgba(0,0,0,.70)
+        );
+}
+
+.story-badge{
+
+    position:absolute;
+
+    left:25px;
+
+    bottom:25px;
+
+    z-index:2;
+
+    padding:15px 18px;
+
+    border-radius:13px;
+
+    background:
+        rgba(0,0,0,.62);
+
+    border:
+        1px solid rgba(212,175,55,.30);
+
+    backdrop-filter:blur(15px);
+}
+
+.story-badge strong{
+
+    display:block;
+
+    color:var(--gold);
+
+    font-family:"Playfair Display",serif;
+
+    font-size:20px;
+}
+
+.story-badge span{
+
+    color:#aaa;
+
+    font-size:10px;
+}
+
+.story-content{
+
+    padding:40px;
+
+    background:
+        rgba(255,255,255,.035);
+
+    border:
+        1px solid rgba(255,255,255,.08);
+
+    border-left:
+        3px solid var(--gold);
+
+    border-radius:23px;
+
+    backdrop-filter:blur(18px);
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,.30);
+}
+
+.story-content p{
+
+    color:#aaa;
+
+    font-size:14px;
+
+    line-height:1.9;
+
+    margin-top:19px;
+}
+
+
+/* =========================================================
+   VALUES
+========================================================= */
+
+.values-section{
+
+    background:#080808;
+}
+
+.values-header{
+
+    max-width:700px;
+
+    margin:
+        0 auto 55px;
+
+    text-align:center;
+}
+
+.values-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:20px;
+}
+
+.value-card{
+
+    min-height:245px;
+
+    padding:30px 26px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.06),
+            rgba(255,255,255,.015)
+        );
+
+    border:
+        1px solid rgba(212,175,55,.18);
+
+    border-radius:20px;
+
+    backdrop-filter:blur(15px);
+
+    transition:.35s;
+}
+
+.value-card:hover{
+
+    transform:translateY(-8px);
+
+    border-color:
+        rgba(212,175,55,.55);
+
+    box-shadow:
+        0 25px 55px rgba(0,0,0,.4);
+}
+
+.value-icon{
+
+    width:54px;
+
+    height:54px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:14px;
+
+    color:var(--gold);
+
+    background:
+        rgba(212,175,55,.10);
+
+    border:
+        1px solid rgba(212,175,55,.25);
+
+    font-size:21px;
+
+    margin-bottom:20px;
+}
+
+.value-card h3{
+
+    font-family:"Playfair Display",serif;
+
+    font-size:21px;
+
+    margin-bottom:10px;
+}
+
+.value-card p{
+
+    color:#888;
+
+    font-size:12px;
+
+    line-height:1.8;
+}
+
+
+/* =========================================================
+   JOURNEY
+========================================================= */
+
+.journey-section{
+
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            rgba(212,175,55,.07),
+            transparent 35%
+        ),
+        #101010;
+}
+
+.journey-header{
+
+    max-width:700px;
+
+    margin:
+        0 auto 65px;
+
+    text-align:center;
+}
+
+.timeline{
+
+    position:relative;
+
+    max-width:950px;
+
+    margin:auto;
+}
+
+.timeline::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    bottom:0;
+
+    left:50%;
+
+    width:1px;
+
+    transform:translateX(-50%);
+
+    background:
+        linear-gradient(
+            180deg,
+            transparent,
+            var(--gold),
+            transparent
+        );
+}
+
+.timeline-item{
+
+    position:relative;
+
+    width:50%;
+
+    padding:
+        0 45px 55px;
+}
+
+.timeline-item:nth-child(odd){
+
+    left:0;
+
+    text-align:right;
+}
+
+.timeline-item:nth-child(even){
+
+    left:50%;
+
+    text-align:left;
+}
+
+.timeline-dot{
+
+    position:absolute;
+
+    top:0;
+
+    width:16px;
+
+    height:16px;
+
+    border-radius:50%;
+
+    background:var(--gold);
+
+    border:4px solid #101010;
+
+    box-shadow:
+        0 0 0 1px var(--gold);
+}
+
+.timeline-item:nth-child(odd)
+.timeline-dot{
+
+    right:-8px;
+}
+
+.timeline-item:nth-child(even)
+.timeline-dot{
+
+    left:-8px;
+}
+
+.timeline-card{
+
+    display:inline-block;
+
+    width:100%;
+
+    max-width:390px;
+
+    padding:26px;
+
+    text-align:left;
+
+    background:
+        rgba(255,255,255,.045);
+
+    border:
+        1px solid rgba(212,175,55,.20);
+
+    border-radius:18px;
+
+    backdrop-filter:blur(15px);
+
+    transition:.3s;
+}
+
+.timeline-card:hover{
+
+    transform:translateY(-5px);
+
+    border-color:
+        rgba(212,175,55,.50);
+}
+
+.timeline-year{
+
+    color:var(--gold);
+
+    font-family:"Playfair Display",serif;
+
+    font-size:28px;
+
+    margin-bottom:8px;
+}
+
+.timeline-card h3{
+
+    font-size:16px;
+
+    margin-bottom:8px;
+}
+
+.timeline-card p{
+
+    color:#888;
+
+    font-size:12px;
+
+    line-height:1.8;
+}
+
+
+/* =========================================================
+   EXPERIENCE
+========================================================= */
+
+.experience-banner{
+
+    position:relative;
+
+    min-height:430px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    overflow:hidden;
+
+    background:#050505;
+}
+
+.experience-banner img{
+
+    position:absolute;
+
+    inset:0;
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    opacity:.30;
+
+    filter:brightness(.55);
+}
+
+.experience-banner::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0,0,0,.85),
+            rgba(0,0,0,.55),
+            rgba(0,0,0,.85)
+        );
+}
+
+.experience-content{
+
+    position:relative;
+
+    z-index:2;
+
+    max-width:800px;
+
+    padding:30px;
+}
+
+.experience-content small{
+
+    color:var(--gold);
+
+    font-size:10px;
+
+    font-weight:800;
+
+    letter-spacing:4px;
+
+    text-transform:uppercase;
+}
+
+.experience-content h2{
+
+    font-family:"Playfair Display",serif;
+
+    font-size:clamp(40px,6vw,65px);
+
+    margin:12px 0;
+}
+
+.experience-content h2 span{
+
+    color:var(--gold);
+}
+
+.experience-content p{
+
+    color:#aaa;
+
+    font-size:14px;
+
+    line-height:1.8;
+}
+
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.about-cta{
+
+    padding:100px 7%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #171205,
+            #080808
+        );
+}
+
+.about-cta-box{
+
+    max-width:1000px;
+
+    margin:auto;
+
+    padding:65px 30px;
+
+    text-align:center;
+
+    background:
+        rgba(255,255,255,.035);
+
+    border:
+        1px solid rgba(212,175,55,.30);
+
+    border-radius:25px;
+
+    backdrop-filter:blur(18px);
+}
+
+.about-cta-box small{
+
+    color:var(--gold);
+
+    font-size:10px;
+
+    font-weight:800;
+
+    letter-spacing:4px;
+
+    text-transform:uppercase;
+}
+
+.about-cta-box h2{
+
+    font-family:"Playfair Display",serif;
+
+    font-size:clamp(38px,5vw,58px);
+
+    margin:12px 0;
+}
+
+.about-cta-box h2 span{
+
+    color:var(--gold);
+}
+
+.about-cta-box p{
+
+    max-width:650px;
+
+    margin:auto;
+
+    color:#999;
+
+    font-size:13px;
+
+    line-height:1.8;
+}
+
+.cta-buttons{
+
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:13px;
+
+    margin-top:30px;
+}
+
+.cta-button{
+
+    min-height:50px;
+
+    padding:13px 24px;
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:9px;
+
+    border-radius:10px;
+
+    font-size:13px;
+
+    font-weight:800;
+
+    transition:.3s;
+}
+
+.cta-button.primary{
+
+    background:var(--gold);
+
+    color:#080808;
+}
+
+.cta-button.primary:hover{
+
+    background:#fff;
+
+    transform:translateY(-3px);
+}
+
+.cta-button.secondary{
+
+    color:var(--gold);
+
+    border:1px solid var(--gold);
+}
+
+.cta-button.secondary:hover{
+
+    background:var(--gold);
+
+    color:#080808;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.about-footer{
+
+    padding:65px 7% 25px;
+
+    background:#050505;
+
+    border-top:
+        1px solid rgba(212,175,55,.15);
+}
+
+.footer-grid{
+
+    max-width:1200px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:
+        1.5fr 1fr 1fr;
+
+    gap:50px;
+}
+
+.footer-column h2{
+
+    font-family:"Playfair Display",serif;
+
+    font-size:27px;
+
+    margin-bottom:12px;
+}
+
+.footer-column h2 span{
+
+    color:var(--gold);
+}
+
+.footer-column h3{
+
+    color:var(--gold);
+
+    font-size:14px;
+
+    margin-bottom:17px;
+}
+
+.footer-column p{
+
+    color:#777;
+
+    font-size:12px;
+
+    line-height:1.8;
+
+    margin-bottom:8px;
+}
+
+.footer-links{
+
+    list-style:none;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
+}
+
+.footer-links a{
+
+    color:#888;
+
+    font-size:12px;
+
+    transition:.3s;
+}
+
+.footer-links a:hover{
+
+    color:var(--gold);
+
+    transform:translateX(3px);
+}
+
+.footer-social{
+
+    display:flex;
+
+    gap:10px;
+
+    margin-top:18px;
+}
+
+.footer-social a{
+
+    width:38px;
+
+    height:38px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border:1px solid #333;
+
+    border-radius:50%;
+
+    color:#888;
+
+    transition:.3s;
+}
+
+.footer-social a:hover{
+
+    background:var(--gold);
+
+    color:#080808;
+
+    border-color:var(--gold);
+}
+
+.footer-bottom{
+
+    max-width:1200px;
+
+    margin:45px auto 0;
+
+    padding-top:22px;
+
+    border-top:1px solid #1d1d1d;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    gap:20px;
+}
+
+.footer-bottom p{
+
+    color:#555;
+
+    font-size:11px;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media(max-width:1000px){
+
+    .hero-container{
+
+        grid-template-columns:1fr;
+
+        gap:45px;
+
+        padding:
+            60px 0 80px;
+    }
+
+    .hero-left{
+
+        text-align:center;
+    }
+
+    .hero-label{
+
+        justify-content:center;
+    }
+
+    .hero-description{
+
+        margin-left:auto;
+
+        margin-right:auto;
+    }
+
+    .hero-buttons{
+
+        justify-content:center;
+    }
+
+    .hero-stats{
+
+        margin-left:auto;
+
+        margin-right:auto;
+    }
+
+    .hero-right{
+
+        order:2;
+    }
+
+    .hero-image-card{
+
+        height:480px;
+    }
+
+    .story-grid{
+
+        grid-template-columns:1fr;
+
+        max-width:760px;
+
+        margin:auto;
+    }
+
+    .values-grid{
+
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+    .footer-grid{
+
+        grid-template-columns:
+            1fr 1fr;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:650px){
+
+    .about-navbar{
+
+        height:68px;
+
+        padding:0 18px;
+    }
+
+    .back-home{
+
+        font-size:12px;
+    }
+
+    .about-page-title{
+
+        font-size:18px;
+    }
+
+
+    /* HERO */
+
+    .about-hero{
+
+        min-height:auto;
+    }
+
+    .hero-container{
+
+        width:calc(100% - 30px);
+
+        gap:38px;
+
+        padding:
+            65px 0 75px;
+    }
+
+    .hero-left{
+
+        text-align:center;
+    }
+
+    .hero-label{
+
+        font-size:9px;
+
+        letter-spacing:3px;
+    }
+
+    .hero-label::before{
+
+        display:none;
+    }
+
+    .hero-title{
+
+        font-size:
+            clamp(45px,13vw,65px);
+
+        line-height:1;
+
+        letter-spacing:-1px;
+
+        margin-bottom:22px;
+    }
+
+    .hero-title .gold{
+
+        white-space:normal;
+    }
+
+    .hero-description{
+
+        font-size:13px;
+
+        line-height:1.8;
+
+        margin-bottom:25px;
+    }
+
+    .hero-buttons{
+
+        flex-direction:column;
+
+        width:100%;
+
+        margin-bottom:28px;
+    }
+
+    .hero-button{
+
+        width:100%;
+    }
+
+    .hero-stats{
+
+        width:100%;
+
+        grid-template-columns:
+            repeat(3,1fr);
+
+        gap:7px;
+    }
+
+    .hero-stat{
+
+        min-height:82px;
+
+        padding:10px 5px;
+
+        border-radius:12px;
+    }
+
+    .hero-stat strong{
+
+        font-size:17px;
+    }
+
+    .hero-stat span{
+
+        font-size:7px;
+
+        line-height:1.3;
+    }
+
+
+    /* IMAGE */
+
+    .hero-image-card{
+
+        height:400px;
+
+        border-radius:21px;
+
+        padding:7px;
+    }
+
+    .hero-image-inner{
+
+        border-radius:16px;
+    }
+
+    .hero-image-badge{
+
+        left:17px;
+
+        right:17px;
+
+        bottom:17px;
+
+        padding:15px;
+    }
+
+    .hero-image-badge h3{
+
+        font-size:22px;
+    }
+
+    .hero-floating-circle{
+
+        width:72px;
+
+        height:72px;
+
+        right:-8px;
+
+        top:20px;
+
+        font-size:8px;
+    }
+
+    .scroll-down{
+
+        display:none;
+    }
+
+
+    /* COMMON */
+
+    .about-section{
+
+        padding:75px 15px;
+    }
+
+    .section-title{
+
+        font-size:37px;
+    }
+
+
+    /* STORY */
+
+    .story-grid{
+
+        gap:35px;
+    }
+
+    .story-image{
+
+        height:370px;
+
+        border-radius:18px;
+    }
+
+    .story-content{
+
+        padding:28px 22px;
+
+        border-radius:18px;
+    }
+
+    .story-content p{
+
+        font-size:13px;
+    }
+
+
+    /* VALUES */
+
+    .values-grid{
+
+        grid-template-columns:1fr;
+
+        gap:15px;
+    }
+
+    .value-card{
+
+        min-height:auto;
+
+        padding:27px 22px;
+    }
+
+
+    /* JOURNEY */
+
+    .journey-header{
+
+        margin-bottom:45px;
+    }
+
+    .timeline::before{
+
+        left:10px;
+
+        transform:none;
+    }
+
+    .timeline-item{
+
+        width:100%;
+
+        left:0 !important;
+
+        padding:
+            0 0 35px 38px;
+
+        text-align:left !important;
+    }
+
+    .timeline-item:nth-child(odd)
+    .timeline-dot,
+    .timeline-item:nth-child(even)
+    .timeline-dot{
+
+        left:3px;
+
+        right:auto;
+    }
+
+    .timeline-card{
+
+        max-width:none;
+
+        padding:22px;
+    }
+
+
+    /* EXPERIENCE */
+
+    .experience-banner{
+
+        min-height:420px;
+    }
+
+    .experience-content h2{
+
+        font-size:40px;
+    }
+
+
+    /* CTA */
+
+    .about-cta{
+
+        padding:70px 15px;
+    }
+
+    .about-cta-box{
+
+        padding:45px 20px;
+
+        border-radius:20px;
+    }
+
+    .about-cta-box h2{
+
+        font-size:36px;
+    }
+
+    .cta-buttons{
+
+        flex-direction:column;
+    }
+
+    .cta-button{
+
+        width:100%;
+    }
+
+
+    /* FOOTER */
+
+    .about-footer{
+
+        padding:
+            55px 20px 20px;
+    }
+
+    .footer-grid{
+
+        grid-template-columns:1fr;
+
+        gap:35px;
+    }
+
+    .footer-bottom{
+
+        flex-direction:column;
+
+        text-align:center;
+
+        align-items:center;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media(max-width:400px){
+
+    .about-page-title{
+
+        font-size:16px;
+    }
+
+    .hero-title{
+
+        font-size:43px;
+    }
+
+    .hero-stat strong{
+
+        font-size:15px;
+    }
+
+    .hero-stat span{
+
+        font-size:6px;
+    }
+
+    .hero-image-card{
+
+        height:350px;
+    }
+
+    .section-title{
+
+        font-size:33px;
+    }
+}
+
+</style>
 
 </head>
+
 
 <body>
 
 
-<!-- =========================
-        ABOUT NAVBAR
-========================= -->
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
 
 <header>
 
-    <nav class="about-navbar">
+<nav class="about-navbar">
 
-        <!-- LEFT : BACK TO HOME -->
+<a
+    href="index.html"
+    class="back-home"
+>
+    ← Back to Home
+</a>
 
-        <a href="index.html" class="back-home">
-            ← Back to Home
-        </a>
+<div class="about-page-title">
+    About
+</div>
 
-
-        <!-- CENTER : CURRENT PAGE -->
-
-        <div class="about-page-title">
-            About
-        </div>
-
-    </nav>
+</nav>
 
 </header>
 
 
 
-<!-- =========================
-        ABOUT HERO
-========================= -->
+<!-- =====================================================
+     HERO
+===================================================== -->
 
-<section class="about">
+<section class="about-hero">
 
-    <div class="about-banner">
+<img
+    src="images/about-salon.png"
+    alt="The Beauty Salon"
+    class="about-hero-bg"
+>
 
-        <img
-            src="images/about-salon.png"
-            alt="Salon Interior"
-        >
 
-        <div class="about-overlay">
+<div class="hero-container">
 
-            <h1>About Us</h1>
 
-            <p>
-                Experience luxury grooming with premium hair styling,
-                beard care, facial treatments and professional stylists.
-            </p>
+<!-- =====================================================
+     LEFT CONTENT
+===================================================== -->
 
-        </div>
+<div class="hero-left">
 
-    </div>
+
+<div class="hero-label">
+
+The Beauty Salon
+
+</div>
+
+
+<h1 class="hero-title">
+
+Beauty.
+
+<span class="gold">
+    Style. Confidence.
+</span>
+
+</h1>
+
+
+<p class="hero-description">
+
+Experience premium grooming, modern styling
+and personalized beauty care in a sophisticated
+salon environment designed especially for you.
+
+</p>
+
+
+<div class="hero-buttons">
+
+<a
+    href="booking.html"
+    class="hero-button primary"
+>
+
+<i class="fa-regular fa-calendar-check"></i>
+
+Book Appointment
+
+</a>
+
+
+<a
+    href="#our-story"
+    class="hero-button secondary"
+>
+
+<i class="fa-solid fa-arrow-down"></i>
+
+Discover Our Story
+
+</a>
+
+</div>
+
+
+<!-- =====================================================
+     STATS
+===================================================== -->
+
+<div class="hero-stats">
+
+
+<div class="hero-stat">
+
+<strong>
+    5000+
+</strong>
+
+<span>
+    Happy Customers
+</span>
+
+</div>
+
+
+<div class="hero-stat">
+
+<strong>
+    15+
+</strong>
+
+<span>
+    Professional Stylists
+</span>
+
+</div>
+
+
+<div class="hero-stat">
+
+<strong>
+    Premium
+</strong>
+
+<span>
+    Salon Experience
+</span>
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+<!-- =====================================================
+     RIGHT IMAGE
+===================================================== -->
+
+<div class="hero-right">
+
+<div class="hero-image-card">
+
+
+<div class="hero-image-inner">
+
+<img
+    src="images/about-salon.png"
+    alt="Premium Salon"
+>
+
+
+<div class="hero-image-badge">
+
+<small>
+    Hair • Beauty • Wellness
+</small>
+
+<h3>
+    The Beauty Salon
+</h3>
+
+<p>
+    Premium grooming & beauty experience
+</p>
+
+</div>
+
+</div>
+
+
+<div class="hero-floating-circle">
+
+PREMIUM<br>
+EXPERIENCE
+
+</div>
+
+
+</div>
+
+</div>
+
+
+</div>
+
+
+<div class="scroll-down">
+
+SCROLL
+
+<i class="fa-solid fa-chevron-down"></i>
+
+</div>
 
 </section>
 
 
 
-<!-- =========================
-        OUR STORY
-========================= -->
+<!-- =====================================================
+     OUR STORY
+===================================================== -->
 
-<section class="our-story">
+<section
+    class="about-section story-section"
+    id="our-story"
+>
 
-    <div class="story-container">
+<div class="section-container">
 
-        <div class="story-content">
-
-            <h2>Our Story</h2>
-
-            <p>
-                SalonHub was founded with a simple vision — to provide
-                premium grooming services in a modern, comfortable,
-                and luxurious environment.
-            </p>
-
-            <p>
-                We believe every client deserves the highest level
-                of care, style, and confidence. Our experienced
-                professionals use premium products and modern
-                techniques to deliver exceptional results.
-            </p>
-
-        </div>
+<div class="story-grid">
 
 
-        <div class="story-image">
+<div class="story-image">
 
-            <img
-                src="images/about-salon.png"
-                alt="Our Story"
-            >
+<img
+    src="images/about-salon.png"
+    alt="Our Salon"
+>
 
-        </div>
 
-    </div>
+<div class="story-badge">
+
+<strong>
+    The Beauty Salon
+</strong>
+
+<span>
+    Hair • Beauty • Wellness
+</span>
+
+</div>
+
+</div>
+
+
+<div class="story-content">
+
+<div class="section-label">
+    Our Story
+</div>
+
+
+<h2 class="section-title">
+
+Where Style Meets
+<span>Confidence</span>
+
+</h2>
+
+
+<p>
+
+The Beauty Salon was founded with a simple
+vision — to provide premium grooming services
+in a modern, comfortable and luxurious
+environment.
+
+</p>
+
+
+<p>
+
+We believe every client deserves the highest
+level of care, style and confidence. Our
+experienced professionals use premium products
+and modern techniques to deliver an exceptional
+salon experience.
+
+</p>
+
+
+<p>
+
+From hair styling and beard care to facial
+treatments and personalized beauty services,
+every detail is focused on helping you
+look and feel your best.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     VALUES
+===================================================== -->
+
+<section class="about-section values-section">
+
+<div class="section-container">
+
+
+<div class="values-header">
+
+<div class="section-label">
+    What We Believe
+</div>
+
+
+<h2 class="section-title">
+
+Our <span>Values</span>
+
+</h2>
+
+
+<p class="section-description">
+
+Our approach is built around quality,
+professionalism and a genuine focus
+on every client's experience.
+
+</p>
+
+</div>
+
+
+
+<div class="values-grid">
+
+
+<div class="value-card">
+
+<div class="value-icon">
+
+<i class="fa-solid fa-crown"></i>
+
+</div>
+
+<h3>
+    Premium Quality
+</h3>
+
+<p>
+    We focus on premium products,
+    modern techniques and attention
+    to detail in every service.
+</p>
+
+</div>
+
+
+<div class="value-card">
+
+<div class="value-icon">
+
+<i class="fa-solid fa-user-tie"></i>
+
+</div>
+
+<h3>
+    Professional Care
+</h3>
+
+<p>
+    Our salon experience is designed
+    around professional service and
+    personalized attention.
+</p>
+
+</div>
+
+
+<div class="value-card">
+
+<div class="value-icon">
+
+<i class="fa-solid fa-heart"></i>
+
+</div>
+
+<h3>
+    Customer First
+</h3>
+
+<p>
+    Every customer deserves to feel
+    comfortable, confident and valued
+    throughout their visit.
+</p>
+
+</div>
+
+
+<div class="value-card">
+
+<div class="value-icon">
+
+<i class="fa-solid fa-scissors"></i>
+
+</div>
+
+<h3>
+    Modern Styling
+</h3>
+
+<p>
+    We combine contemporary styling
+    ideas with techniques designed
+    for your individual look.
+</p>
+
+</div>
+
+
+<div class="value-card">
+
+<div class="value-icon">
+
+<i class="fa-solid fa-wand-magic-sparkles"></i>
+
+</div>
+
+<h3>
+    Beautiful Results
+</h3>
+
+<p>
+    Our goal is to create a refined
+    look that makes you feel confident
+    when you leave our salon.
+</p>
+
+</div>
+
+
+<div class="value-card">
+
+<div class="value-icon">
+
+<i class="fa-solid fa-star"></i>
+
+</div>
+
+<h3>
+    Special Experience
+</h3>
+
+<p>
+    From the atmosphere to the service,
+    we aim to make every salon visit
+    feel special.
+</p>
+
+</div>
+
+
+</div>
+
+</div>
 
 </section>
 
 
 
-<!-- =========================
-        OUR JOURNEY
-========================= -->
+<!-- =====================================================
+     JOURNEY
+===================================================== -->
 
-<section class="journey">
+<section class="about-section journey-section">
 
-    <h2>Our Journey</h2>
-
-
-    <div class="timeline">
+<div class="section-container">
 
 
-        <!-- 2018 -->
+<div class="journey-header">
 
-        <div class="timeline-item">
-
-            <h3>2018</h3>
-
-            <p>
-                SalonHub was established with a vision to provide
-                premium grooming services.
-            </p>
-
-        </div>
+<div class="section-label">
+    Our Journey
+</div>
 
 
+<h2 class="section-title">
 
-        <!-- 2020 -->
+Growing With <span>You</span>
 
-        <div class="timeline-item">
+</h2>
 
-            <h3>2020</h3>
 
-            <p>
-                Successfully served over 1,000 happy customers
-                with premium salon services.
-            </p>
+<p class="section-description">
 
-        </div>
+Our journey reflects our commitment to
+building a premium salon experience
+for every customer.
+
+</p>
+
+</div>
 
 
 
-        <!-- 2022 -->
-
-        <div class="timeline-item">
-
-            <h3>2022</h3>
-
-            <p>
-                Expanded our premium services with luxury hair styling,
-                beard grooming, facial care, and modern salon experiences.
-            </p>
-
-        </div>
+<div class="timeline">
 
 
+<div class="timeline-item">
 
-        <!-- 2025 -->
+<div class="timeline-dot"></div>
 
-        <div class="timeline-item">
+<div class="timeline-card">
 
-            <h3>2025</h3>
+<div class="timeline-year">
+    2018
+</div>
 
-            <p>
-                Proudly serving over 5,000+ happy customers and becoming
-                one of the most trusted premium salons in the city.
-            </p>
+<h3>
+    The Beginning
+</h3>
 
-        </div>
+<p>
+    The Beauty Salon journey began
+    with a vision to provide premium
+    grooming services.
+</p>
+
+</div>
+
+</div>
 
 
-    </div>
+
+<div class="timeline-item">
+
+<div class="timeline-dot"></div>
+
+<div class="timeline-card">
+
+<div class="timeline-year">
+    2020
+</div>
+
+<h3>
+    Growing Trust
+</h3>
+
+<p>
+    Successfully served over 1,000
+    happy customers with premium
+    salon services.
+</p>
+
+</div>
+
+</div>
+
+
+
+<div class="timeline-item">
+
+<div class="timeline-dot"></div>
+
+<div class="timeline-card">
+
+<div class="timeline-year">
+    2022
+</div>
+
+<h3>
+    More Beauty Services
+</h3>
+
+<p>
+    Expanded our premium services
+    with hair styling, beard grooming,
+    facial care and modern salon
+    experiences.
+</p>
+
+</div>
+
+</div>
+
+
+
+<div class="timeline-item">
+
+<div class="timeline-dot"></div>
+
+<div class="timeline-card">
+
+<div class="timeline-year">
+    2025
+</div>
+
+<h3>
+    A Growing Community
+</h3>
+
+<p>
+    Proudly serving over 5,000+
+    happy customers and continuing
+    to build our premium salon
+    experience.
+</p>
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
 
 </section>
+
+
+
+<!-- =====================================================
+     EXPERIENCE
+===================================================== -->
+
+<section class="experience-banner">
+
+<img
+    src="images/salon1.jpg"
+    alt="Salon Experience"
+>
+
+
+<div class="experience-content">
+
+<small>
+    The Beauty Experience
+</small>
+
+
+<h2>
+
+Look Good.
+<span>Feel Great.</span>
+
+</h2>
+
+
+<p>
+
+Step into an environment where modern
+styling, professional care and comfort
+come together to create a beauty experience
+designed around you.
+
+</p>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CTA
+===================================================== -->
+
+<section class="about-cta">
+
+<div class="about-cta-box">
+
+<small>
+    Your Beauty Journey Starts Here
+</small>
+
+
+<h2>
+
+Ready To
+<span>Transform Your Look?</span>
+
+</h2>
+
+
+<p>
+
+Book your appointment today and discover
+the premium experience of The Beauty Salon.
+
+</p>
+
+
+<div class="cta-buttons">
+
+<a
+    href="booking.html"
+    class="cta-button primary"
+>
+
+<i class="fa-regular fa-calendar-check"></i>
+
+Book Appointment
+
+</a>
+
+
+<a
+    href="services.html"
+    class="cta-button secondary"
+>
+
+<i class="fa-solid fa-scissors"></i>
+
+Explore Services
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="about-footer">
+
+<div class="footer-grid">
+
+
+<div class="footer-column">
+
+<h2>
+
+The Beauty
+<span>Salon</span>
+
+</h2>
+
+
+<p>
+
+Experience premium grooming,
+luxury hair styling, beauty care
+and modern salon services with
+The Beauty Salon.
+
+</p>
+
+
+<div class="footer-social">
+
+<a href="#">
+<i class="fab fa-facebook-f"></i>
+</a>
+
+<a href="#">
+<i class="fab fa-instagram"></i>
+</a>
+
+<a href="#">
+<i class="fab fa-whatsapp"></i>
+</a>
+
+<a href="#">
+<i class="fab fa-youtube"></i>
+</a>
+
+</div>
+
+</div>
+
+
+
+<div class="footer-column">
+
+<h3>
+    Quick Links
+</h3>
+
+
+<ul class="footer-links">
+
+<li>
+<a href="index.html">Home</a>
+</li>
+
+<li>
+<a href="about.html">About</a>
+</li>
+
+<li>
+<a href="services.html">Services</a>
+</li>
+
+<li>
+<a href="gallery.html">Gallery</a>
+</li>
+
+<li>
+<a href="contact.html">Contact</a>
+</li>
+
+</ul>
+
+</div>
+
+
+
+<div class="footer-column">
+
+<h3>
+    Contact
+</h3>
+
+
+<p>
+<i class="fa-solid fa-location-dot"></i>
+Baramati, Maharashtra
+</p>
+
+
+<p>
+<i class="fa-solid fa-phone"></i>
++91 8793465001
+</p>
+
+
+<p>
+<i class="fa-solid fa-envelope"></i>
+beautysalon@gamil.com
+</p>
+
+
+<p>
+<i class="fa-regular fa-clock"></i>
+Mon - Sun : 9:00 AM - 9:00 PM
+</p>
+
+</div>
+
+
+</div>
+
+
+
+<div class="footer-bottom">
+
+<p>
+© 2026 The Beauty Salon. All Rights Reserved.
+</p>
+
+<p>
+Hair • Beauty • Wellness
+</p>
+
+</div>
+
+</footer>
 
 
 </body>
+
 </html>
