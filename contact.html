@@ -3,871 +3,1421 @@
 
 <head>
 
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Contact | The Beauty Salon</title>
+
+<meta
+    name="description"
+    content="Contact The Beauty Salon in Baramati. Find our location, phone number, email, opening hours and salon gallery."
+>
+
+<link rel="stylesheet" href="css/style.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap"
+    rel="stylesheet"
+>
+
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+>
+
+
+<style>
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:"DM Sans",sans-serif;
+    background:#080808;
+    color:#fff;
+    overflow-x:hidden;
+}
+
+:root{
+    --gold:#D4AF37;
+    --gold-light:#F1D675;
+    --black:#080808;
+    --dark:#101010;
+    --dark2:#151515;
+    --dark3:#202020;
+    --white:#fff;
+    --muted:#999;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+button,
+input,
+select{
+    font-family:inherit;
+}
+
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+.contact-navbar{
+    position:sticky;
+    top:0;
+    z-index:9999;
+    width:100%;
+    min-height:78px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 6%;
+    background:rgba(5,5,5,.97);
+    border-bottom:1px solid rgba(212,175,55,.22);
+    backdrop-filter:blur(15px);
+}
+
+.back-home{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    color:#fff;
+    font-size:14px;
+    font-weight:700;
+    transition:.3s;
+}
+
+.back-home:hover{
+    color:var(--gold);
+    transform:translateX(-4px);
+}
+
+.contact-page-title{
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
+    font-family:"Playfair Display",serif;
+    color:var(--gold);
+    font-size:25px;
+    font-weight:700;
+    white-space:nowrap;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.contact-hero{
+    position:relative;
+    min-height:380px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:80px 20px;
+    overflow:hidden;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(212,175,55,.15),
+            transparent 40%
+        ),
+        linear-gradient(
+            180deg,
+            #080808,
+            #151515
+        );
+
+    border-bottom:1px solid rgba(212,175,55,.15);
+}
+
+.contact-hero::before{
+    content:"";
+    position:absolute;
+    width:520px;
+    height:520px;
+    border:1px solid rgba(212,175,55,.10);
+    border-radius:50%;
+}
+
+.contact-hero::after{
+    content:"";
+    position:absolute;
+    width:360px;
+    height:360px;
+    border:1px solid rgba(212,175,55,.08);
+    border-radius:50%;
+}
+
+.contact-hero-content{
+    position:relative;
+    z-index:2;
+    max-width:850px;
+}
+
+.contact-hero-label{
+    color:var(--gold);
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:5px;
+    text-transform:uppercase;
+    margin-bottom:16px;
+}
+
+.contact-hero h1{
+    font-family:"Playfair Display",serif;
+    font-size:clamp(46px,7vw,75px);
+    line-height:1.08;
+    margin-bottom:18px;
+}
+
+.contact-hero h1 span{
+    color:var(--gold);
+}
+
+.contact-hero p{
+    max-width:700px;
+    margin:auto;
+    color:#aaa;
+    font-size:15px;
+    line-height:1.8;
+}
+
+.hero-scroll{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    margin-top:30px;
+    color:#888;
+    font-size:11px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+}
+
+.hero-scroll i{
+    color:var(--gold);
+    animation:scrollDown 1.6s infinite;
+}
+
+@keyframes scrollDown{
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(6px);
+    }
+}
+
+
+/* =========================================================
+   CONTACT SECTION
+========================================================= */
+
+.contact-section{
+    padding:90px 6% 110px;
+
+    background:
+        radial-gradient(
+            circle at 10% 15%,
+            rgba(212,175,55,.05),
+            transparent 30%
+        ),
+        #101010;
+}
+
+
+/* =========================================================
+   BRANCH SELECTOR
+========================================================= */
+
+.branch-selector{
+    max-width:1280px;
+    margin:0 auto 65px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:25px;
+
+    padding:22px 25px;
+
+    background:#151515;
+
+    border:1px solid rgba(212,175,55,.20);
+
+    border-radius:16px;
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,.25);
+}
+
+.branch-selector-left{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.branch-selector-icon{
+    width:45px;
+    height:45px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:rgba(212,175,55,.10);
+
+    color:var(--gold);
+
+    font-size:18px;
+}
+
+.branch-selector label{
+    color:#fff;
+    font-size:14px;
+    font-weight:700;
+    display:block;
+}
+
+.branch-selector small{
+    display:block;
+    color:#777;
+    font-size:11px;
+    margin-top:3px;
+}
+
+.branch-selector select{
+    min-width:260px;
+    padding:13px 18px;
+
+    background:#202020;
+    color:#fff;
+
+    border:1px solid var(--gold);
+
+    border-radius:10px;
+
+    font-size:14px;
+
+    outline:none;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.branch-selector select:hover{
+    background:#272727;
+}
+
+.branch-selector select:focus{
+    box-shadow:
+        0 0 0 3px rgba(212,175,55,.10);
+}
+
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.contact-intro{
+    max-width:1280px;
+    margin:0 auto 55px;
+    text-align:center;
+}
+
+.contact-intro span{
+    color:var(--gold);
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:4px;
+    text-transform:uppercase;
+}
+
+.contact-intro h2{
+    font-family:"Playfair Display",serif;
+    font-size:clamp(36px,5vw,52px);
+    margin:10px 0 12px;
+}
+
+.contact-intro h2 strong{
+    color:var(--gold);
+}
+
+.contact-intro p{
+    max-width:680px;
+    margin:auto;
+    color:#999;
+    font-size:14px;
+    line-height:1.8;
+}
+
+
+/* =========================================================
+   MAIN CONTACT GRID
+========================================================= */
+
+.contact-container{
+    max-width:1280px;
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:
+        minmax(0,.9fr)
+        minmax(0,1.1fr);
+
+    gap:60px;
+
+    align-items:start;
+}
+
+
+/* =========================================================
+   CONTACT INFO
+========================================================= */
+
+.contact-info{
+    width:100%;
+}
+
+.contact-info > h2{
+    font-family:"Playfair Display",serif;
+    font-size:38px;
+    margin:0 0 30px;
+}
+
+.contact-info > h2 span{
+    color:var(--gold);
+}
+
+.contact-info > p{
+    color:#999;
+    font-size:13px;
+    line-height:1.8;
+    margin-bottom:30px;
+}
+
+.contact-cards{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+}
+
+.contact-info .info-box{
+    position:relative;
+    min-height:160px;
+    padding:25px;
+    overflow:hidden;
+
+    background:
+        linear-gradient(
+            145deg,
+            #202020,
+            #151515
+        );
+
+    border:1px solid rgba(255,255,255,.07);
+
+    border-left:4px solid var(--gold);
+
+    border-radius:16px;
+
+    transition:.35s;
+}
+
+.contact-info .info-box::before{
+    content:"";
+    position:absolute;
+    width:130px;
+    height:130px;
+    right:-55px;
+    top:-55px;
+    border-radius:50%;
+    background:rgba(212,175,55,.06);
+}
+
+.contact-info .info-box:hover{
+    transform:translateY(-6px);
+
+    border-color:
+        rgba(212,175,55,.45);
+
+    box-shadow:
+        0 18px 40px rgba(0,0,0,.35);
+}
+
+.info-icon{
+    color:var(--gold);
+    font-size:20px;
+    margin-bottom:14px;
+    position:relative;
+    z-index:2;
+}
+
+.contact-info .info-box h3{
+    margin:0 0 12px;
+    color:var(--gold);
+    font-size:18px;
+    font-weight:700;
+    position:relative;
+    z-index:2;
+}
+
+.contact-info .info-box p{
+    margin:0;
+    color:#ddd;
+    font-size:13px;
+    line-height:1.8;
+    position:relative;
+    z-index:2;
+}
+
+
+/* =========================================================
+   QUICK CONTACT
+========================================================= */
+
+.quick-contact{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+    margin-top:20px;
+}
+
+.quick-contact a{
+    min-height:48px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:9px;
+
+    border:1px solid rgba(212,175,55,.35);
+
+    border-radius:10px;
+
+    color:var(--gold);
+
+    background:#141414;
+
+    font-size:12px;
+    font-weight:700;
+
+    transition:.3s;
+}
+
+.quick-contact a:hover{
+    background:var(--gold);
+    color:#080808;
+    transform:translateY(-2px);
+}
+
+
+/* =========================================================
+   GALLERY
+========================================================= */
+
+.contact-gallery{
+    width:100%;
+    min-width:0;
+}
+
+.gallery-title{
+    margin-bottom:22px;
+}
+
+.gallery-title span{
+    display:block;
+    color:var(--gold);
+    font-size:11px;
+    letter-spacing:4px;
+    font-weight:800;
+    text-transform:uppercase;
+    margin-bottom:8px;
+}
+
+.gallery-title h2{
+    margin:0;
+    font-family:"Playfair Display",serif;
+    color:#fff;
+    font-size:38px;
+}
+
+.gallery-title h2 .gold{
+    color:var(--gold);
+}
+
+.gallery-title p{
+    margin:10px 0 0;
+    color:#999;
+    font-size:13px;
+    line-height:1.7;
+}
+
+
+/* =========================================================
+   CAROUSEL
+========================================================= */
+
+.salon-carousel{
+    position:relative;
+    width:100%;
+    height:500px;
+    overflow:hidden;
+
+    border-radius:22px;
+
+    border:1px solid rgba(212,175,55,.35);
+
+    background:#181818;
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,.50);
+}
+
+.salon-slide{
+    position:absolute;
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+    opacity:0;
+
+    transform:translateX(100%);
+
+    transition:
+        transform .8s ease,
+        opacity .8s ease;
+}
+
+.salon-slide.active{
+    opacity:1;
+    transform:translateX(0);
+}
+
+.salon-slide img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+
+    transition:
+        transform 1s ease;
+}
+
+.salon-slide.active img{
+    transform:scale(1.02);
+}
+
+.salon-slide::after{
+    content:"";
+    position:absolute;
+    inset:0;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(0,0,0,.05),
+            rgba(0,0,0,.55)
+        );
+
+    pointer-events:none;
+}
+
+
+/* =========================================================
+   GALLERY CAPTION
+========================================================= */
+
+.gallery-caption{
+    position:absolute;
+    left:25px;
+    bottom:25px;
+    z-index:5;
+
+    padding:10px 15px;
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    border-radius:9px;
+
+    background:rgba(0,0,0,.60);
+
+    border:1px solid rgba(212,175,55,.30);
 
-    <title>Contact | The Beauty Salon</title>
+    color:#fff;
 
-    <link
-        rel="stylesheet"
-        href="css/style.css"
-    >
+    font-size:11px;
 
-    <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-    >
+    backdrop-filter:blur(8px);
+}
 
 
-    <style>
+/* =========================================================
+   CAROUSEL BUTTONS
+========================================================= */
+
+.carousel-btn{
+    position:absolute;
 
-        /* =====================================================
-           CONTACT PAGE NAVBAR
-        ===================================================== */
+    top:50%;
 
-        .contact-navbar {
+    transform:translateY(-50%);
 
-            position: relative;
+    width:50px;
+    height:50px;
 
-            width: 100%;
-            height: 80px;
+    border-radius:50%;
+
+    border:1px solid var(--gold);
 
-            background: #000;
+    background:rgba(0,0,0,.65);
+
+    color:var(--gold);
+
+    font-size:18px;
+
+    cursor:pointer;
+
+    z-index:10;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    transition:.3s;
+}
+
+.carousel-btn:hover{
+    background:var(--gold);
+    color:#111;
+
+    transform:
+        translateY(-50%)
+        scale(1.05);
+}
+
+.carousel-prev{
+    left:18px;
+}
+
+.carousel-next{
+    right:18px;
+}
+
+
+/* =========================================================
+   DOTS
+========================================================= */
+
+.carousel-dots{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:9px;
+    margin-top:18px;
+}
 
-            display: flex;
-            align-items: center;
+.carousel-dot{
+    width:9px;
+    height:9px;
 
-            padding: 0 8%;
+    padding:0;
 
-            box-sizing: border-box;
+    border:0;
 
-        }
+    border-radius:50%;
 
+    background:#555;
 
-        /* LEFT : BACK TO HOME */
+    cursor:pointer;
 
-        .back-home {
+    transition:.3s;
+}
 
-            color: #fff;
+.carousel-dot.active{
+    width:28px;
+    border-radius:10px;
+    background:var(--gold);
+}
 
-            text-decoration: none;
 
-            font-size: 17px;
+/* =========================================================
+   EXPERIENCE
+========================================================= */
 
-            font-weight: 600;
+.experience-section{
+    padding:100px 6%;
 
-            transition: 0.3s;
+    background:
+        radial-gradient(
+            circle at 50% 50%,
+            rgba(212,175,55,.06),
+            transparent 45%
+        ),
+        #0b0b0b;
 
-        }
+    border-top:1px solid rgba(212,175,55,.12);
+
+    border-bottom:1px solid rgba(212,175,55,.12);
+}
 
+.experience-container{
+    max-width:1200px;
+    margin:auto;
+    text-align:center;
+}
+
+.experience-container > span{
+    color:var(--gold);
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:4px;
+    text-transform:uppercase;
+}
+
+.experience-container h2{
+    font-family:"Playfair Display",serif;
+    font-size:clamp(35px,5vw,52px);
+    margin:10px 0 15px;
+}
+
+.experience-container h2 strong{
+    color:var(--gold);
+}
+
+.experience-container > p{
+    max-width:700px;
+    margin:auto;
+    color:#999;
+    font-size:14px;
+    line-height:1.8;
+}
+
+.experience-grid{
+    margin-top:50px;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:20px;
+}
+
+.experience-card{
+    padding:35px 25px;
+
+    background:#151515;
+
+    border:1px solid rgba(255,255,255,.07);
+
+    border-radius:18px;
+
+    transition:.35s;
+}
+
+.experience-card:hover{
+    transform:translateY(-7px);
+
+    border-color:
+        rgba(212,175,55,.4);
+
+    box-shadow:
+        0 18px 40px rgba(0,0,0,.35);
+}
+
+.experience-card i{
+    color:var(--gold);
+    font-size:27px;
+    margin-bottom:18px;
+}
+
+.experience-card h3{
+    font-family:"Playfair Display",serif;
+    font-size:21px;
+    margin-bottom:9px;
+}
+
+.experience-card p{
+    color:#999;
+    font-size:12px;
+    line-height:1.7;
+}
+
+
+/* =========================================================
+   MAP
+========================================================= */
 
-        .back-home:hover {
+.map-section{
+    padding:95px 6%;
+    background:#101010;
+    text-align:center;
+}
+
+.map-heading{
+    max-width:700px;
+    margin:0 auto 35px;
+}
+
+.map-heading span{
+    color:var(--gold);
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:4px;
+    text-transform:uppercase;
+}
+
+.map-section h2{
+    font-family:"Playfair Display",serif;
+    margin:10px 0;
+    font-size:42px;
+}
+
+.map-section h2 strong{
+    color:var(--gold);
+}
+
+.map-heading p{
+    color:#999;
+    font-size:13px;
+    line-height:1.8;
+}
+
+.map-wrapper{
+    max-width:1200px;
+    margin:auto;
+    padding:8px;
+
+    border-radius:22px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(212,175,55,.5),
+            transparent 45%,
+            rgba(212,175,55,.3)
+        );
+}
+
+.map-wrapper iframe{
+    width:100%;
+    height:430px;
+
+    border:0;
+
+    border-radius:17px;
+
+    display:block;
+
+    filter:
+        grayscale(80%)
+        contrast(1.05);
+}
+
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.contact-cta{
+    padding:100px 6%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #181308,
+            #080808
+        );
+
+    border-top:
+        1px solid rgba(212,175,55,.15);
+}
+
+.contact-cta-box{
+    max-width:1000px;
+    margin:auto;
+
+    padding:65px 30px;
+
+    text-align:center;
+
+    border:
+        1px solid rgba(212,175,55,.28);
 
-            color: #e0b52f;
+    border-radius:24px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(212,175,55,.08),
+            transparent 60%
+        );
+}
 
-        }
+.contact-cta-box small{
+    color:var(--gold);
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:4px;
+    text-transform:uppercase;
+}
 
+.contact-cta-box h2{
+    font-family:"Playfair Display",serif;
+    font-size:clamp(36px,5vw,55px);
+    margin:12px 0;
+}
 
-        /* CENTER : CONTACT */
+.contact-cta-box h2 span{
+    color:var(--gold);
+}
 
-        .contact-page-title {
+.contact-cta-box p{
+    max-width:650px;
+    margin:auto;
+    color:#999;
+    font-size:13px;
+    line-height:1.8;
+}
+
+.cta-buttons{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:14px;
+    margin-top:28px;
+}
 
-            position: absolute;
+.cta-primary,
+.cta-secondary{
+    min-height:50px;
 
-            left: 50%;
-            top: 50%;
+    display:inline-flex;
 
-            transform:
-                translate(-50%, -50%);
+    align-items:center;
 
-            color: #e0b52f;
+    justify-content:center;
+
+    gap:9px;
 
-            font-size: 22px;
+    padding:13px 25px;
+
+    border-radius:10px;
 
-            font-weight: 700;
+    font-size:13px;
+
+    font-weight:800;
+
+    transition:.3s;
+}
+
+.cta-primary{
+    background:var(--gold);
+    color:#080808;
+}
+
+.cta-primary:hover{
+    background:#fff;
+    transform:translateY(-2px);
+}
+
+.cta-secondary{
+    border:1px solid var(--gold);
+    color:var(--gold);
+    background:transparent;
+}
 
-            letter-spacing: 0.5px;
+.cta-secondary:hover{
+    background:var(--gold);
+    color:#080808;
+}
 
-        }
 
+/* =========================================================
+   FOOTER
+========================================================= */
 
-        /* =====================================================
-           CONTACT PAGE HERO
-        ===================================================== */
+.contact-footer{
+    background:#050505;
 
-        .contact-hero {
+    padding:65px 6% 25px;
 
-            min-height: 330px;
+    border-top:
+        1px solid rgba(212,175,55,.15);
+}
 
-            display: flex;
+.footer-container{
+    max-width:1200px;
+    margin:auto;
 
-            flex-direction: column;
+    display:grid;
 
-            justify-content: center;
+    grid-template-columns:
+        1.5fr 1fr 1fr;
 
-            align-items: center;
+    gap:50px;
+}
 
-            text-align: center;
+.footer-box h2{
+    font-family:"Playfair Display",serif;
+    color:#fff;
+    font-size:27px;
+    margin-bottom:13px;
+}
 
-            padding: 60px 25px;
+.footer-box h2 span{
+    color:var(--gold);
+}
 
-            background:
-                radial-gradient(
-                    circle at center,
-                    rgba(212,175,55,0.12),
-                    transparent 60%
-                ),
-                #171717;
+.footer-box h3{
+    color:var(--gold);
+    font-size:14px;
+    margin-bottom:17px;
+}
 
-            border-bottom: 1px solid #292929;
+.footer-box p{
+    color:#777;
+    font-size:12px;
+    line-height:1.8;
+    margin-bottom:8px;
+}
 
-        }
+.footer-links{
+    list-style:none;
 
+    display:flex;
 
-        .contact-hero h1 {
+    flex-direction:column;
 
-            margin: 0 0 18px;
+    gap:10px;
+}
 
-            font-size: 58px;
+.footer-links a{
+    color:#888;
+    font-size:12px;
+    transition:.25s;
+}
 
-            color: #d4af37;
+.footer-links a:hover{
+    color:var(--gold);
+    transform:translateX(3px);
+}
 
-            font-weight: 700;
+.footer-social{
+    display:flex;
+    gap:10px;
+    margin-top:17px;
+}
 
-        }
+.footer-social a{
+    width:38px;
+    height:38px;
 
+    display:flex;
+    align-items:center;
+    justify-content:center;
 
-        .contact-hero p {
+    border:1px solid #333;
 
-            max-width: 700px;
+    border-radius:50%;
 
-            margin: 0;
+    color:#888;
 
-            color: #d0d0d0;
+    transition:.3s;
+}
 
-            font-size: 17px;
+.footer-social a:hover{
+    background:var(--gold);
+    color:#080808;
+    border-color:var(--gold);
+}
 
-            line-height: 1.8;
+.footer-bottom{
+    max-width:1200px;
+    margin:45px auto 0;
 
-        }
+    padding-top:22px;
 
+    border-top:1px solid #1d1d1d;
 
-        /* =====================================================
-           BRANCH SELECTOR
-        ===================================================== */
+    display:flex;
 
-        .branch-selector {
-            max-width: 1350px;
-            margin: 0 auto 35px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
+    align-items:center;
 
-        .branch-selector label {
-            color: #d4af37;
-            font-size: 18px;
-            font-weight: 700;
-        }
+    justify-content:space-between;
 
-        .branch-selector select {
-            min-width: 260px;
-            padding: 13px 18px;
-            background: #1b1b1b;
-            color: #fff;
-            border: 1px solid #d4af37;
-            border-radius: 10px;
-            font-size: 16px;
-            outline: none;
-            cursor: pointer;
-        }
+    gap:20px;
+}
 
-        .branch-selector select:focus {
-            box-shadow: 0 0 0 2px rgba(212,175,55,0.15);
-        }
+.footer-bottom p{
+    color:#555;
+    font-size:11px;
+}
 
-        @media (max-width: 650px) {
-            .branch-selector {
-                flex-direction: column;
-                align-items: stretch;
-            }
 
-            .branch-selector select {
-                width: 100%;
-                min-width: 0;
-            }
-        }
+/* =========================================================
+   TABLET
+========================================================= */
 
+@media(max-width:1000px){
 
-        /* =====================================================
-           CONTACT MAIN SECTION
-        ===================================================== */
+    .contact-container{
+        grid-template-columns:1fr;
+        gap:70px;
+        max-width:750px;
+    }
 
-        .contact-section {
+    .contact-info > h2{
+        text-align:center;
+    }
 
-            padding: 85px 6%;
+    .contact-info > p{
+        text-align:center;
+    }
 
-            background: #101010;
+    .salon-carousel{
+        height:470px;
+    }
 
-        }
+    .experience-grid{
+        grid-template-columns:1fr;
+        max-width:600px;
+        margin-left:auto;
+        margin-right:auto;
+    }
 
+    .footer-container{
+        grid-template-columns:1fr 1fr;
+    }
 
-        .contact-container {
+    .footer-box:first-child{
+        grid-column:1/-1;
+    }
+}
 
-            max-width: 1350px;
 
-            margin: auto;
+/* =========================================================
+   MOBILE
+========================================================= */
 
-            display: grid;
+@media(max-width:650px){
 
-            grid-template-columns: 1fr 1fr;
+    .contact-navbar{
+        min-height:68px;
+        padding:0 18px;
+    }
 
-            gap: 70px;
+    .back-home{
+        font-size:12px;
+    }
 
-            align-items: center;
+    .contact-page-title{
+        font-size:18px;
+    }
 
-        }
+    .contact-hero{
+        min-height:310px;
+        padding:65px 18px;
+    }
 
+    .contact-hero h1{
+        font-size:42px;
+    }
 
-        /* =====================================================
-           LEFT CONTACT INFORMATION
-        ===================================================== */
+    .contact-hero p{
+        font-size:13px;
+    }
 
-        .contact-info {
+    .hero-scroll{
+        font-size:9px;
+        letter-spacing:1.5px;
+    }
 
-            width: 100%;
+    .contact-section{
+        padding:60px 14px 80px;
+    }
 
-        }
+    .branch-selector{
+        flex-direction:column;
+        align-items:stretch;
+        padding:18px;
+        margin-bottom:50px;
+    }
 
+    .branch-selector-left{
+        align-items:flex-start;
+    }
 
-        .contact-info > h2 {
+    .branch-selector select{
+        width:100%;
+        min-width:0;
+    }
 
-            font-size: 36px;
+    .contact-intro{
+        margin-bottom:45px;
+    }
 
-            color: #d4af37;
+    .contact-intro h2{
+        font-size:36px;
+    }
+
+    .contact-cards{
+        grid-template-columns:1fr;
+    }
 
-            margin: 0 0 40px;
+    .contact-info .info-box{
+        min-height:145px;
+    }
 
-        }
+    .quick-contact{
+        grid-template-columns:1fr;
+    }
 
+    .gallery-title h2{
+        font-size:32px;
+    }
 
-        .contact-cards {
+    .salon-carousel{
+        height:350px;
+        border-radius:18px;
+    }
 
-            display: grid;
+    .carousel-btn{
+        width:42px;
+        height:42px;
+        font-size:15px;
+    }
 
-            grid-template-columns: repeat(2, 1fr);
+    .carousel-prev{
+        left:10px;
+    }
 
-            gap: 22px;
+    .carousel-next{
+        right:10px;
+    }
 
-        }
+    .gallery-caption{
+        left:15px;
+        bottom:15px;
+    }
 
+    .experience-section{
+        padding:70px 14px;
+    }
 
-        .contact-info .info-box {
+    .experience-container h2{
+        font-size:36px;
+    }
 
-            min-height: 155px;
+    .map-section{
+        padding:70px 14px;
+    }
 
-            padding: 27px;
+    .map-section h2{
+        font-size:36px;
+    }
 
-            box-sizing: border-box;
+    .map-wrapper iframe{
+        height:300px;
+    }
 
-            background:
-                linear-gradient(
-                    145deg,
-                    #232323,
-                    #181818
-                );
+    .contact-cta{
+        padding:70px 14px;
+    }
 
-            border: 1px solid #333;
+    .contact-cta-box{
+        padding:45px 20px;
+    }
 
-            border-left: 4px solid #d4af37;
+    .contact-cta-box h2{
+        font-size:36px;
+    }
 
-            border-radius: 16px;
+    .cta-buttons{
+        flex-direction:column;
+    }
 
-            position: relative;
+    .cta-primary,
+    .cta-secondary{
+        width:100%;
+    }
 
-            overflow: hidden;
+    .contact-footer{
+        padding:55px 20px 20px;
+    }
 
-            transition: 0.35s;
+    .footer-container{
+        grid-template-columns:1fr;
+        gap:35px;
+    }
 
-        }
+    .footer-box:first-child{
+        grid-column:auto;
+    }
 
+    .footer-bottom{
+        flex-direction:column;
+        text-align:center;
+    }
+}
 
-        .contact-info .info-box::before {
 
-            content: "";
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
 
-            position: absolute;
+@media(max-width:400px){
 
-            width: 110px;
+    .contact-page-title{
+        font-size:16px;
+    }
 
-            height: 110px;
+    .contact-hero h1{
+        font-size:36px;
+    }
 
-            right: -40px;
+    .contact-intro h2{
+        font-size:32px;
+    }
 
-            top: -40px;
+    .salon-carousel{
+        height:290px;
+    }
 
-            border-radius: 50%;
+    .gallery-title h2{
+        font-size:28px;
+    }
+}
 
-            background: rgba(212,175,55,0.07);
-
-        }
-
-
-        .contact-info .info-box:hover {
-
-            transform: translateY(-6px);
-
-            border-color: #d4af37;
-
-            box-shadow:
-                0 15px 35px rgba(0,0,0,0.45),
-                0 0 20px rgba(212,175,55,0.10);
-
-        }
-
-
-        .contact-info .info-box h3 {
-
-            margin: 0 0 15px;
-
-            color: #d4af37;
-
-            font-size: 21px;
-
-            font-weight: 600;
-
-            position: relative;
-
-            z-index: 2;
-
-        }
-
-
-        .contact-info .info-box p {
-
-            margin: 0;
-
-            color: #eeeeee;
-
-            font-size: 15px;
-
-            line-height: 1.8;
-
-            position: relative;
-
-            z-index: 2;
-
-        }
-
-
-        /* =====================================================
-           RIGHT SIDE PHOTO CAROUSEL
-        ===================================================== */
-
-        .contact-gallery {
-
-            width: 100%;
-
-            position: relative;
-
-        }
-
-
-        .gallery-title {
-
-            margin-bottom: 22px;
-
-        }
-
-
-        .gallery-title span {
-
-            display: block;
-
-            color: #d4af37;
-
-            font-size: 13px;
-
-            letter-spacing: 4px;
-
-            text-transform: uppercase;
-
-            margin-bottom: 8px;
-
-        }
-
-
-        .gallery-title h2 {
-
-            margin: 0;
-
-            color: #ffffff;
-
-            font-size: 34px;
-
-        }
-
-
-        .gallery-title p {
-
-            margin: 10px 0 0;
-
-            color: #aaaaaa;
-
-            font-size: 14px;
-
-        }
-
-
-        /* =====================================================
-           MAIN CAROUSEL
-        ===================================================== */
-
-        .salon-carousel {
-
-            position: relative;
-
-            width: 100%;
-
-            height: 480px;
-
-            overflow: hidden;
-
-            border-radius: 22px;
-
-            border: 1px solid #3b3b3b;
-
-            background: #181818;
-
-            box-shadow:
-                0 20px 50px rgba(0,0,0,0.55),
-                0 0 30px rgba(212,175,55,0.06);
-
-        }
-
-
-        .salon-slide {
-
-            position: absolute;
-
-            inset: 0;
-
-            width: 100%;
-
-            height: 100%;
-
-            opacity: 0;
-
-            transform: translateX(100%);
-
-            transition:
-                transform 0.8s ease,
-                opacity 0.8s ease;
-
-        }
-
-
-        .salon-slide.active {
-
-            opacity: 1;
-
-            transform: translateX(0);
-
-        }
-
-
-        .salon-slide img {
-
-            width: 100%;
-
-            height: 100%;
-
-            object-fit: cover;
-
-            display: block;
-
-        }
-
-
-        /* DARK OVERLAY */
-
-        .salon-slide::after {
-
-            content: "";
-
-            position: absolute;
-
-            inset: 0;
-
-            background:
-                linear-gradient(
-                    180deg,
-                    rgba(0,0,0,0.05),
-                    rgba(0,0,0,0.45)
-                );
-
-            pointer-events: none;
-
-        }
-
-
-        /* =====================================================
-           CAROUSEL BUTTONS
-        ===================================================== */
-
-        .carousel-btn {
-
-            position: absolute;
-
-            top: 50%;
-
-            transform: translateY(-50%);
-
-            width: 48px;
-
-            height: 48px;
-
-            border-radius: 50%;
-
-            border: 1px solid #d4af37;
-
-            background: rgba(0,0,0,0.65);
-
-            color: #d4af37;
-
-            font-size: 20px;
-
-            cursor: pointer;
-
-            z-index: 10;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            transition: 0.3s;
-
-        }
-
-
-        .carousel-btn:hover {
-
-            background: #d4af37;
-
-            color: #111;
-
-        }
-
-
-        .carousel-prev {
-
-            left: 18px;
-
-        }
-
-
-        .carousel-next {
-
-            right: 18px;
-
-        }
-
-
-        /* =====================================================
-           CAROUSEL DOTS
-        ===================================================== */
-
-        .carousel-dots {
-
-            display: flex;
-
-            justify-content: center;
-
-            align-items: center;
-
-            gap: 9px;
-
-            margin-top: 18px;
-
-        }
-
-
-        .carousel-dot {
-
-            width: 9px;
-
-            height: 9px;
-
-            border-radius: 50%;
-
-            border: none;
-
-            background: #555;
-
-            cursor: pointer;
-
-            transition: 0.3s;
-
-            padding: 0;
-
-        }
-
-
-        .carousel-dot.active {
-
-            width: 28px;
-
-            border-radius: 10px;
-
-            background: #d4af37;
-
-        }
-
-
-        /* =====================================================
-           FIND US / MAP
-        ===================================================== */
-
-        .map-section {
-
-            padding: 80px 7%;
-
-            background: #171717;
-
-            text-align: center;
-
-        }
-
-
-        .map-section h2 {
-
-            margin: 0 0 30px;
-
-            color: #d4af37;
-
-            font-size: 34px;
-
-        }
-
-
-        .map-section iframe {
-
-            width: 100%;
-
-            max-width: 1200px;
-
-            height: 400px;
-
-            border: 1px solid #444;
-
-            border-radius: 18px;
-
-            display: block;
-
-            margin: auto;
-
-            filter:
-                grayscale(80%)
-                contrast(1.05);
-
-            box-shadow:
-                0 15px 35px rgba(0,0,0,0.45);
-
-        }
-
-
-        /* =====================================================
-           FOOTER
-        ===================================================== */
-
-        .footer {
-
-            background: #050505;
-
-        }
-
-
-        /* =====================================================
-           TABLET
-        ===================================================== */
-
-        @media (max-width: 1000px) {
-
-            .contact-container {
-
-                grid-template-columns: 1fr;
-
-                gap: 55px;
-
-            }
-
-
-            .contact-info > h2 {
-
-                text-align: center;
-
-            }
-
-
-            .salon-carousel {
-
-                height: 450px;
-
-            }
-
-        }
-
-
-        /* =====================================================
-           MOBILE
-        ===================================================== */
-
-        @media (max-width: 650px) {
-
-            .contact-navbar {
-
-                padding: 0 5%;
-
-            }
-
-
-            .back-home {
-
-                font-size: 15px;
-
-            }
-
-
-            .contact-page-title {
-
-                font-size: 19px;
-
-            }
-
-
-            .contact-hero {
-
-                min-height: 280px;
-
-                padding: 50px 20px;
-
-            }
-
-
-            .contact-hero h1 {
-
-                font-size: 42px;
-
-            }
-
-
-            .contact-hero p {
-
-                font-size: 15px;
-
-            }
-
-
-            .contact-section {
-
-                padding: 60px 22px;
-
-            }
-
-
-            .contact-info > h2 {
-
-                font-size: 30px;
-
-            }
-
-
-            .contact-cards {
-
-                grid-template-columns: 1fr;
-
-            }
-
-
-            .salon-carousel {
-
-                height: 350px;
-
-            }
-
-
-            .gallery-title h2 {
-
-                font-size: 29px;
-
-            }
-
-
-            .carousel-btn {
-
-                width: 42px;
-
-                height: 42px;
-
-                font-size: 17px;
-
-            }
-
-
-            .map-section {
-
-                padding: 60px 22px;
-
-            }
-
-
-            .map-section iframe {
-
-                height: 300px;
-
-            }
-
-        }
-
-
-        @media (max-width: 450px) {
-
-            .contact-hero h1 {
-
-                font-size: 36px;
-
-            }
-
-
-            .salon-carousel {
-
-                height: 300px;
-
-            }
-
-
-            .carousel-prev {
-
-                left: 10px;
-
-            }
-
-
-            .carousel-next {
-
-                right: 10px;
-
-            }
-
-        }
-
-    </style>
+</style>
 
 </head>
 
@@ -876,34 +1426,81 @@
 
 
 <!-- =====================================================
-     CONTACT NAVBAR
+     NAVBAR
 ===================================================== -->
 
 <header>
 
-    <nav class="contact-navbar">
+<nav class="contact-navbar">
 
-        <!-- LEFT -->
+<a
+    href="index.html"
+    class="back-home"
+>
 
-        <a
-            href="index.html"
-            class="back-home"
-        >
-            ← Back to Home
-        </a>
+    ← Back to Home
+
+</a>
 
 
-        <!-- CENTER -->
+<div class="contact-page-title">
 
-        <div class="contact-page-title">
-            Contact
-        </div>
+    Contact
 
-    </nav>
+</div>
+
+</nav>
 
 </header>
 
 
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="contact-hero">
+
+<div class="contact-hero-content">
+
+<div class="contact-hero-label">
+
+    The Beauty Salon
+
+</div>
+
+
+<h1>
+
+    Let's Stay
+    <span>Connected</span>
+
+</h1>
+
+
+<p>
+
+    Have a question, need an appointment or simply
+    want to know more about our services?
+    We're here to help you.
+
+</p>
+
+
+<a
+    href="#contactDetails"
+    class="hero-scroll"
+>
+
+    Explore Contact Details
+
+    <i class="fa-solid fa-chevron-down"></i>
+
+</a>
+
+</div>
+
+</section>
 
 
 
@@ -911,284 +1508,662 @@
      CONTACT SECTION
 ===================================================== -->
 
-<section class="contact-section">
+<section
+    class="contact-section"
+    id="contactDetails"
+>
 
-    <!-- BRANCH SELECTOR -->
-    <div class="branch-selector">
 
-        <label for="branchSelect">
-            Select Branch:
-        </label>
+<!-- BRANCH -->
 
-        <select id="branchSelect">
-            <option value="baramati">
-                Baramati
-            </option>
+<div class="branch-selector">
 
-            <option value="baramati-midc">
-                Baramati MIDC
-            </option>
-        </select>
+<div class="branch-selector-left">
 
-    </div>
+<div class="branch-selector-icon">
 
-    <div class="contact-container">
+    <i class="fa-solid fa-location-dot"></i>
 
+</div>
 
-        <!-- =================================================
-             LEFT SIDE
-        ================================================== -->
 
-        <div class="contact-info">
+<div>
 
-            <h2>
-                Get In Touch
-            </h2>
+<label for="branchSelect">
 
+    Select Your Branch
 
-            <div class="contact-cards">
+</label>
 
+<small>
 
-                <!-- ADDRESS -->
+    Choose a branch to view contact details
 
-                <div class="info-box">
+</small>
 
-                    <h3>
-                        📍 Address
-                    </h3>
+</div>
 
-                    <p id="branchAddress">
-                        - Near Mahanagar Bank Infrint of
-                        Shayog Society Baramati.
-                    </p>
+</div>
 
-                </div>
 
+<select id="branchSelect">
 
-                <!-- PHONE -->
+<option value="baramati">
 
-                <div class="info-box">
+    Baramati
 
-                    <h3>
-                        📞 Phone
-                    </h3>
+</option>
 
-                    <p id="branchPhone">
+<option value="baramati-midc">
 
-                        +91 8793465001
+    Baramati MIDC
 
-                        <br>
+</option>
 
-                        +91 8087646512
+</select>
 
-                    </p>
+</div>
 
-                </div>
 
 
-                <!-- EMAIL -->
+<!-- INTRO -->
 
-                <div class="info-box">
+<div class="contact-intro">
 
-                    <h3>
-                        ✉ Email
-                    </h3>
+<span>
 
-                    <p id="branchEmail">
-                        beautysalon@gamil.com
-                    </p>
+    Get In Touch
 
-                </div>
+</span>
 
 
-                <!-- OPENING HOURS -->
+<h2>
 
-                <div class="info-box">
+    We'd Love To
+    <strong>Hear From You</strong>
 
-                    <h3>
-                        🕒 Opening Hours
-                    </h3>
+</h2>
 
-                    <p id="branchHours">
-                        Mon - Sun :
-                        9:00 AM - 9:00 PM
-                    </p>
 
-                </div>
+<p>
 
+    Reach out to The Beauty Salon for appointments,
+    service information or any questions about your
+    salon experience.
 
-            </div>
+</p>
 
-        </div>
+</div>
 
 
 
-        <!-- =================================================
-             RIGHT SIDE PHOTO SLIDER
-        ================================================== -->
+<!-- MAIN -->
 
-        <div class="contact-gallery">
+<div class="contact-container">
 
 
-            <div class="gallery-title">
+<!-- LEFT -->
 
-                <span>
-                    The Beauty Salon Gallery
-                </span>
+<div class="contact-info">
 
-                <h2>
-                    Experience Our Salon
-                </h2>
+<h2>
 
-                <p>
-                    A glimpse of our premium salon experience.
-                </p>
+    Contact
+    <span>Details</span>
 
-            </div>
+</h2>
 
 
+<p>
 
-            <div class="salon-carousel">
+    Everything you need to connect with us,
+    all in one place.
 
+</p>
 
-                <!-- SLIDE 1 -->
 
-                <div class="salon-slide active">
+<div class="contact-cards">
 
-                    <img
-                        src="images/salon1.jpg"
-                        alt="Salon Interior"
-                    >
 
-                </div>
+<!-- ADDRESS -->
 
+<div class="info-box">
 
-                <!-- SLIDE 2 -->
+<div class="info-icon">
 
-                <div class="salon-slide">
+    <i class="fa-solid fa-location-dot"></i>
 
-                    <img
-                        src="images/salon2.jpg"
-                        alt="Salon"
-                    >
+</div>
 
-                </div>
 
+<h3>
 
-                <!-- SLIDE 3 -->
+    Address
 
-                <div class="salon-slide">
+</h3>
 
-                    <img
-                        src="images/salon3.jpg"
-                        alt="Beauty Area"
-                    >
 
-                </div>
+<p id="branchAddress">
 
+    - Near Mahanagar Bank Infrint of
+    Shayog Society Baramati.
 
-                <!-- SLIDE 4 -->
+</p>
 
-                <div class="salon-slide">
+</div>
 
-                    <img
-                        src="images/salon4.jpg"
-                        alt="Styling Area"
-                    >
 
-                </div>
 
+<!-- PHONE -->
 
-                <!-- PREVIOUS -->
+<div class="info-box">
 
-                <button
-                    class="carousel-btn carousel-prev"
-                    id="carouselPrev"
-                    type="button"
-                    aria-label="Previous image"
-                >
-                    ❮
-                </button>
+<div class="info-icon">
 
+    <i class="fa-solid fa-phone"></i>
 
-                <!-- NEXT -->
+</div>
 
-                <button
-                    class="carousel-btn carousel-next"
-                    id="carouselNext"
-                    type="button"
-                    aria-label="Next image"
-                >
-                    ❯
-                </button>
 
+<h3>
 
-            </div>
+    Phone
 
+</h3>
 
 
-            <!-- DOTS -->
+<p id="branchPhone">
 
-            <div
-                class="carousel-dots"
-                id="carouselDots"
-            >
+    +91 8793465001
 
-                <button
-                    class="carousel-dot active"
-                    type="button"
-                    data-slide="0"
-                    aria-label="Slide 1"
-                ></button>
+    <br>
 
-                <button
-                    class="carousel-dot"
-                    type="button"
-                    data-slide="1"
-                    aria-label="Slide 2"
-                ></button>
+    +91 8087646512
 
-                <button
-                    class="carousel-dot"
-                    type="button"
-                    data-slide="2"
-                    aria-label="Slide 3"
-                ></button>
+</p>
 
-                <button
-                    class="carousel-dot"
-                    type="button"
-                    data-slide="3"
-                    aria-label="Slide 4"
-                ></button>
+</div>
 
-            </div>
 
 
-        </div>
+<!-- EMAIL -->
 
-    </div>
+<div class="info-box">
+
+<div class="info-icon">
+
+    <i class="fa-solid fa-envelope"></i>
+
+</div>
+
+
+<h3>
+
+    Email
+
+</h3>
+
+
+<p id="branchEmail">
+
+    beautysalon@gamil.com
+
+</p>
+
+</div>
+
+
+
+<!-- HOURS -->
+
+<div class="info-box">
+
+<div class="info-icon">
+
+    <i class="fa-regular fa-clock"></i>
+
+</div>
+
+
+<h3>
+
+    Opening Hours
+
+</h3>
+
+
+<p id="branchHours">
+
+    Mon - Sun :
+    9:00 AM - 9:00 PM
+
+</p>
+
+</div>
+
+</div>
+
+
+
+<!-- QUICK BUTTONS -->
+
+<div class="quick-contact">
+
+<a href="tel:+918793465001">
+
+    <i class="fa-solid fa-phone"></i>
+
+    Call Us
+
+</a>
+
+
+<a href="mailto:beautysalon@gamil.com">
+
+    <i class="fa-solid fa-envelope"></i>
+
+    Email Us
+
+</a>
+
+</div>
+
+</div>
+
+
+
+<!-- RIGHT -->
+
+<div class="contact-gallery">
+
+
+<div class="gallery-title">
+
+<span>
+
+    The Beauty Salon Gallery
+
+</span>
+
+
+<h2>
+
+    Experience Our
+    <span class="gold">Salon</span>
+
+</h2>
+
+
+<p>
+
+    A glimpse of our premium salon
+    environment and beauty experience.
+
+</p>
+
+</div>
+
+
+
+<!-- CAROUSEL -->
+
+<div class="salon-carousel">
+
+
+<div class="salon-slide active">
+
+<img
+    src="images/salon1.jpg"
+    alt="The Beauty Salon Interior"
+>
+
+<div class="gallery-caption">
+
+    Premium Salon Experience
+
+</div>
+
+</div>
+
+
+<div class="salon-slide">
+
+<img
+    src="images/salon2.jpg"
+    alt="Salon Interior"
+>
+
+<div class="gallery-caption">
+
+    Modern Beauty Space
+
+</div>
+
+</div>
+
+
+<div class="salon-slide">
+
+<img
+    src="images/salon3.jpg"
+    alt="Beauty Area"
+>
+
+<div class="gallery-caption">
+
+    Professional Styling Area
+
+</div>
+
+</div>
+
+
+<div class="salon-slide">
+
+<img
+    src="images/salon4.jpg"
+    alt="Salon Styling Area"
+>
+
+<div class="gallery-caption">
+
+    Relax & Enjoy
+
+</div>
+
+</div>
+
+
+<button
+    class="carousel-btn carousel-prev"
+    id="carouselPrev"
+    type="button"
+    aria-label="Previous image"
+>
+
+    <i class="fa-solid fa-chevron-left"></i>
+
+</button>
+
+
+<button
+    class="carousel-btn carousel-next"
+    id="carouselNext"
+    type="button"
+    aria-label="Next image"
+>
+
+    <i class="fa-solid fa-chevron-right"></i>
+
+</button>
+
+</div>
+
+
+
+<!-- DOTS -->
+
+<div
+    class="carousel-dots"
+    id="carouselDots"
+>
+
+<button
+    class="carousel-dot active"
+    type="button"
+    data-slide="0"
+    aria-label="Slide 1"
+></button>
+
+
+<button
+    class="carousel-dot"
+    type="button"
+    data-slide="1"
+    aria-label="Slide 2"
+></button>
+
+
+<button
+    class="carousel-dot"
+    type="button"
+    data-slide="2"
+    aria-label="Slide 3"
+></button>
+
+
+<button
+    class="carousel-dot"
+    type="button"
+    data-slide="3"
+    aria-label="Slide 4"
+></button>
+
+</div>
+
+</div>
+
+</div>
 
 </section>
 
 
 
 <!-- =====================================================
-     GOOGLE MAP
+     EXPERIENCE
+===================================================== -->
+
+<section class="experience-section">
+
+<div class="experience-container">
+
+<span>
+
+    Why Choose The Beauty Salon
+
+</span>
+
+
+<h2>
+
+    More Than Just A
+    <strong>Salon</strong>
+
+</h2>
+
+
+<p>
+
+    We focus on professional service, personal
+    attention and a comfortable environment so
+    every visit feels special.
+
+</p>
+
+
+<div class="experience-grid">
+
+
+<div class="experience-card">
+
+<i class="fa-solid fa-crown"></i>
+
+<h3>
+
+    Premium Experience
+
+</h3>
+
+<p>
+
+    Enjoy a stylish and comfortable
+    salon environment designed around
+    your beauty experience.
+
+</p>
+
+</div>
+
+
+
+<div class="experience-card">
+
+<i class="fa-solid fa-user-tie"></i>
+
+<h3>
+
+    Professional Service
+
+</h3>
+
+<p>
+
+    Our services are designed to give
+    you a professional and personalized
+    salon experience.
+
+</p>
+
+</div>
+
+
+
+<div class="experience-card">
+
+<i class="fa-solid fa-heart"></i>
+
+<h3>
+
+    Personal Attention
+
+</h3>
+
+<p>
+
+    From your first visit to your next
+    appointment, we focus on making
+    every customer feel valued.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     MAP
 ===================================================== -->
 
 <section class="map-section">
 
-    <h2>
-        Find Us
-    </h2>
+<div class="map-heading">
+
+<span>
+
+    Visit Us
+
+</span>
 
 
-    <iframe
-        src="https://www.google.com/maps?q=Mumbai&output=embed"
-        allowfullscreen=""
-        loading="lazy">
-    </iframe>
+<h2>
+
+    Find <strong>Our Salon</strong>
+
+</h2>
+
+
+<p>
+
+    Plan your visit and come experience
+    The Beauty Salon in Baramati.
+
+</p>
+
+</div>
+
+
+<div class="map-wrapper">
+
+<iframe
+    src="https://www.google.com/maps?q=Baramati%2C%20Maharashtra&output=embed"
+    allowfullscreen=""
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade"
+    title="The Beauty Salon location in Baramati"
+></iframe>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CTA
+===================================================== -->
+
+<section class="contact-cta">
+
+<div class="contact-cta-box">
+
+<small>
+
+    Your Beauty Journey Starts Here
+
+</small>
+
+
+<h2>
+
+    Ready To
+    <span>Look Your Best?</span>
+
+</h2>
+
+
+<p>
+
+    Book your appointment today and enjoy
+    a premium salon experience with
+    The Beauty Salon.
+
+</p>
+
+
+<div class="cta-buttons">
+
+<a
+    href="booking.html"
+    class="cta-primary"
+>
+
+    <i class="fa-regular fa-calendar-check"></i>
+
+    Book Appointment
+
+</a>
+
+
+<a
+    href="services.html"
+    class="cta-secondary"
+>
+
+    <i class="fa-solid fa-scissors"></i>
+
+    Explore Services
+
+</a>
+
+</div>
+
+</div>
 
 </section>
 
@@ -1198,429 +2173,487 @@
      FOOTER
 ===================================================== -->
 
-<footer class="footer">
+<footer class="contact-footer">
 
-    <div class="footer-container">
-
-
-        <!-- FOOTER ABOUT -->
-
-        <div class="footer-box">
-
-            <h2>
-                The Beauty Salon
-            </h2>
-
-            <p>
-                Experience premium grooming,
-                luxury hair styling, beard care
-                and modern salon services with
-                The Beauty Salon.
-            </p>
-
-        </div>
+<div class="footer-container">
 
 
+<!-- ABOUT -->
 
-        <!-- QUICK LINKS -->
+<div class="footer-box">
 
-        <div class="footer-box">
+<h2>
 
-            <h3>
-                Quick Links
-            </h3>
+    The Beauty
+    <span>Salon</span>
 
-            <ul>
+</h2>
 
-                <li>
-                    <a href="index.html">
-                        Home
-                    </a>
-                </li>
 
-                <li>
-                    <a href="about.html">
-                        About
-                    </a>
-                </li>
+<p>
 
-                <li>
-                    <a href="services.html">
-                        Services
-                    </a>
-                </li>
+    Experience premium grooming,
+    luxury hair styling, beauty care
+    and modern salon services with
+    The Beauty Salon.
 
-                <li>
-                    <a href="gallery.html">
-                        Gallery
-                    </a>
-                </li>
+</p>
 
-                <li>
-                    <a href="contact.html">
-                        Contact
-                    </a>
-                </li>
 
-            </ul>
+<div class="footer-social">
 
-        </div>
+<a href="#">
+    <i class="fab fa-facebook-f"></i>
+</a>
+
+<a href="#">
+    <i class="fab fa-instagram"></i>
+</a>
+
+<a href="#">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+<a href="#">
+    <i class="fab fa-youtube"></i>
+</a>
+
+</div>
+
+</div>
 
 
 
-        <!-- FOOTER CONTACT -->
+<!-- LINKS -->
 
-        <div class="footer-box">
+<div class="footer-box">
 
-            <h3>
-                Contact
-            </h3>
+<h3>
 
-            <p>
-                📍 Baramati, Maharashtra
-            </p>
+    Quick Links
 
-            <p>
-                📞 +91 8793465001
-            </p>
-
-            <p>
-                ✉ beautysalon@gamil.com
-            </p>
-
-        </div>
+</h3>
 
 
-    </div>
+<ul class="footer-links">
+
+<li>
+<a href="index.html">
+    Home
+</a>
+</li>
+
+<li>
+<a href="about.html">
+    About
+</a>
+</li>
+
+<li>
+<a href="services.html">
+    Services
+</a>
+</li>
+
+<li>
+<a href="gallery.html">
+    Gallery
+</a>
+</li>
+
+<li>
+<a href="contact.html">
+    Contact
+</a>
+</li>
+
+</ul>
+
+</div>
 
 
 
-    <!-- FOOTER BOTTOM -->
+<!-- CONTACT -->
 
-    <div class="footer-bottom">
+<div class="footer-box">
 
-        <div class="social-icons">
+<h3>
 
-            <a href="#">
-                <i class="fab fa-facebook-f"></i>
-            </a>
+    Contact
 
-            <a href="#">
-                <i class="fab fa-instagram"></i>
-            </a>
-
-            <a href="#">
-                <i class="fab fa-whatsapp"></i>
-            </a>
-
-            <a href="#">
-                <i class="fab fa-youtube"></i>
-            </a>
-
-        </div>
+</h3>
 
 
-        <p>
-            © 2026 The Beauty Salon. All Rights Reserved.
-        </p>
+<p>
 
-    </div>
+    <i class="fa-solid fa-location-dot"></i>
+
+    Baramati, Maharashtra
+
+</p>
+
+
+<p>
+
+    <i class="fa-solid fa-phone"></i>
+
+    +91 8793465001
+
+</p>
+
+
+<p>
+
+    <i class="fa-solid fa-envelope"></i>
+
+    beautysalon@gamil.com
+
+</p>
+
+
+<p>
+
+    <i class="fa-regular fa-clock"></i>
+
+    Mon - Sun : 9:00 AM - 9:00 PM
+
+</p>
+
+</div>
+
+</div>
+
+
+
+<div class="footer-bottom">
+
+<p>
+
+    © 2026 The Beauty Salon.
+    All Rights Reserved.
+
+</p>
+
+
+<p>
+
+    Crafted with care for
+    your beauty experience.
+
+</p>
+
+</div>
 
 </footer>
 
 
 
 <!-- =====================================================
-     CAROUSEL JAVASCRIPT
+     JAVASCRIPT
 ===================================================== -->
 
 <script>
 
-    /* =====================================================
-       BRANCH INFORMATION
-       Change only these values when you have final
-       Baramati MIDC branch details.
-    ===================================================== */
+/* =========================================================
+   BRANCH INFORMATION
+========================================================= */
 
-    const branchInformation = {
+const branchInformation = {
 
-        "baramati": {
-            address: "- Near Mahanagar Bank Infrint of Shayog Society Baramati.",
-            phone: "+91 8793465001<br>+91 8087646512",
-            email: "beautysalon@gamil.com",
-            hours: "Mon - Sun : 9:00 AM - 9:00 PM"
-        },
+    baramati: {
 
-        "baramati-midc": {
-            address: "Baramati MIDC Branch - Address will be updated.",
-            phone: "Branch phone number will be updated.",
-            email: "beautysalon@gamil.com",
-            hours: "Mon - Sun : 9:00 AM - 9:00 PM"
-        }
+        address:
+            "- Near Mahanagar Bank Infrint of Shayog Society Baramati.",
 
-    };
+        phone:
+            "+91 8793465001<br>+91 8087646512",
+
+        email:
+            "beautysalon@gamil.com",
+
+        hours:
+            "Mon - Sun : 9:00 AM - 9:00 PM"
+
+    },
 
 
-    /* =====================================================
-       CHANGE BRANCH INFORMATION
-    ===================================================== */
+    "baramati-midc": {
 
-    const branchSelect =
-        document.getElementById("branchSelect");
+        address:
+            "Baramati MIDC Branch - Address will be updated.",
 
-    const branchAddress =
-        document.getElementById("branchAddress");
+        phone:
+            "Branch phone number will be updated.",
 
-    const branchPhone =
-        document.getElementById("branchPhone");
+        email:
+            "beautysalon@gamil.com",
 
-    const branchEmail =
-        document.getElementById("branchEmail");
+        hours:
+            "Mon - Sun : 9:00 AM - 9:00 PM"
 
-    const branchHours =
-        document.getElementById("branchHours");
-
-
-    function updateBranchInformation() {
-
-        const selectedBranch =
-            branchInformation[branchSelect.value];
-
-        if (!selectedBranch) {
-            return;
-        }
-
-        branchAddress.innerHTML =
-            selectedBranch.address;
-
-        branchPhone.innerHTML =
-            selectedBranch.phone;
-
-        branchEmail.innerHTML =
-            selectedBranch.email;
-
-        branchHours.innerHTML =
-            selectedBranch.hours;
     }
 
-
-    branchSelect.addEventListener(
-        "change",
-        updateBranchInformation
-    );
+};
 
 
-    updateBranchInformation();
+/* =========================================================
+   BRANCH ELEMENTS
+========================================================= */
+
+const branchSelect =
+    document.getElementById("branchSelect");
+
+const branchAddress =
+    document.getElementById("branchAddress");
+
+const branchPhone =
+    document.getElementById("branchPhone");
+
+const branchEmail =
+    document.getElementById("branchEmail");
+
+const branchHours =
+    document.getElementById("branchHours");
 
 
-    /* =====================================================
-       CAROUSEL JAVASCRIPT
-    ===================================================== */
+/* =========================================================
+   UPDATE BRANCH
+========================================================= */
+
+function updateBranchInformation(){
+
+    const selectedBranch =
+        branchInformation[
+            branchSelect.value
+        ];
+
+    if(!selectedBranch){
+        return;
+    }
+
+    branchAddress.innerHTML =
+        selectedBranch.address;
+
+    branchPhone.innerHTML =
+        selectedBranch.phone;
+
+    branchEmail.innerHTML =
+        selectedBranch.email;
+
+    branchHours.innerHTML =
+        selectedBranch.hours;
+}
 
 
-    const slides =
-        document.querySelectorAll(
-            ".salon-slide"
-        );
+branchSelect.addEventListener(
+    "change",
+    updateBranchInformation
+);
+
+updateBranchInformation();
 
 
-    const dots =
-        document.querySelectorAll(
-            ".carousel-dot"
-        );
+/* =========================================================
+   CAROUSEL
+========================================================= */
+
+const slides =
+    document.querySelectorAll(".salon-slide");
+
+const dots =
+    document.querySelectorAll(".carousel-dot");
+
+const prevButton =
+    document.getElementById("carouselPrev");
+
+const nextButton =
+    document.getElementById("carouselNext");
+
+let currentSlide = 0;
+
+let autoSlide;
 
 
-    const prevButton =
-        document.getElementById(
-            "carouselPrev"
-        );
+/* =========================================================
+   SHOW SLIDE
+========================================================= */
 
+function showSlide(index){
 
-    const nextButton =
-        document.getElementById(
-            "carouselNext"
-        );
+    if(index >= slides.length){
 
+        currentSlide = 0;
 
-    let currentSlide = 0;
+    }
+    else if(index < 0){
 
-    let autoSlide;
+        currentSlide =
+            slides.length - 1;
 
+    }
+    else{
 
-    /* =====================================================
-       SHOW SLIDE
-    ===================================================== */
-
-    function showSlide(index) {
-
-        if (index >= slides.length) {
-
-            currentSlide = 0;
-
-        }
-
-        else if (index < 0) {
-
-            currentSlide =
-                slides.length - 1;
-
-        }
-
-        else {
-
-            currentSlide = index;
-
-        }
-
-
-        slides.forEach(
-            (slide, i) => {
-
-                slide.classList.toggle(
-                    "active",
-                    i === currentSlide
-                );
-
-            }
-        );
-
-
-        dots.forEach(
-            (dot, i) => {
-
-                dot.classList.toggle(
-                    "active",
-                    i === currentSlide
-                );
-
-            }
-        );
+        currentSlide = index;
 
     }
 
 
-    /* =====================================================
-       NEXT SLIDE
-    ===================================================== */
+    slides.forEach(
+        function(slide,i){
 
-    function nextSlide() {
-
-        showSlide(
-            currentSlide + 1
-        );
-
-    }
-
-
-    /* =====================================================
-       PREVIOUS SLIDE
-    ===================================================== */
-
-    function previousSlide() {
-
-        showSlide(
-            currentSlide - 1
-        );
-
-    }
-
-
-    /* =====================================================
-       BUTTONS
-    ===================================================== */
-
-    nextButton.addEventListener(
-        "click",
-        function () {
-
-            nextSlide();
-
-            restartAutoSlide();
+            slide.classList.toggle(
+                "active",
+                i === currentSlide
+            );
 
         }
     );
 
-
-    prevButton.addEventListener(
-        "click",
-        function () {
-
-            previousSlide();
-
-            restartAutoSlide();
-
-        }
-    );
-
-
-    /* =====================================================
-       DOTS
-    ===================================================== */
 
     dots.forEach(
-        dot => {
+        function(dot,i){
 
-            dot.addEventListener(
-                "click",
-                function () {
-
-                    const slideIndex =
-                        Number(
-                            this.dataset.slide
-                        );
-
-
-                    showSlide(
-                        slideIndex
-                    );
-
-
-                    restartAutoSlide();
-
-                }
+            dot.classList.toggle(
+                "active",
+                i === currentSlide
             );
 
         }
     );
 
+}
 
-    /* =====================================================
-       AUTO SLIDE
-    ===================================================== */
 
-    function startAutoSlide() {
+/* =========================================================
+   NEXT / PREVIOUS
+========================================================= */
 
-        autoSlide =
-            setInterval(
-                function () {
+function nextSlide(){
 
-                    nextSlide();
+    showSlide(
+        currentSlide + 1
+    );
 
-                },
-                3500
-            );
+}
+
+function previousSlide(){
+
+    showSlide(
+        currentSlide - 1
+    );
+
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+nextButton.addEventListener(
+    "click",
+    function(){
+
+        nextSlide();
+
+        restartAutoSlide();
 
     }
+);
 
 
-    /* =====================================================
-       RESTART AUTO SLIDE
-    ===================================================== */
+prevButton.addEventListener(
+    "click",
+    function(){
 
-    function restartAutoSlide() {
+        previousSlide();
 
-        clearInterval(
-            autoSlide
+        restartAutoSlide();
+
+    }
+);
+
+
+/* =========================================================
+   DOTS
+========================================================= */
+
+dots.forEach(
+    function(dot){
+
+        dot.addEventListener(
+            "click",
+            function(){
+
+                const slideIndex =
+                    Number(
+                        this.dataset.slide
+                    );
+
+                showSlide(
+                    slideIndex
+                );
+
+                restartAutoSlide();
+
+            }
         );
 
-        startAutoSlide();
-
     }
+);
 
 
-    /* START */
+/* =========================================================
+   AUTO SLIDE
+========================================================= */
+
+function startAutoSlide(){
+
+    autoSlide =
+        setInterval(
+            function(){
+
+                nextSlide();
+
+            },
+            4000
+        );
+
+}
+
+
+function restartAutoSlide(){
+
+    clearInterval(autoSlide);
 
     startAutoSlide();
+
+}
+
+
+startAutoSlide();
+
+
+/* =========================================================
+   PAUSE WHEN TAB HIDDEN
+========================================================= */
+
+document.addEventListener(
+    "visibilitychange",
+    function(){
+
+        if(document.hidden){
+
+            clearInterval(autoSlide);
+
+        }
+        else{
+
+            restartAutoSlide();
+
+        }
+
+    }
+);
 
 </script>
 
