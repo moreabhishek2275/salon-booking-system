@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>User Login | The Beauty Salon</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+
+        /* =====================================================
+           RESET
+        ===================================================== */
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        html,
+        body{
+            width:100%;
+            min-height:100%;
+        }
+
+        body{
+            font-family:"DM Sans",sans-serif;
+            background:#050505;
+            color:#fff;
+            overflow-x:hidden;
+        }
+
+
+        /* =====================================================
+           MAIN PAGE
+        ===================================================== */
+
+        .user-login-page{
+
+            position:relative;
+
+            min-height:100vh;
+
+            display:flex;
+            align-items:center;
+            justify-content:center;
+
+            padding:80px 20px 40px;
+
+            overflow:hidden;
+
+            background:
+
+                radial-gradient(
+                    circle at 12% 20%,
+                    rgba(212,175,55,.14),
+                    transparent 28%
+                ),
+
+                radial-gradient(
+                    circle at 88% 78%,
+                    rgba(212,175,55,.10),
+                    transparent 30%
+                ),
+
+                linear-gradient(
+                    135deg,
+                    #020202,
+                    #111111 50%,
+                    #030303
+                );
+        }
+
+
+        /* =====================================================
+           ANIMATED GOLD ORBS
+        ===================================================== */
+
+        .gold-orb{
+
+            position:absolute;
+
+            border-radius:50%;
+
+            pointer-events:none;
+
+            filter:blur(2px);
+
+            opacity:.55;
+        }
+
+        .orb-one{
+
+            width:280px;
+            height:280px;
+
+            top:-120px;
+            left:-100px;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(212,175,55,.16),
+                    transparent 70%
+                );
+
+            animation:
+                orbMoveOne 9s ease-in-out infinite alternate;
+        }
+
+        .orb-two{
+
+            width:360px;
+            height:360px;
+
+            right:-160px;
+            bottom:-170px;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(212,175,55,.12),
+                    transparent 70%
+                );
+
+            animation:
+                orbMoveTwo 11s ease-in-out infinite alternate;
+        }
+
+        @keyframes orbMoveOne{
+
+            from{
+                transform:translate(0,0) scale(1);
+            }
+
+            to{
+                transform:translate(70px,45px) scale(1.18);
+            }
+        }
+
+        @keyframes orbMoveTwo{
+
+            from{
+                transform:translate(0,0) scale(1);
+            }
+
+            to{
+                transform:translate(-55px,-40px) scale(1.15);
+            }
+        }
+
+
+        /* =====================================================
+           BACK HOME
+        ===================================================== */
+
+        .back-home{
+
+            position:absolute;
+
+            top:28px;
+            left:35px;
+
+            z-index:20;
+
+            color:#999;
+
+            text-decoration:none;
+
+            font-size:13px;
+            font-weight:600;
+
+            transition:.3s ease;
+        }
+
+        .back-home:hover{
+
+            color:#D4AF37;
+
+            transform:translateX(-4px);
+        }
+
+
+        /* =====================================================
+           LOGIN WRAPPER
+        ===================================================== */
+
+        .login-wrapper{
+
+            position:relative;
+
+            z-index:5;
+
+            width:100%;
+            max-width:450px;
+
+            animation:
+                loginAppear .8s ease forwards;
+        }
+
+        @keyframes loginAppear{
+
+            from{
+                opacity:0;
+
+                transform:
+                    translateY(30px)
+                    scale(.96);
+            }
+
+            to{
+                opacity:1;
+
+                transform:
+                    translateY(0)
+                    scale(1);
+            }
+        }
+
+
+        /* =====================================================
+           BRAND
+        ===================================================== */
+
+        .brand{
+
+            text-align:center;
+
+            margin-bottom:24px;
+        }
+
+        .brand-mark{
+
+            width:66px;
+            height:66px;
+
+            margin:0 auto 13px;
+
+            display:flex;
+            align-items:center;
+            justify-content:center;
+
+            border:1px solid #D4AF37;
+
+            border-radius:50%;
+
+            color:#D4AF37;
+
+            font-family:
+                "Playfair Display",
+                serif;
+
+            font-size:30px;
+
+            background:
+                rgba(212,175,55,.045);
+
+            box-shadow:
+                0 0 25px
+                rgba(212,175,55,.12),
+
+                inset 0 0 18px
+                rgba(212,175,55,.04);
+
+            animation:
+                brandPulse 3.5s ease-in-out infinite;
+        }
+
+        @keyframes brandPulse{
+
+            0%,
+            100%{
+                box-shadow:
+                    0 0 20px
+                    rgba(212,175,55,.08);
+            }
+
+            50%{
+                box-shadow:
+                    0 0 38px
+                    rgba(212,175,55,.22);
+            }
+        }
+
+        .brand h1{
+
+            color:#fff;
+
+            font-family:
+                "Playfair Display",
+                serif;
+
+            font-size:30px;
+
+            line-height:1.1;
+        }
+
+        .brand h1 span{
+            color:#D4AF37;
+        }
+
+        .brand p{
+
+            margin-top:8px;
+
+            color:#777;
+
+            font-size:9px;
+
+            font-weight:700;
+
+            letter-spacing:3px;
+
+            text-transform:uppercase;
+        }
+
+
+        /* =====================================================
+           LOGIN CARD
+        ===================================================== */
+
+        .login-card{
+
+            position:relative;
+
+            width:100%;
+
+            padding:38px;
+
+            border-radius:24px;
+
+            background:
+
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,.075),
+                    rgba(255,255,255,.025)
+                );
+
+            border:
+                1px solid
+                rgba(212,175,55,.32);
+
+            box-shadow:
+
+                0 30px 80px
+                rgba(0,0,0,.60),
+
+                inset
+                0 1px 0
+                rgba(255,255,255,.055);
+
+            backdrop-filter:blur(22px);
+
+            -webkit-backdrop-filter:blur(22px);
+
+            overflow:hidden;
+        }
+
+        .login-card::before{
+
+            content:"";
+
+            position:absolute;
+
+            top:0;
+
+            left:45px;
+            right:45px;
+
+            height:1px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    #D4AF37,
+                    transparent
+                );
+        }
+
+        .login-card::after{
+
+            content:"";
+
+            position:absolute;
+
+            width:120px;
+            height:400px;
+
+            top:-100px;
+            left:-180px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(255,255,255,.06),
+                    transparent
+                );
+
+            transform:rotate(18deg);
+
+            animation:
+                cardShine 7s ease-in-out infinite;
+        }
+
+        @keyframes cardShine{
+
+            0%{
+                left:-180px;
+            }
+
+            45%,
+            100%{
+                left:520px;
+            }
+        }
+
+
+        /* =====================================================
+           HEADING
+        ===================================================== */
+
+        .login-heading{
+
+            position:relative;
+
+            z-index:2;
+
+            margin-bottom:27px;
+        }
+
+        .mini-title{
+
+            color:#D4AF37;
+
+            font-size:9px;
+
+            font-weight:800;
+
+            letter-spacing:3px;
+
+            text-transform:uppercase;
+
+            margin-bottom:8px;
+        }
+
+        .login-heading h2{
+
+            color:#fff;
+
+            font-family:
+                "Playfair Display",
+                serif;
+
+            font-size:29px;
+
+            margin-bottom:8px;
+        }
+
+        .login-heading p{
+
+            color:#858585;
+
+            font-size:11px;
+
+            line-height:1.7;
+        }
+
+
+        /* =====================================================
+           FORM
+        ===================================================== */
+
+        #loginForm{
+
+            position:relative;
+
+            z-index:5;
+
+            width:100%;
+        }
+
+
+        /* =====================================================
+           INPUT GROUP
+        ===================================================== */
+
+        .input-group{
+
+            position:relative;
+
+            width:100%;
+
+            margin-bottom:17px;
+        }
+
+
+        /* =====================================================
+           ICON
+        ===================================================== */
+
+        .input-icon{
+
+            position:absolute;
+
+            left:17px;
+
+            top:50%;
+
+            transform:
+                translateY(-50%);
+
+            width:18px;
+
+            color:#D4AF37;
+
+            font-size:14px;
+
+            z-index:3;
+
+            pointer-events:none;
+        }
+
+
+        /* =====================================================
+           INPUT
+        ===================================================== */
+
+        .login-card input{
+
+            display:block;
+
+            width:100% !important;
+
+            height:56px !important;
+
+            margin:0 !important;
+
+            padding:
+                0 17px 0 48px !important;
+
+            border:
+                1px solid
+                rgba(255,255,255,.10) !important;
+
+            border-radius:12px !important;
+
+            outline:none !important;
+
+            background:
+                rgba(255,255,255,.055) !important;
+
+            color:#fff !important;
+
+            font-family:
+                "DM Sans",
+                sans-serif !important;
+
+            font-size:13px !important;
+
+            box-shadow:none !important;
+
+            transition:.3s ease;
+        }
+
+        .login-card input::placeholder{
+            color:#666;
+        }
+
+        .login-card input:hover{
+
+            border-color:
+                rgba(212,175,55,.28) !important;
+        }
+
+        .login-card input:focus{
+
+            border-color:
+                #D4AF37 !important;
+
+            background:
+                rgba(212,175,55,.035) !important;
+
+            box-shadow:
+                0 0 0 3px
+                rgba(212,175,55,.07) !important;
+        }
+
+
+        /* =====================================================
+           PASSWORD
+        ===================================================== */
+
+        .password-group input{
+
+            padding-right:
+                55px !important;
+        }
+
+        .password-toggle{
+
+            position:absolute !important;
+
+            top:50% !important;
+            right:11px !important;
+
+            transform:
+                translateY(-50%) !important;
+
+            width:36px !important;
+            height:36px !important;
+
+            min-width:36px !important;
+            max-width:36px !important;
+
+            margin:0 !important;
+            padding:0 !important;
+
+            border:none !important;
+
+            border-radius:8px !important;
+
+            background:transparent !important;
+
+            color:#777 !important;
+
+            display:flex !important;
+
+            align-items:center !important;
+            justify-content:center !important;
+
+            cursor:pointer !important;
+
+            z-index:10 !important;
+
+            box-shadow:none !important;
+
+            transition:.25s ease;
+        }
+
+        .password-toggle:hover{
+
+            color:#D4AF37 !important;
+
+            background:
+                rgba(212,175,55,.08) !important;
+        }
+
+
+        /* =====================================================
+           LOGIN BUTTON
+        ===================================================== */
+
+        .login-button{
+
+            position:relative;
+
+            z-index:5;
+
+            width:100% !important;
+
+            height:56px !important;
+
+            margin:
+                8px 0 0 !important;
+
+            padding:0 20px !important;
+
+            border:none !important;
+
+            border-radius:12px !important;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #D4AF37,
+                    #E6C653
+                ) !important;
+
+            color:#080808 !important;
+
+            font-family:
+                "DM Sans",
+                sans-serif !important;
+
+            font-size:13px !important;
+
+            font-weight:800 !important;
+
+            cursor:pointer !important;
+
+            box-shadow:
+                0 12px 30px
+                rgba(212,175,55,.17) !important;
+
+            transition:.3s ease !important;
+        }
+
+        .login-button:hover{
+
+            transform:
+                translateY(-3px);
+
+            background:#fff !important;
+
+            box-shadow:
+                0 18px 35px
+                rgba(255,255,255,.10) !important;
+        }
+
+        .login-button:active{
+
+            transform:
+                translateY(0)
+                scale(.99);
+        }
+
+
+        /* =====================================================
+           REGISTER
+        ===================================================== */
+
+        .register-area{
+
+            position:relative;
+
+            z-index:5;
+
+            text-align:center;
+
+            margin-top:22px;
+
+            color:#777;
+
+            font-size:11px;
+        }
+
+        .register-area a{
+
+            color:#D4AF37;
+
+            font-weight:700;
+
+            text-decoration:none;
+
+            margin-left:4px;
+
+            transition:.3s;
+        }
+
+        .register-area a:hover{
+            color:#fff;
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        .login-footer{
+
+            position:relative;
+
+            z-index:5;
+
+            margin-top:22px;
+
+            padding-top:18px;
+
+            border-top:
+                1px solid
+                rgba(255,255,255,.07);
+
+            display:flex;
+
+            align-items:center;
+            justify-content:center;
+
+            gap:7px;
+
+            color:#555;
+
+            font-size:9px;
+
+            text-align:center;
+        }
+
+        .login-footer span{
+            color:#D4AF37;
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media(max-width:600px){
+
+            .user-login-page{
+
+                padding:
+                    75px 15px 30px;
+            }
+
+            .back-home{
+
+                top:20px;
+                left:20px;
+
+                font-size:11px;
+            }
+
+            .brand{
+
+                margin-bottom:18px;
+            }
+
+            .brand-mark{
+
+                width:55px;
+                height:55px;
+
+                font-size:25px;
+            }
+
+            .brand h1{
+                font-size:25px;
+            }
+
+            .brand p{
+
+                font-size:8px;
+
+                letter-spacing:2px;
+            }
+
+            .login-card{
+
+                padding:
+                    29px 20px;
+
+                border-radius:20px;
+            }
+
+            .login-heading h2{
+                font-size:25px;
+            }
+
+            .login-heading p{
+                font-size:10px;
+            }
+
+            .login-card input{
+                height:53px !important;
+            }
+
+            .login-button{
+                height:53px !important;
+            }
+
+        }
+
+
+        @media(max-width:380px){
+
+            .user-login-page{
+
+                padding-left:12px;
+                padding-right:12px;
+            }
+
+            .login-card{
+
+                padding:
+                    26px 17px;
+            }
+
+            .brand h1{
+                font-size:23px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="user-login-page">
+
+
+    <!-- ANIMATED BACKGROUND -->
+
+    <div class="gold-orb orb-one"></div>
+
+    <div class="gold-orb orb-two"></div>
+
+
+    <!-- BACK -->
+
+    <a
+        href="index.html"
+        class="back-home"
+    >
+        ← Back to Home
+    </a>
+
+
+    <div class="login-wrapper">
+
+
+        <!-- BRAND -->
+
+        <div class="brand">
+
+            <div class="brand-mark">
+                B
+            </div>
+
+            <h1>
+                The Beauty <span>Salon</span>
+            </h1>
+
+            <p>
+                Hair · Beauty · Wellness
+            </p>
+
+        </div>
+
+
+        <!-- LOGIN CARD -->
+
+        <div class="login-card">
+
+
+            <div class="login-heading">
+
+                <div class="mini-title">
+                    Welcome Back
+                </div>
+
+                <h2>
+                    User Login
+                </h2>
+
+                <p>
+                    Login to manage your appointments,
+                    view your services and enjoy your
+                    personalized salon experience.
+                </p>
+
+            </div>
+
+
+            <!-- LOGIN FORM -->
+
+            <form id="loginForm">
+
+
+                <!-- EMAIL -->
+
+                <div class="input-group">
+
+                    <span class="input-icon">
+                        ✉
+                    </span>
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="Enter your email"
+                        autocomplete="email"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- PASSWORD -->
+
+                <div class="input-group password-group">
+
+                    <span class="input-icon">
+                        🔒
+                    </span>
+
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="Enter your password"
+                        autocomplete="current-password"
+                        required
+                    >
+
+                    <button
+                        type="button"
+                        class="password-toggle"
+                        id="passwordToggle"
+                        aria-label="Show password"
+                    >
+                        👁
+                    </button>
+
+                </div>
+
+
+                <!-- LOGIN -->
+
+                <button
+                    type="submit"
+                    class="login-button"
+                >
+                    Login to My Account
+                </button>
+
+
+            </form>
+
+
+            <!-- REGISTER -->
+
+            <div class="register-area">
+
+                Don't have an account?
+
+                <a href="register.html">
+                    Create Account
+                </a>
+
+            </div>
+
+
+            <!-- FOOTER -->
+
+            <div class="login-footer">
+
+                <span>✦</span>
+
+                The Beauty Salon
+
+                <span>✦</span>
+
+                Premium Beauty Experience
+
+                <span>✦</span>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- EXISTING USER LOGIN FUNCTIONALITY -->
+
+<script src="js/user-login.js"></script>
+
+
+<!-- PASSWORD SHOW / HIDE -->
+
+<script>
+
+const passwordInput =
+    document.getElementById("password");
+
+const passwordToggle =
+    document.getElementById("passwordToggle");
+
+
+if(
+    passwordInput &&
+    passwordToggle
+){
+
+    passwordToggle.addEventListener(
+        "click",
+        function(){
+
+            if(
+                passwordInput.type === "password"
+            ){
+
+                passwordInput.type = "text";
+
+                this.textContent = "🙈";
+
+                this.setAttribute(
+                    "aria-label",
+                    "Hide password"
+                );
+
+            }
+            else{
+
+                passwordInput.type = "password";
+
+                this.textContent = "👁";
+
+                this.setAttribute(
+                    "aria-label",
+                    "Show password"
+                );
+
+            }
+
+        }
+    );
+
+}
+
+</script>
+
+
+</body>
+
+</html>
