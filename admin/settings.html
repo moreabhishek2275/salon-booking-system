@@ -1,11 +1,179 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Settings | SalonHub</title>
+
+    <title>Settings | The Beauty Salon</title>
 
     <link rel="stylesheet" href="../css/style.css">
+
+    <style>
+
+        /* =========================
+           SETTINGS PAGE
+        ========================= */
+
+        .settings-container {
+            max-width: 850px;
+            margin: 30px auto 0;
+            background: #181818;
+            border: 1px solid #2d2d2d;
+            border-radius: 18px;
+            padding: 35px;
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35);
+        }
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        .settings-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            padding-bottom: 25px;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #333;
+        }
+
+        .settings-header h2 {
+            margin: 0 0 8px;
+            color: #d4af37;
+            font-size: 25px;
+            font-weight: 600;
+        }
+
+        .settings-header p {
+            margin: 0;
+            color: #aaa;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* =========================
+           FORM
+        ========================= */
+
+        .settings-form {
+            display: flex;
+            flex-direction: column;
+            gap: 22px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 9px;
+        }
+
+        .form-group label {
+            color: #f5f5f5;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            box-sizing: border-box;
+            background: #101010;
+            color: #fff;
+            border: 1px solid #3a3a3a;
+            border-radius: 10px;
+            padding: 13px 15px;
+            font-family: inherit;
+            font-size: 14px;
+            outline: none;
+            transition: 0.3s ease;
+        }
+
+        .form-group input {
+            height: 48px;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+            line-height: 1.6;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #777;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: #d4af37;
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.10);
+        }
+
+        /* =========================
+           ACTION BUTTON
+        ========================= */
+
+        .settings-actions {
+            margin-top: 8px;
+            padding-top: 25px;
+            border-top: 1px solid #333;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .save-settings-btn {
+            min-width: 170px;
+            padding: 13px 25px;
+            border: none;
+            border-radius: 10px;
+            background: #d4af37;
+            color: #111;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        .save-settings-btn:hover {
+            background: #e4c35a;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.20);
+        }
+
+        .save-settings-btn:active {
+            transform: translateY(0);
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 700px) {
+
+            .settings-container {
+                margin: 20px 10px 0;
+                padding: 25px 20px;
+            }
+
+            .settings-header h2 {
+                font-size: 21px;
+            }
+
+            .settings-actions {
+                justify-content: stretch;
+            }
+
+            .save-settings-btn {
+                width: 100%;
+            }
+
+        }
+
+    </style>
+
 </head>
 
 <body>
@@ -18,36 +186,52 @@
 
     <aside class="sidebar">
 
-        <h2>SalonHub</h2>
+        <h2>The Beauty Salon</h2>
 
         <ul>
+
             <li>
-                <a href="dashboard.html">Dashboard</a>
+                <a href="dashboard.html">
+                    Dashboard
+                </a>
             </li>
 
             <li>
-                <a href="services.html">Services</a>
+                <a href="services.html">
+                    Services
+                </a>
             </li>
 
             <li>
-                <a href="bookings.html">Bookings</a>
+                <a href="bookings.html">
+                    Bookings
+                </a>
             </li>
 
             <li>
-                <a href="customers.html">Customers</a>
+                <a href="customers.html">
+                    Customers
+                </a>
             </li>
 
             <li>
-                <a href="gallery.html">Gallery</a>
+                <a href="gallery.html">
+                    Gallery
+                </a>
             </li>
 
             <li>
-                <a href="settings.html" class="active">Settings</a>
+                <a href="settings.html" class="active">
+                    Settings
+                </a>
             </li>
 
             <li>
-                <a href="#" id="logoutBtn">Logout</a>
+                <a href="#" id="logoutBtn">
+                    Logout
+                </a>
             </li>
+
         </ul>
 
     </aside>
@@ -68,12 +252,14 @@
             <div class="settings-header">
 
                 <div>
+
                     <h2>Salon Information</h2>
 
                     <p>
                         Manage your salon contact information
                         and business details.
                     </p>
+
                 </div>
 
             </div>
@@ -82,6 +268,7 @@
             <!-- Settings Form -->
 
             <form id="settingsForm" class="settings-form">
+
 
                 <!-- Salon Name -->
 
@@ -186,4 +373,5 @@
 <script src="../js/admin-settings.js"></script>
 
 </body>
+
 </html>

@@ -668,7 +668,7 @@ async function loadSalonServices(){
 
         const response =
             await fetch(
-                "http://localhost:5000/api/services"
+                "https://salon-booking-system-nsui.onrender.com/api/services"
             );
 
         if(!response.ok){
@@ -934,7 +934,7 @@ function displayServices(category){
                 >
 
                     <img
-                        src="http://localhost:5000${service.service_image}"
+                        src="https://salon-booking-system-nsui.onrender.com${service.service_image}"
                         alt="${service.service_name}"
                         onerror="
                             this.src='images/default-service.jpg';

@@ -14,7 +14,7 @@ async function loadSettings() {
 
     try {
 
-        const response = await fetch("http://localhost:3000/api/settings");
+        const response = await fetch("https://salon-booking-system-nsui.onrender.com/api/settings");
 
         const data = await response.json();
 
@@ -52,7 +52,7 @@ if (settingsForm) {
 
         try {
 
-            const response = await fetch("http://localhost:3000/api/settings", {
+            const response = await fetch("https://salon-booking-system-nsui.onrender.com/api/settings", {
 
                 method: "PUT",
 

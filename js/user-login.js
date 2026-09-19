@@ -9,7 +9,7 @@ loginForm.addEventListener("submit", async function (e) {
 
     try {
 
-        const response = await fetch("http://localhost:5000/api/users/login", {
+        const response = await fetch("https://salon-booking-system-nsui.onrender.com/api/users/login", {
             method: "POST",
 
             headers: {

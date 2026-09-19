@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Customer Feedback | SalonHub</title>
+    <title>Customer Feedback | The Beauty Salon</title>
 
     <link rel="stylesheet" href="../css/style.css">
 
@@ -185,7 +185,7 @@
 
     <aside class="sidebar">
 
-        <h2>SalonHub</h2>
+        <h2>The Beauty Salon</h2>
 
         <ul>
 
@@ -335,7 +335,7 @@
 
             const response =
                 await fetch(
-                    "http://localhost:5000/api/feedback"
+                    "https://salon-booking-system-nsui.onrender.com/api/feedback"
                 );
 
 
@@ -489,7 +489,7 @@
 
             const response =
                 await fetch(
-                    `http://localhost:5000/api/feedback/${id}`,
+                    `https://salon-booking-system-nsui.onrender.com/api/feedback/${id}`,
                     {
                         method: "DELETE"
                     }

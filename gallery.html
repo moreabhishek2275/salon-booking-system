@@ -255,7 +255,7 @@ async function loadLiveGallery() {
 
         const response =
             await fetch(
-                "http://localhost:5000/api/gallery"
+                "https://salon-booking-system-nsui.onrender.com/api/gallery"
             );
 
 
@@ -307,10 +307,7 @@ async function loadLiveGallery() {
                 document.createElement("img");
 
 
-            img.src =
-                "http://localhost:5000"
-                + image.image;
-
+           img.src = "https://salon-booking-system-nsui.onrender.com" + image.image;
 
             img.alt =
                 image.category

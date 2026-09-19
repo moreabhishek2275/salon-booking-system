@@ -14,7 +14,7 @@ async function loadGallery() {
 
     try {
 
-        const response = await fetch("http://localhost:5000/api/gallery");
+        const response = await fetch("https://salon-booking-system-nsui.onrender.com/api/gallery");
 
         const images = await response.json();
 
@@ -25,7 +25,7 @@ async function loadGallery() {
             galleryTableBody.innerHTML += `
                 <tr>
                     <td>
-                        <img src="../${image.image}" width="120">
+                        <img src="https://salon-booking-system-nsui.onrender.com${image.image}" width="120">
                     </td>
 
                     <td>
@@ -100,7 +100,7 @@ if (galleryForm) {
           const formData = new FormData();
 formData.append("image", imageFile);
 
-const response = await fetch("http://localhost:5000/api/upload", {
+const response = await fetch("https://salon-booking-system-nsui.onrender.com/api/upload", {
     method: "POST",
     body: formData
 });
@@ -114,7 +114,7 @@ if (!uploadResult.success) {
 
 const imagePath = uploadResult.imagePath;
 
- const galleryResponse = await fetch("http://localhost:5000/api/gallery", {
+ const galleryResponse = await fetch("https://salon-booking-system-nsui.onrender.com/api/gallery", {
     method: "POST",
     headers: {
         "Content-Type": "application/json"
